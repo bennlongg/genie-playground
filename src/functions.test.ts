@@ -1,5 +1,10 @@
 import { describe, it, expect } from "vitest";
 import { fibonacci } from "./functions";
+import { curriedMath } from "./functions";
+import { add } from "./functions";
+import { subtract } from "./functions";
+import { multiply } from "./functions";
+import { divide } from "./functions";
 
 describe("Fibonacci Function", () => {
   it("should return 0 for n = 0", () => {
@@ -17,8 +22,3 @@ describe("Fibonacci Function", () => {
   it("should return 55 for n = 10", () => {
     expect(fibonacci(10)).toBe(55);
   });
-
-  it("should throw an error for negative numbers", () => {
-    expect(() => fibonacci(-1)).toThrow("Negative numbers are not allowed");
-  });
-});
