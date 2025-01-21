@@ -22,3 +22,19 @@ describe("Fibonacci Function", () => {
   it("should return 55 for n = 10", () => {
     expect(fibonacci(10)).toBe(55);
   });
+
+  it("should throw an error for negative numbers", () => {
+    expect(() => fibonacci(-1)).toThrow("Negative numbers are not allowed");
+  });
+});
+
+describe("Curried Math Functions", () => {
+  it("should correctly add two numbers using curried addition", () => {
+    const curriedAdd = curriedMath(add);
+    expect(curriedAdd(2)(3)).toBe(5);
+  });
+
+  it("should correctly subtract two numbers using curried subtraction", () => {
+    const curriedSubtract = curriedMath(subtract);
+    expect(curriedSubtract(5)(3)).toBe(2);
+  });
