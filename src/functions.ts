@@ -24,3 +24,21 @@ export function factorial2(n: number): number {
   
     return n * factorial2(n - 1);
 }
+
+export const curriedMath = (operation: string) => {
+  return (a: number, b: number): number => {
+    switch (operation) {
+      case "add":
+        return a + b;
+      case "subtract":
+        return a - b;
+      case "multiply":
+        return a * b;
+      case "divide":
+        if (b === 0) throw new Error("Division by zero is not allowed");
+        return a / b;
+      default:
+        throw new Error("Invalid operation");
+    }
+  };
+};
