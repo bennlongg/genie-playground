@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { fibonacci } from "./functions";
+import { fibonacci, factorial } from "./functions";
 
 describe("Fibonacci Function", () => {
   it("should return 0 for n = 0", () => {
@@ -22,3 +22,5 @@ describe("Fibonacci Function", () => {
     expect(() => fibonacci(-1)).toThrow("Negative numbers are not allowed");
   });
 });
+});
+
