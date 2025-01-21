@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { fibonacci } from "./functions";
+import { factorial } from "./functions";
 
 describe("Fibonacci Function", () => {
   it("should return 0 for n = 0", () => {
