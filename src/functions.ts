@@ -15,3 +15,12 @@ export function factorial(n: number): number {
     return result;
 }
 
+export function factorial2(n: number): number {
+    if (n < 0) throw new Error("Negative numbers are not allowed");
+  
+    if (n === 0) {
+      return 1;
+    }
+  
+    return n * factorial2(n - 1);
+}
