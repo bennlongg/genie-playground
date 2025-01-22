@@ -32,3 +32,8 @@ export function binarySearch(
 
   return -1; // Target not found
 }
+
+export const curriedBinarySearch =
+(arr: number[]) =>
+(target: number, compareFn?: (a: number, b: number) => number): number =>
+binarySearch(arr, target, compareFn);
