@@ -1,4 +1,5 @@
 export const add = (a: number) => (b: number) => a + b;
+export const subtract = (a: number) => (b: number) => a - b;
 
 export function fibonacci(n: number): number {
   if (n < 0) throw new Error("Negative numbers are not allowed");
