@@ -52,4 +52,13 @@ describe("Curried Math Function", () => {
     expect(curriedDivide(6)(3)).toBe(2);
     expect(curriedDivide(6, 3)).toBe(2);
   });
+
+  it("should correctly curry addition with three numbers", () => {
+    const addThreeNumbers = (a: number, b: number, c: number) => a + b + c;
+    const curriedAddThreeNumbers = curriedMathFunction(addThreeNumbers);
+    expect(curriedAddThreeNumbers(1)(2)(3)).toBe(6);
+    expect(curriedAddThreeNumbers(1, 2)(3)).toBe(6);
+    expect(curriedAddThreeNumbers(1)(2, 3)).toBe(6);
+    expect(curriedAddThreeNumbers(1, 2, 3)).toBe(6);
+  });
 });
