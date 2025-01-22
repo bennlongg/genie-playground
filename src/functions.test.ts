@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { fibonacci } from "./functions";
+import { fibonacci, curriedMath } from "./functions";
 
 describe("Fibonacci Function", () => {
   it("should return 0 for n = 0", () => {
@@ -22,3 +22,26 @@ describe("Fibonacci Function", () => {
     expect(() => fibonacci(-1)).toThrow("Negative numbers are not allowed");
   });
 });
+
+describe("Curried Math Function", () => {
+  it("should add two numbers correctly", () => {
+    const add = curriedMath(5)("+");
+    expect(add(3)).toBe(8);
+  });
+
+  it("should subtract two numbers correctly", () => {
+    const subtract = curriedMath(5)("-");
+    expect(subtract(3)).toBe(2);
+  });
+
+  it("should multiply two numbers correctly", () => {
+    const multiply = curriedMath(5)("*");
+    expect(multiply(3)).toBe(15);
+  });
+
+  it("should divide two numbers correctly", () => {
+    const divide = curriedMath(6)("/");
+    expect(divide(3)).toBe(2);
+  });
+});
+
