@@ -18,7 +18,21 @@ describe("Fibonacci Function", () => {
     expect(fibonacci(10)).toBe(55);
   });
 
+  it("should return 6765 for n = 20", () => {
+    expect(fibonacci(20)).toBe(6765);
+  });
+
+  it("should return 832040 for n = 30", () => {
+    expect(fibonacci(30)).toBe(832040);
+  });
+
   it("should throw an error for negative numbers", () => {
     expect(() => fibonacci(-1)).toThrow("Negative numbers are not allowed");
+  });
+
+  it("should throw an error for non-integer numbers", () => {
+    expect(() => fibonacci(1.5)).toThrow(
+      "Non-integer numbers are not allowed"
+    );
   });
 });
