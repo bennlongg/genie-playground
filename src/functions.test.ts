@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { fibonacci, binarySearch } from "./functions";
+import { fibonacci, binarySearch, curriedMath } from "./functions";
 
 describe("Fibonacci Function", () => {
   it("should return 0 for n = 0", () => {
@@ -57,13 +57,13 @@ describe("Binary Search Function", () => {
     const target = 6;
     const result = binarySearch(arr, target);
     expect(result).toBe(-1);
-  });
+});
 
-  it("should return index of first occurrence when duplicates are present", () => {
-    const arr = [1, 3, 5, 7, 7, 9];
-    const target = 7;
-    const result = binarySearch(arr, target);
-    expect(result).toBe(3); // First occurrence of '7' is at index '3'
+it("should return index of first occurrence when duplicates are present", () => {
+const arr = [1, 3, 5, 7, 7, 9];
+const target = 7;
+const result = binarySearch(arr, target);
+expect(result).toBe(3); // First occurrence of '7' is at index '3'
 });
 
 it("should handle custom comparator functions correctly", () => {
@@ -75,5 +75,36 @@ a.id.localeCompare(b.id);
 const result = binarySearch(arr.map((obj) => obj.id), target.id);
 
 expect(result).toBe(1); // 'b' should be at index '1'
+});
+});
+
+describe("Curried Math Function", () => {
+it('should add two numbers', () => {
+const add = curriedMath('+');
+expect(add(2,3)).toBe(5);
+});
+
+it('should subtract two numbers', () => {
+const subtract = curriedMath('-');
+expect(subtract(5,3)).toBe(2);
+});
+
+it('should multiply two numbers', () => {
+const multiply = curriedMath('*');
+expect(multiply(2,3)).toBe(6);
+});
+
+it('should divide two numbers', () => {
+const divide = curriedMath('/');
+expect(divide(6,3)).toBe(2);
+});
+
+it('should throw an error when dividing by zero', () => {
+const divideByZero = curriedMath('/');
+expect(() => divideByZero(6,0)).toThrow('Division by zero is not allowed');
+});
+
+it('should throw an error when using an invalid operator', () => {
+expect(() => curriedMath('%')).toThrow('Invalid operator');
 });
 });
