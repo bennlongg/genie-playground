@@ -47,3 +47,8 @@ describe("Binary Search Function", () => {
     const reversedArr = [5, 4, 3, 2, 1];
     expect(binarySearch(reversedArr, 3, compareFn)).toBe(2);
 });
+
+it("should return -1 if the array is empty", () => {
+    const emptyArr: number[] = [];
+    expect(binarySearch(emptyArr, 3)).toBe(-1);
+});
