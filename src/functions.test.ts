@@ -36,3 +36,31 @@ describe("Fibonacci Function", () => {
     );
   });
 });
+
+import { math } from "./functions";
+
+describe("Math Function", () => {
+  it("should add two numbers correctly", () => {
+    const add = math("add");
+    expect(add(2, 3)).toBe(5);
+  });
+
+  it("should subtract two numbers correctly", () => {
+    const subtract = math("subtract");
+    expect(subtract(5, 3)).toBe(2);
+  });
+
+  it("should multiply two numbers correctly", () => {
+    const multiply = math("multiply");
+    expect(multiply(2, 3)).toBe(6);
+  });
+
+  it("should divide two numbers correctly", () => {
+    const divide = math("divide");
+    expect(divide(6, 3)).toBe(2);
+  });
+
+  it("should throw an error for invalid operations", () => {
+    expect(() => math("invalid")).toThrow("Invalid operation");
+});
+});
