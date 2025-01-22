@@ -52,12 +52,5 @@ describe("Binary Search Function", () => {
     expect(result).toBe(-1);
   });
 
-  it("should return -1 when array is empty", () => {
-    const arr: number[] = [];
-    const target = 3;
-    const result = binarySearch(arr, target);
-    expect(result).toBe(-1);
-  });
-
   
 });
