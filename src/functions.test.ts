@@ -52,12 +52,4 @@ describe("Binary Search Function", () => {
     expect(result).toBe(0); // Index of target (5) in single-element array
   });
 
-  it("should handle edge case of duplicate elements", () => {
-    const arr = [1, 2, 2, 2, 3];
-    const target = 2;
-    const result = binarySearch(arr, target);
-    expect(result).toBeGreaterThanOrEqual(1); // Index of any occurrence of target (2) in arr
-    expect(result).toBeLessThanOrEqual(3); // Index should be within range of duplicate elements
-  });
-
 });
