@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { fibonacci } from "./functions";
+import { curriedMath } from "./functions";
 
 describe("Fibonacci Function", () => {
   it("should return 0 for n = 0", () => {
@@ -35,4 +36,35 @@ describe("Fibonacci Function", () => {
       "Non-integer numbers are not allowed"
     );
   });
+});
+
+describe("Curried Math Function", () => {
+  
+it("should add two numbers correctly", () => {
+expect(curriedMath("+")(2,3)).toBe(5);
+});
+
+it("should subtract two numbers correctly", () => {
+expect(curriedMath("-")(5,3)).toBe(2);
+});
+
+it("should multiply two numbers correctly", () => {
+expect(curriedMath("*")(2,3)).toBe(6);
+});
+
+it("should divide two numbers correctly", () => {
+expect(curriedMath("/")(6,3)).toBe(2);
+});
+
+it("should throw an error when dividing by zero", () => {
+expect(() => curriedMath("/")(6,0)).toThrow(
+"Division by zero is not allowed"
+);
+});
+
+it("should throw an error when given an invalid operator", () => {
+expect(() => curriedMath("%")(6,3)).toThrow(
+"Invalid operator"
+);
+});
 });
