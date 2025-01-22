@@ -27,6 +27,5 @@ describe("Binary Search Function", () => {
     expect(binarySearch(sortedArray, 4)).toBe(-1);
     expect(binarySearch([], 4)).toBe(-1); // Edge case: empty array
     expect(binarySearch([10], 10)).toBe(0); // Edge case: single element array
-  });
 });
 
