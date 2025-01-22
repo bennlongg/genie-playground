@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { fibonacci } from "./functions";
+import { fibonacci, curriedAdd } from "./functions";
 
 describe("Fibonacci Function", () => {
   it("should return 0 for n = 0", () => {
@@ -35,4 +35,24 @@ describe("Fibonacci Function", () => {
       "Non-integer numbers are not allowed"
     );
   });
+});
+
+describe("Curried Add Function", () => {
+  it("should return correct sum when called directly", () => {
+    expect(curriedAdd(2)(3)).toBe(5);
+    expect(curriedAdd(-2)(3)).toBe(1);
+    expect(curriedAdd(-2)(-3)).toBe(-5);
+    expect(curriedAdd(0)(0)).toBe(0);
+  });
+
+  it("should return correct sum when partially applied", () => {
+    const addTwo = curriedAdd(2);
+    const addThree = curriedAdd(3);
+
+    expect(addTwo).toBeInstanceOf(Function);
+    expect(addThree).toBeInstanceOf(Function);
+
+    expect(addTwo(3)).toBe(5);
+    expect(addThree(-3)).toBe(0);
+    
 });
