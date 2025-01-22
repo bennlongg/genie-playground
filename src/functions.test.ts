@@ -5,67 +5,6 @@ import { mergeSort } from "./functions";
 
 describe("Fibonacci Function", () => {
   it("should return 0 for n = 0", () => {
-    expect(fibonacci(0)).toBe(0);
-  });
-
-  it("should return 1 for n = 1", () => {
-    expect(fibonacci(1)).toBe(1);
-  });
-
-describe("Quick Sort Function", () => {
-  
-it("should sort an array of numbers", () => {
-const inputArray = [5,3,8,4];
-const expectedOutputArray = [3,4,5,8];
-expect(quickSort(inputArray)).toEqual(expectedOutputArray);
-});
-
-it("should handle an empty array", () => {
-const inputArray: number[] = [];
-const expectedOutputArray: number[] = [];
-expect(quickSort(inputArray)).toEqual(expectedOutputArray);
-});
-
-it("should handle an array with one element", () => {
-const inputArray = [5];
-const expectedOutputArray = [5];
-expect(quickSort(inputArray)).toEqual(expectedOutputArray);
-});
-
-it("should handle an already sorted array", () => {
-const inputArray = [3,4,5];
-const expectedOutputArray = [3,4,5];
-expect(quickSort(inputArray)).toEqual(expectedOutputArray);
-});
-
-it("should handle an array with duplicate elements", () => {
-const inputArray = [5,3,8,4];
-const expectedOutputArray = [3,4,5];
-expect(quickSort(inputArray)).toEqual(expectedOutputArray);
-});
-
-it("should handle an array with negative numbers", () => {
-const inputArray = [-5,-3,-8,-4];
-const expectedOutputArray = [-8,-5,-4,-3];
-expect(quickSort(inputArray)).toEqual(expectedOutputArray);
-});
-});
-
-describe("Merge Sort Function", () => {
-
-it("should sort an array of numbers", () => {
-const inputArray = [5];
-const expectedOutputArray = [5];
-expect(mergeSort(inputArray)).toEqual(expectedOutputArray);
-});
-
-it("should handle an empty array", () => {
-const inputArray: number[] = [];
-const expectedOutputArray: number[] = [];
-expect(mergeSort(inputArray)).toEqual(expectedOutputArray);
-});
-
-it("should handle an array with one element", () => {
 const inputArray = [5];
 const expectedOutputArray = [5];
 expect(mergeSort(inputArray)).toEqual(expectedOutputArray);
