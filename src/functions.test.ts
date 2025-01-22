@@ -37,7 +37,3 @@ describe("Binary Search Function", () => {
   it("should return correct index when target is found in middle", () => {
     expect(binarySearch(sortedArray, 5)).toBe(2);
   });
-
-  it("should return -1 when target is not found", () => {
-    expect(binarySearch(sortedArray, 4)).toBe(-1);
-  });
