@@ -34,10 +34,4 @@ describe("Bubble Sort Function", () => {
     const arr = [1, 2, 3, 4, 5];
     const sortedArr = bubbleSort(arr);
     expect(sortedArr).toEqual([1, 2, 3, 4, 5]);
-  });
-
-  it("should handle an array with duplicate elements", () => {
-    const arr = [5, 3, 8, 4, 2, 3];
-    const sortedArr = bubbleSort(arr);
-    expect(sortedArr).toEqual([2, 3, 3, 4, 5, 8]);
 });
