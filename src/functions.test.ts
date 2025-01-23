@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { fibonacci } from "./functions";
+import { fibonacci, bubbleSort } from "./functions";
 
 describe("Fibonacci Function", () => {
   it("should return 0 for n = 0", () => {
@@ -21,4 +21,23 @@ describe("Fibonacci Function", () => {
   it("should throw an error for negative numbers", () => {
     expect(() => fibonacci(-1)).toThrow("Negative numbers are not allowed");
   });
+});
+
+describe("Bubble Sort Function", () => {
+  it("should sort an array of numbers in ascending order", () => {
+    const arr = [5, 3, 8, 4, 2];
+    const sortedArr = bubbleSort(arr);
+    expect(sortedArr).toEqual([2, 3, 4, 5, 8]);
+  });
+
+  it("should handle an already sorted array", () => {
+    const arr = [1, 2, 3, 4, 5];
+    const sortedArr = bubbleSort(arr);
+    expect(sortedArr).toEqual([1, 2, 3, 4, 5]);
+  });
+
+  it("should handle an array with duplicate elements", () => {
+    const arr = [5, 3, 8, 4, 2, 3];
+    const sortedArr = bubbleSort(arr);
+    expect(sortedArr).toEqual([2, 3, 3, 4, 5, 8]);
 });
