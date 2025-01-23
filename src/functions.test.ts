@@ -41,4 +41,5 @@ describe("Binary Search Function", () => {
     expect(binarySearch(arr, 3)).toBe(2); // Target is at index 2
     expect(binarySearch(arr, 1)).toBe(0); // Target is at index 0
     expect(binarySearch(arr, 5)).toBe(4); // Target is at index 4
-  });
+    
+});
