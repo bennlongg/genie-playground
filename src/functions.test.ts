@@ -14,8 +14,8 @@ describe("Fibonacci Function", () => {
     expect(fibonacci(2)).toBe(1);
   });
 
-  it("should return 55 for n = 10", () => {
-    expect(fibonacci(10)).toBe(55);
+  it("should return [0,1,1,2,3,5,8,13,21,34] for n = 10", () => {
+    expect(fibonacci(10,true)).toEqual([0,1,1,2,3,5,8,13,21,34]);
   });
 
   it("should throw an error for negative numbers", () => {
