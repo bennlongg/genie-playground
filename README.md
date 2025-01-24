@@ -1,5 +1,9 @@
 # genie-playground
 
+## How to use Genie
+
+Genie is an AI assistant that helps you complete software engineering tasks in your codebase. You can ask Genie to make changes to your codebase, and it will do its best to help you out.
+
 ## Installation
 
 ```sh
