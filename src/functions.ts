@@ -21,3 +21,22 @@ export function binarySearch(arr: number[], target: number): number {
   
     return -1; // Target not found
 }
+
+export function bubbleSort(arr: number[]): number[] {
+  const n = arr.length;
+  
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < n - i - 1; j++) {
+      if (arr[j] > arr[j + 1]) {
+        // Swap elements
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+      }
+    }
+  }
+  
+  return arr;
+}
+
+export function clamp(value: number, min: number, max: number): number {
+  return Math.min(Math.max(value, min), max);
+}
