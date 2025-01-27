@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { fibonacci } from "./functions";
+import { fibonacci, curriedMath } from "./functions";
 
 describe("Fibonacci Function", () => {
   it("should return 0 for n = 0", () => {
@@ -20,5 +20,29 @@ describe("Fibonacci Function", () => {
 
   it("should throw an error for negative numbers", () => {
     expect(() => fibonacci(-1)).toThrow("Negative numbers are not allowed");
+  });
+});
+
+describe("Curried Math Function", () => {
+  const add = (a: number, b: number) => a + b;
+  const curriedAdd = curriedMath(add);
+
+  it("should add two numbers when both arguments are provided at once", () => {
+    expect(curriedAdd(2, 3)).toBe(5);
+  });
+
+  it("should add two numbers when arguments are provided one at a time", () => {
+    const addTwo = curriedAdd(2);
+    expect(addTwo(3)).toBe(5);
+  });
+
+  it("should handle more than two arguments by chaining calls", () => {
+    const addThreeNumbers = (a: number, b: number, c: number) => a + b + c;
+    const curriedAddThreeNumbers = curriedMath(addThreeNumbers);
+    expect(curriedAddThreeNumbers(1)(2)(3)).toBe(6);
+  });
+
+  it("should throw an error when no arguments are provided", () => {
+    expect(() => (curriedAdd as any)()).toThrow();
   });
 });
