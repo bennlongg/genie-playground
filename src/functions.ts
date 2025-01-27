@@ -40,3 +40,26 @@ export const curriedMath = (operator: string) => (x: number) => (y: number) => {
       throw new Error('Unsupported operator');
   }
 };
+
+/**
+ * Sorts an array of numbers using bubble sort algorithm.
+ * @param {number[]} arr - The array of numbers to be sorted.
+ * @returns {number[]} A new sorted array in ascending order.
+ */
+export const bubbleSort = (arr: number[]): number[] => {
+  const sortedArr = [...arr]; // Create a copy of the input array
+  let swapped;
+
+  do {
+    swapped = false;
+    for (let i = 0; i < sortedArr.length - 1; i++) {
+      if (sortedArr[i] > sortedArr[i + 1]) {
+        // Swap elements
+        [sortedArr[i], sortedArr[i + 1]] = [sortedArr[i + 1], sortedArr[i]];
+        swapped = true;
+      }
+    }
+  } while (swapped);
+
+  return sortedArr;
+};
