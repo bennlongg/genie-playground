@@ -24,15 +24,17 @@ describe("Fibonacci Function", () => {
 });
 
 describe("Curried Math Function", () => {
-  const add = (a: number, b: number) => a + b;
-  const curriedAdd = curriedMath(add);
+  const add = curriedMath("add");
+  const subtract = curriedMath("subtract");
+  const divide = curriedMath("divide");
+  const power = curriedMath("power");
 
   it("should add two numbers when both arguments are provided at once", () => {
-    expect(curriedAdd(2, 3)).toBe(5);
+    expect(add(2, 3)).toBe(5);
   });
 
   it("should add two numbers when arguments are provided one at a time", () => {
-    const addTwo = curriedAdd(2);
+    const addTwo = add(2);
     expect(addTwo(3)).toBe(5);
   });
 
@@ -43,6 +45,29 @@ describe("Curried Math Function", () => {
   });
 
   it("should throw an error when no arguments are provided", () => {
-    expect(() => (curriedAdd as any)()).toThrow();
+    expect(() => (add as any)()).toThrow();
   });
+
+  it("should subtract two numbers when both arguments are provided at once", () => {
+    expect(subtract(5, 3)).toBe(2);
+  });
+
+  it("should subtract two numbers when arguments are provided one at a time", () => {
+    const subtractTwo = subtract(5);
+    expect(subtractTwo(3)).toBe(2);
+  });
+
+  it("should divide two numbers when both arguments are provided at once", () => {
+    expect(divide(6, 3)).toBe(2);
+  });
+
+  it("should divide two numbers when arguments are provided one at a time", () => {
+    const divideByTwo = divide(6);
+    expect(divideByTwo(3)).toBe(2);
+  });
+
+  it("should raise a number to a power when both arguments are provided at once", () => {
+    expect(power(2, 3)).toBe(8);
+  });
+
 });
