@@ -3,10 +3,21 @@ export function fibonacci(n: number): number {
     return n <= 1 ? n : fibonacci(n - 1) + fibonacci(n - 2);
   }
 
-export const curriedMath = (operation: (a: number, b: number) => number) => {
+export const curriedMath = (operation: string) => {
   const applyOperation = (...args: number[]): number | ((...args: number[]) => number) => {
     if (args.length === 2) {
-      return operation(args[0], args[1]);
+      switch (operation) {
+        case "add":
+          return args[0] + args[1];
+        case "subtract":
+          return args[0] - args[1];
+        case "divide":
+          return args[0] / args[1];
+        case "power":
+          return Math.pow(args[0], args[1]);
+        default:
+          throw new Error("Invalid operation");
+      }
     } else {
       return (...moreArgs: number[]) => applyOperation(...args.concat(moreArgs));
     }
