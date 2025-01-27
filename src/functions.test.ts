@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { fibonacci } from "./functions";
+import { fibonacci, isodd, iseven } from "./functions";
 
 describe("Fibonacci Function", () => {
   it("should return 0 for n = 0", () => {
@@ -21,4 +21,47 @@ describe("Fibonacci Function", () => {
   it("should throw an error for negative numbers", () => {
     expect(() => fibonacci(-1)).toThrow("Negative numbers are not allowed");
   });
+});
+
+describe("isodd Function", () => {
+  it("should return true for positive odd numbers", () => {
+    expect(isodd(3)).toBe(true);
+  });
+
+  it("should return false for positive even numbers", () => {
+    expect(isodd(4)).toBe(false);
+  });
+
+  it("should return false for zero", () => {
+    expect(isodd(0)).toBe(false);
+  });
+
+  it("should return true for negative odd numbers", () => {
+    expect(isodd(-3)).toBe(true);
+  });
+
+  it("should return false for negative even numbers", () => {
+    expect(isodd(-4)).toBe(false);
+  });
+});
+
+describe("iseven Function", () => {
+  it("should return true for positive even numbers", () => {
+    expect(iseven(4)).toBe(true);
+  });
+
+  it("should return false for positive odd numbers", () => {
+    expect(iseven(3)).toBe(false);
+  });
+
+  it("should return true for zero", () => {
+    expect(iseven(0)).toBe(true);
+  });
+
+  it("should return true for negative even numbers", () => {
+    expect(iseven(-4)).toBe(true);
+  });
+
+  it("should return false for negative odd numbers", () => {
+    expect(iseven(-3)).toBe(false);
 });
