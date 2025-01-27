@@ -92,3 +92,7 @@ function reconstructPath(cameFrom: Map<string, string>, current: string): [numbe
 function isValidPoint(row: number, col: number, rows: number, cols: number): boolean {
   return row >= 0 && row < rows && col >= 0 && col < cols;
 }
+
+export function concatenateStrings(strings: string[]): string {
+return strings.join(" ");
+}
