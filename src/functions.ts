@@ -20,3 +20,23 @@ export function isodd(n: number): boolean {
 export function iseven(n: number): boolean {
     return n % 2 === 0;
 }
+
+/**
+ * Returns a curried math function based on the provided operator.
+ * @param {string} operator - The arithmetic operator ('+', '-', '*', '/').
+ * @returns {Function} A curried math function that takes two numbers and performs the specified operation.
+ */
+export const curriedMath = (operator: string) => (x: number) => (y: number) => {
+  switch (operator) {
+    case '+':
+      return x + y;
+    case '-':
+      return x - y;
+    case '*':
+      return x * y;
+    case '/':
+      return x / y;
+    default:
+      throw new Error('Unsupported operator');
+  }
+};
