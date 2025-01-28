@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { fibonacci } from "./functions";
+import { fibonacci, safeJsonParse } from "./functions";
 
 describe("Fibonacci Function", () => {
   it("should return 0 for n = 0", () => {
@@ -20,5 +20,19 @@ describe("Fibonacci Function", () => {
 
   it("should throw an error for negative numbers", () => {
     expect(() => fibonacci(-1)).toThrow("Negative numbers are not allowed");
+  });
+});
+
+describe("Safe Json Parse Function", () => {
+  it("should parse valid json string", () => {
+    const jsonString = '{"name": "John", "age": 30}';
+    const parsedObject = safeJsonParse(jsonString);
+    expect(parsedObject).toEqual({ name: "John", age: 30 });
+  });
+
+  it("should return null for invalid json string", () => {
+    const invalidJsonString = '{"name": "John", "age": }';
+    const parsedObject = safeJsonParse(invalidJsonString);
+    expect(parsedObject).toBeNull();
   });
 });
