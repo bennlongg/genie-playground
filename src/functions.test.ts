@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { fibonacci } from "./functions";
+import { fibonacci, getRandomJoke } from "./functions";
 
 describe("Fibonacci Function", () => {
   it("should return 0 for n = 0", () => {
@@ -20,5 +20,25 @@ describe("Fibonacci Function", () => {
 
   it("should throw an error for negative numbers", () => {
     expect(() => fibonacci(-1)).toThrow("Negative numbers are not allowed");
+  });
+});
+
+describe("getRandomJoke Function", () => {
+  const jokes = [
+    "Why don't scientists trust atoms? Because they make up everything!",
+    "Why did the scarecrow win an award? Because he was outstanding in his field!",
+    "Why don't skeletons fight each other? They don't have the guts.",
+    "What do you call fake spaghetti? An impasta!",
+    "Why did the bicycle fall over? Because it was two-tired!"
+  ];
+
+  it("should return a string", () => {
+    const joke = getRandomJoke();
+    expect(typeof joke).toBe("string");
+  });
+
+  it("should return one of the predefined jokes", () => {
+    const joke = getRandomJoke();
+    expect(jokes).toContain(joke);
   });
 });
