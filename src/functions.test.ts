@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { fibonacci } from "./functions";
+import { fibonacci, fuzzySearch } from "./functions";
 
 describe("Fibonacci Function", () => {
   it("should return 0 for n = 0", () => {
@@ -20,5 +20,34 @@ describe("Fibonacci Function", () => {
 
   it("should throw an error for negative numbers", () => {
     expect(() => fibonacci(-1)).toThrow("Negative numbers are not allowed");
+  });
+});
+
+describe("Fuzzy Search Function", () => {
+  const list = ["apple", "banana", "cherry", "date"];
+
+  it("should return exact match", () => {
+    const result = fuzzySearch("apple", list);
+    expect(result).toEqual(["apple"]);
+  });
+
+  it("should return partial matches in order of relevance", () => {
+    const result = fuzzySearch("appl", list);
+    expect(result).toEqual(["apple"]);
+  });
+
+  it("should return empty array if no match found", () => {
+    const result = fuzzySearch("xyz", list);
+    expect(result).toEqual([]);
+  });
+
+  it("should handle empty query gracefully", () => {
+    const result = fuzzySearch("", list);
+    expect(result).toEqual([]);
+  });
+
+  it("should handle empty list gracefully", () => {
+    const result = fuzzySearch("apple", []);
+    expect(result).toEqual([]);
   });
 });
