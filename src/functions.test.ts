@@ -22,3 +22,32 @@ describe("Fibonacci Function", () => {
     expect(() => fibonacci(-1)).toThrow("Negative numbers are not allowed");
   });
 });
+
+describe('bubbleSort', () => {
+it('should sort an already sorted array', () => {
+const arr = [1,2 ,3 ,4 ,5];
+expect(bubbleSort(arr)).toEqual([1 ,2 ,3 ,4 ,5]);
+});
+
+it('should sort a reverse ordered array', () => {
+const arr = [5 ,4 ,3 ,2 ,1];
+expect(bubbleSort(arr)).toEqual([1 ,2 ,3 ,4 ,5]);
+});
+
+it('should handle an empty array', () => {
+const arr: number[] = [];
+expect(bubbleSort(arr)).toEqual([]);
+});
+
+it('should sort an array with duplicates', () => {
+const arr = [3 ,2 ,1 ,2 ,3];
+expect(bubbleSort(arr)).toEqual([1 ,2 ,2 ,3 ,3]);
+});
+
+describe('fibonacci', () => {
+});
+
+describe('binarySearch', () => {
+});
+
+describe('fibonacci', () => {
