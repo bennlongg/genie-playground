@@ -1,28 +1,39 @@
 {
-  "name": "genie-playground",
-  "version": "1.0.0",
+  "name": "genie-protocol",
+  "version": "0.0.0",
   "description": "",
-  "homepage": "https://github.com/bennlongg/genie-playground#readme",
-  "bugs": {
-    "url": "https://github.com/bennlongg/genie-playground/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/bennlongg/genie-playground.git"
-  },
-  "license": "ISC",
-  "author": "",
-  "type": "commonjs",
   "main": "dist/index.js",
-  "scripts": {
-    "build": "tsc",
-    "start": "node dist/index.js",
-    "dev": "pnpm run build && pnpm start",
-    "test": "vitest"
-  },  
-  "devDependencies": {
-    "vitest": "3.0.2",
-    "typescript": "5.7.3"
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": [
+      {
+        "import": "./dist/esm/index.mjs",
+        "require": "./dist/cjs/index.cjs"
+      },
+      "./dist/esm/index.mjs"
+    ]
   },
-  "packageManager": "pnpm@9.15.4"
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "watch": "tsup -w",
+    "test": "vitest --run --environment happy-dom"
+  },
+  "dependencies": {
+    "express": "^5.0.1"
+  },
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@genieai/genie-test-utils": "^11.0.3",
+    "@types/node": "^20.6.3",
+    "@vitest/coverage-v8": "^0.33.0",
+    "@vitest/web-worker-env": "^0.33.0",
+    "esbuild-register": "^3.4.3",
+    "execa": "^7.1.2",
+    "happy-dom": "^9.4.2",
+    "rimraf": "^5.0.1",
+    "tsup": "^7.6.0",
+    "typescript": "^5.2.2",
+    "vitest": "^0.33.0"
+  }
 }
