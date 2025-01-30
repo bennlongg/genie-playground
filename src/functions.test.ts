@@ -1,3 +1,4 @@
+ // [Genie] Add a new test suite for the fibonacci function using Vitest.
 import { describe, it, expect } from "vitest";
 import { fibonacci } from "./functions";
 
