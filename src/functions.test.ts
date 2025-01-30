@@ -1,5 +1,7 @@
 import { describe, it, expect } from "vitest";
+// [Genie] Add an import statement for 'aStar' from './a_star' module.
 import { fibonacci } from "./functions";
+import { aStar } from "./a_star";
 
 describe("Fibonacci Function", () => {
   it("should return 0 for n = 0", () => {
