@@ -1,28 +1,26 @@
 {
-  "name": "genie-playground",
+  "name": "typescript-express-template",
   "version": "1.0.0",
-  "description": "",
-  "homepage": "https://github.com/bennlongg/genie-playground#readme",
-  "bugs": {
-    "url": "https://github.com/bennlongg/genie-playground/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/bennlongg/genie-playground.git"
-  },
-  "license": "ISC",
-  "author": "",
-  "type": "commonjs",
+  "description": "A simple template for using TypeScript with Express in Node.js",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc",
     "start": "node dist/index.js",
-    "dev": "pnpm run build && pnpm start",
-    "test": "vitest"
-  },  
-  "devDependencies": {
-    "vitest": "3.0.2",
-    "typescript": "5.7.3"
+    "dev": "ts-node src/index.ts",
+    "build": "tsc",
+    "lint": "eslint src/**/*.ts"
   },
-  "packageManager": "pnpm@9.15.4"
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^17.0.23",
+    "@typescript-eslint/eslint-plugin": "^5.15.0",
+    "@typescript-eslint/parser": "^5.15.0",
+    "express": "^4.18.2",
+    eslint: "^8.10.0",
+    prettier: "^2.6.0"
+  },
+  dependencies: {
+    typescript: "^4.6.2"
+  }
 }
