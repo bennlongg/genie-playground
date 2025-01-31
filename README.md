@@ -2,4 +2,4 @@
 
 # Adding some fun!
 
-Why don't programmers like nature? It has too many bugs.
+Why do programmers prefer dark mode? Because light attracts bugs.
