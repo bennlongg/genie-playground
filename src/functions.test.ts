@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { fibonacci } from "./functions";
+import { fibonacci, bubbleSort } from "./functions";
 
 describe("Fibonacci Function", () => {
   it("should return 0 for n = 0", () => {
@@ -21,4 +21,33 @@ describe("Fibonacci Function", () => {
   it("should throw an error for negative numbers", () => {
     expect(() => fibonacci(-1)).toThrow("Negative numbers are not allowed");
   });
+});
+
+describe("Bubble Sort Function", () => {
+  it("should sort an empty array", () => {
+    expect(bubbleSort([])).toEqual([]);
+  });
+
+  it("should sort an array with one element", () => {
+    expect(bubbleSort([42])).toEqual([42]);
+  });
+
+  it("should sort an already sorted array", () => {
+    expect(bubbleSort([1, 2, 3])).toEqual([1, 2, 3]);
+  });
+
+  it("should sort a reverse-sorted array", () => {
+    expect(bubbleSort([3, 2, 1])).toEqual([1, 2, 3]);
+  });
+
+  it("should sort an unsorted array", () => {
+    expect(bubbleSort([5,4,8])).toEqual([4,5,8])
+    expect(bubbleSort([7,-3,-6])).toEqual([-6,-3,7])
+    expect(bubbleSort([-6,-9,-10])).toEqual([-10,-9,-6])
+    expect(bubbleSort([0xAA21,-0xFF42])).toEqual([-65346,43553])
+    expect(bubbleSort([0b11110000,-0b10101111])).toEqual([-175,240])
+    
+})
+
+  
 });
