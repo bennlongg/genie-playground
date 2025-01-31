@@ -35,7 +35,7 @@ describe('Bubble Sort Function', () => {
   
 	// Unit test: should not modify a single-element array
 	it('should not modify a single-element array', () => {
-	  expect(bubbleSort([42])).toEqual([42]);
+	  expect(bubbleSort([24])).toEqual([24]);
 	});
   
 	// Unit test: should sort an already sorted array correctly
