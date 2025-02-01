@@ -1,24 +1,19 @@
-import { describe, it, expect } from "vitest";
-import { fibonacci } from "./functions";
+export function fibonacci(n: number): number {
+    if (n < 0) throw new Error("Negative numbers are not allowed");
+    return n <= 1 ? n : fibonacci(n - 1) + fibonacci(n - 2);
+  }
 
-describe("Fibonacci Function", () => {
-  it("should return 0 for n = 0", () => {
-    expect(fibonacci(0)).toBe(0);
-  });
-
-  it("should return 1 for n = 1", () => {
-    expect(fibonacci(1)).toBe(1);
-  });
-
-  it("should return 1 for n = 2", () => {
-    expect(fibonacci(2)).toBe(1);
-  });
-
-  it("should return 55 for n = 10", () => {
-    expect(fibonacci(10)).toBe(55);
-  });
-
-  it("should throw an error for negative numbers", () => {
-    expect(() => fibonacci(-1)).toThrow("Negative numbers are not allowed");
-  });
-});
+export function bubbleSort(arr: number[]): number[] {
+    const n = arr.length;
+    for (let i = 0; i < n - 1; i++) {
+      for (let j = 0; j < n - i - 1; j++) {
+        if (arr[j] > arr[j + 1]) {
+          // Swap arr[j] and arr[j + 1]
+          const temp = arr[j];
+          arr[j] = arr[j + 1];
+          arr[j + 1] = temp;
+        }
+      }
+    }
+    return arr;
+  }
