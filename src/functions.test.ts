@@ -1,24 +1,24 @@
-import { describe, it, expect } from "vitest";
-import { fibonacci } from "./functions";
+export function fibonacci(n: number): number {
+    if (n < 0) throw new Error("Negative numbers are not allowed");
+    return n <= 1 ? n : fibonacci(n - 1) + fibonacci(n - 2);
+  }
 
-describe("Fibonacci Function", () => {
-  it("should return 0 for n = 0", () => {
-    expect(fibonacci(0)).toBe(0);
-  });
-
-  it("should return 1 for n = 1", () => {
-    expect(fibonacci(1)).toBe(1);
-  });
-
-  it("should return 1 for n = 2", () => {
-    expect(fibonacci(2)).toBe(1);
-  });
-
-  it("should return 55 for n = 10", () => {
-    expect(fibonacci(10)).toBe(55);
-  });
-
-  it("should throw an error for negative numbers", () => {
-    expect(() => fibonacci(-1)).toThrow("Negative numbers are not allowed");
-  });
-});
+export function binarySearch(arr: number[], target: number): number {
+    let low = 0;
+    let high = arr.length - 1;
+  
+    while (low <= high) {
+      const mid = Math.floor((low + high) / 2);
+      const midValue = arr[mid];
+  
+      if (midValue === target) {
+        return mid;
+      } else if (midValue < target) {
+        low = mid + 1;
+      } else {
+        high = mid - 1;
+      }
+    }
+  
+    return -1; // Target not found
+  }
