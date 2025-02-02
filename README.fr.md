@@ -1,3 +1,3 @@
-# genie-playground
+# terrain de jeu génie
 
-Why don't programmers like nature? It has too many bugs.
+Pourquoi les programmeurs n'aiment-ils pas la nature ? Il y a trop de bugs.
