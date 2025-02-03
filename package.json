@@ -19,10 +19,21 @@
     "start": "node dist/index.js",
     "dev": "pnpm run build && pnpm start",
     "test": "vitest"
-  },  
+  },
+  "dependencies": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
   "devDependencies": {
-    "vitest": "3.0.2",
-    "typescript": "5.7.3"
+    "@vitejs/plugin-react": "4.1.0",
+    "eslint": "8.50.0",
+    "eslint-config-prettier": "9.0.0",
+    "eslint-plugin-react": "7.33.1",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "prettier": "3.0.3",
+    "typescript": "5.7.3",
+    "vite": "4.4.9",
+    "vitest": "3.0.2"
   },
   "packageManager": "pnpm@9.15.4"
 }
