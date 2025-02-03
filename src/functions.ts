@@ -3,6 +3,11 @@ export function fibonacci(n: number): number {
     return n <= 1 ? n : fibonacci(n - 1) + fibonacci(n - 2);
   }
 
+  /**
+   * Sorts an array of numbers in ascending order using the bubble sort algorithm.
+   * @param {number[]} arr - The array of numbers to be sorted.
+   * @returns {number[]} - A new array of numbers sorted in ascending order.
+   */
   export function bubbleSort(arr: number[]): number[] {
     const n = arr.length;
     for (let i = 0; i < n - 1; i++) {
