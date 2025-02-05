@@ -1,0 +1,13 @@
+{
+	"name": "Node.js",
+	"image": "mcr.microsoft.com/devcontainers/typescript-node:0-20",
+	"features": {
+		"ghcr.io/devcontainers/features/github-cli:1": {},
+		"ghcr.io/devcontainers/features/github-codespaces:1": {},
+		"ghcr.io/devcontainers/features/node:1": {
+			"version": "20"
+		},
+		"ghcr.io/devcontainers/features/pnpm:1": {}
+	},
+	"postCreateCommand": "pnpm install && pnpm run build"
+}
