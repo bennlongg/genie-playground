@@ -39,3 +39,22 @@ export function fibonacci(n: number): number {
     return -1;
   }
   
+  export function bubbleSort(arr: number[]): number[] {
+    const sortedArr = [...arr];
+    let n = sortedArr.length;
+    let swapped;
+  
+    do {
+      swapped = false;
+      for (let i = 0; i < n - 1; i++) {
+        if (sortedArr[i] > sortedArr[i + 1]) {
+          [sortedArr[i], sortedArr[i + 1]] = [sortedArr[i + 1], sortedArr[i]];
+          swapped = true;
+        }
+      }
+      n--;
+    } while (swapped);
+  
+    return sortedArr;
+  }
+  
