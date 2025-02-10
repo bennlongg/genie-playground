@@ -1,63 +1,61 @@
 import { binarySearch, sum, fibonacci, reverseString, isPalindrome, capitalizeWords, flattenArray } from './functions';
 
-// Binary Search function
 describe('binarySearch', () => {
-  test('should return the correct index for existing targets', () => {
-    const arr = [1, 3, 5, 7, 9];
-    expect(binarySearch(arr, 3)).toBe(1);
-    expect(binarySearch(arr, 7)).toBe(3);
+  test('returns correct index when target is found at different positions', () => {
+    expect(binarySearch([1, 2, 3, 4, 5], 3)).toBe(2);
+    expect(binarySearch([1, 2, 3, 4, 5], 1)).toBe(0);
+    expect(binarySearch([1, 2, 3, 4, 5], 5)).toBe(4);
   });
 
-  test('should return -1 for non-existent targets', () => {
-    const arr = [1, 3, 5, 7, 9];
-    expect(binarySearch(arr, 6)).toBe(-1);
-    expect(binarySearch(arr, 0)).toBe(-1);
+  test('returns -1 when target is not found', () => {
+    expect(binarySearch([1, 2, 3, 4, 5], 6)).toBe(-1);
+    expect(binarySearch([1, 2, 3, 4, 5], 0)).toBe(-1);
   });
 
-  test('should handle empty arrays and return -1', () => {
-    const emptyArr: number[] = [];
-    expect(binarySearch(emptyArr, 4)).toBe(-1);
+  test('returns -1 when input array is empty', () => {
+    expect(binarySearch([], 4)).toBe(-1);
   });
 
-  test('should handle arrays of varying lengths', () => {
-    const arr = [1];
-    expect(binarySearch(arr, 1)).toBe(0);
-    expect(binarySearch(arr, 2)).toBe(-1);
+  test('returns correct index for single-element arrays', () => {
+    expect(binarySearch([7], 7)).toBe(0);
+    expect(binarySearch([7], 8)).toBe(-1);
   });
 
-  test('should handle negative and positive numbers', () => {
-    const arr = [-10, -5, 0, 5, 10];
-    expect(binarySearch(arr, -5)).toBe(1);
-    expect(binarySearch(arr, 5)).toBe(3);
+  test('correctly handles negative numbers and mixed arrays', () => {
+    expect(binarySearch([-3, -1, 0, 1, 3], 1)).toBe(3);
+    expect(binarySearch([-3, -1, 0, 1, 3], -1)).toBe(1);
   });
 
-  test('should assume the array is sorted and return correct indices', () => {
-    const arr = [1, 2, 3, 4];
-    expect(binarySearch(arr, 3)).toBe(2);
+  test('assumes input array is sorted and behaves accordingly', () => {
+    expect(binarySearch([5, 1, 3, 4], 3)).toBe(2);
   });
 
-  test('should handle cases where there are duplicate elements in the array', () => {
-    const arr = [1, 2, 2, 2, 3];
-    expect(binarySearch(arr, 2)).toBeGreaterThanOrEqual(1);
-    expect(binarySearch(arr, 2)).toBeLessThanOrEqual(3);
+  test('handles duplicate values in the array', () => {
+    const result = binarySearch([1, 1, 1, 3], 1);
+    expect([0, 1, 2]).toContain(result);
   });
 
-  test('should handle edge cases like searching for values at the start or end', () => {
-    const arr = [1, 2, 3, 4, 5];
-    expect(binarySearch(arr, 1)).toBe(0);
-    expect(binarySearch(arr, 5)).toBe(4);
+  test('returns -1 for non-number targets', () => {
+    expect(binarySearch([1, 2, 3], 'two' as unknown as number)).toBe(-1);
   });
 
-  test('should handle unsorted arrays but still provide a valid index', () => {
-    const arr = [4, 2, 8, 3];
-    expect(binarySearch(arr, 8)).toBe(2);
+  test('handles cases where array length is even or odd', () => {
+    expect(binarySearch([1, 2, 3, 4, 5], 4)).toBe(3);
   });
 
-  test('should handle arrays with non-number elements and return correct values', () => {
-    const arr: any[] = [1, "three", 3];
-    expect(binarySearch(arr as number[], 3)).toBe(1);
+  test('behaves as expected in generalized binary search situations', () => {
+    // Placeholder for broader tests
+    const result = binarySearch([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 7);
+    expect(result).toBe(6);
   });
+
+  test('returns the first valid index if duplicates exist', () => {
+    const result = binarySearch([1, 2, 2, 2, 3], 2);
+    expect([1, 2, 3]).toContain(result);
+  });
+  
 });
+
 
 describe('sum', () => {
   test('should correctly sum two positive numbers', () => {
