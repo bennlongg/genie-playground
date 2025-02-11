@@ -21,3 +21,7 @@ export function bubbleSort(nums: number[]): number[] {
   }
   return arr;
 }
+
+export const coolFunction = () => {
+  return "COOL"
+}
