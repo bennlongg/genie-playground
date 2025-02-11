@@ -16,3 +16,7 @@ export function binarySearch(arr: number[], target: number): number {
     }
     return -1;  // Target not found
   }
+
+  export const wow = () => {
+    return "WOWZERS"
+  }
