@@ -14,3 +14,14 @@ export function fibonacci(n: number): number {
     return -1;
   }
   
+  export function bubbleSort(arr: number[]): number[] {
+    let swapped = false;
+    for (let i = 0; i < arr.length - 1; i++) {
+      if (arr[i] > arr[i + 1]) {
+        [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]]; // Swap elements
+        swapped = true;
+      }
+    }
+    return swapped ? bubbleSort(arr) : arr; // Recursively sort if swapped
+  }
+  
