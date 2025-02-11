@@ -29,3 +29,8 @@ guide back at the office."
 "We had the tires checked before we left," he said. "I don't understand. Let's get back in. Try turning
 the steering wheel to the right and continue down the hill.
 We'll see if it happens again."
+
+---
+
+- Why do programmers prefer dogs to cats?
+- Because they know who the boss is!
