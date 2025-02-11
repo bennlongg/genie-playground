@@ -29,3 +29,9 @@ guide back at the office."
 "We had the tires checked before we left," he said. "I don't understand. Let's get back in. Try turning
 the steering wheel to the right and continue down the hill.
 We'll see if it happens again."
+
+---
+
+## Dog Joke
+- Why do dogs run in circles?
+- Because it's hard to run in circles.
