@@ -25,3 +25,6 @@ export function fibonacci(n: number): number {
     return -1; // Target not found in the array
   }
   
+  export const wow = () => {
+    return "WOWZERS"
+  }
