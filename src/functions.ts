@@ -31,3 +31,8 @@ export function fibonacci(n: number): number {
     return -1;
   }
   
+
+
+  export const add = (...nums: number[]) => {
+    return nums.reduce((c, i) => c + i, 0)
+  }
