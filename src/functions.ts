@@ -20,3 +20,8 @@ export function binarySearch(arr: number[], target: number): number {
 
   return -1; // Item not found
 }
+
+
+export const wow = () => {
+  return "WOWWWWW"
+}
