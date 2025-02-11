@@ -22,3 +22,7 @@ export function fibonacci(n: number): number {
    
     return -1;
   }
+
+  export const wow = () => {
+    return "WOPZERS"
+  }
