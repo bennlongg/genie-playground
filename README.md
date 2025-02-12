@@ -37,3 +37,5 @@ An old colleague's IM, long since decommissioned, appeared:
 Alex's hands trembled above the keyboard. The screen went black, and the power surged. Alex never contributed to that repository again. 
 
 The `genie-playground` remains, untouched by those who heed the warnings, shrouded in a silent, digital specter, awaiting the next unsuspecting developer.
+
+Why do developers like to tell jokes? Because they want to "add humor without exceptions!"
