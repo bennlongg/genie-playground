@@ -20,3 +20,9 @@ Because the light attracts too many bugs!
 Why did the developer get stuck in the shower?
 
 Because the instructions on the shampoo bottle said: Lather, Rinse, Repeat.
+
+## Yet Another Joke About Developers
+
+Why do programmers prefer using the dark mode?
+
+Because the light attracts bugs!
