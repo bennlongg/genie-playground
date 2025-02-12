@@ -14,3 +14,9 @@ At the heart of every line of code is a story of perseverance, collaboration, an
 
 Why do developers always prefer to stay in dark mode?
 Because the light attracts too many bugs!
+
+## Another Joke About Developers
+
+Why did the developer get stuck in the shower?
+
+Because the instructions on the shampoo bottle said: Lather, Rinse, Repeat.
