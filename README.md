@@ -14,3 +14,13 @@ Negative input values are not allowed, and the function will throw an error if a
 ### binarySearch
 
 The `binarySearch` function performs a binary search on a sorted array of numbers (`arr`) to find the index of the target value (`target`). It returns the index of the target if it is present in the array, or -1 if the target is not found. The array must be sorted in ascending order for the binary search to work correctly.
+
+## Testing
+
+To run tests, use the following command:
+
+```sh
+pnpm test
+```
+
+This runs the tests using Vitest, ensuring that all implemented functions behave correctly.
