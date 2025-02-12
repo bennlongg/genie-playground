@@ -37,3 +37,7 @@ An old colleague's IM, long since decommissioned, appeared:
 Alex's hands trembled above the keyboard. The screen went black, and the power surged. Alex never contributed to that repository again. 
 
 The `genie-playground` remains, untouched by those who heed the warnings, shrouded in a silent, digital specter, awaiting the next unsuspecting developer.
+
+Would you like to hear a joke? Why do Java developers wear glasses? Because they don't see sharp.
+
+Hope you enjoyed the story and the joke. Ha ha.
