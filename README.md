@@ -26,3 +26,9 @@ Because the instructions on the shampoo bottle said: Lather, Rinse, Repeat.
 Why do programmers prefer using the dark mode?
 
 Because the light attracts bugs!
+
+## Yet One More Joke About Developers
+
+Why did the developer go broke?
+
+Because he used up all his cache!
