@@ -9,3 +9,8 @@ Their days are filled with debugging, coding, and collaborating, facing challeng
 Every piece of software, app, or tool we use is a testament to their dedication and hard work. Developers are not just builders; they are dreamers, thinkers, and doers who turn ideas into reality. 
 
 At the heart of every line of code is a story of perseverance, collaboration, and continuous improvement. It's not just about creating something that works; it's about crafting something meaningful that makes a difference in the world.
+
+## A Joke About Developers
+
+Why do developers always prefer to stay in dark mode?
+Because the light attracts too many bugs!
