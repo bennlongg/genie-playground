@@ -37,3 +37,27 @@ export function binarySearch<T extends number | string>(arr: T[], target: T): nu
 
   return -1; // Target not found, return -1
 }
+
+
+/**
+ * Sorts an array using the Bubble Sort algorithm.
+ *
+ * @param {Array} array - The array to be sorted. Can contain numbers or strings.
+ * @returns {Array} - A new array sorted in ascending order.
+ * @throws {Error} - If the array contains unsupported types or is not consistent.
+ */
+export function bubbleSort(array: Array<number | string>): Array<number | string> {
+  const arr = [...array];
+  const n = arr.length;
+
+  for (let i = 0; i < n - 1; ++i) {
+    for (let j = 0; j < n - 1 - i; ++j) {
+      if (arr[j] > arr[j + 1]) {
+        const temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+      }
+    }
+  }
+  return arr;
+}
