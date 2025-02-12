@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { fibonacci } from "./functions";
+import { binarySearch } from "./functions";
 
 describe("Fibonacci Function", () => {
   it("should return 0 for n = 0", () => {
@@ -18,7 +19,22 @@ describe("Fibonacci Function", () => {
     expect(fibonacci(10)).toBe(55);
   });
 
+  it("should return 6765 for n = 20", () => {
+    expect(fibonacci(20)).toBe(6765);
+  });
+
   it("should throw an error for negative numbers", () => {
     expect(() => fibonacci(-1)).toThrow("Negative numbers are not allowed");
+  });
+});
+
+describe("Binary Search Function", () => {
+  const arr = [1, 2, 3, 4, 5];
+  it("returns the correct index of the target when present", () => {
+    expect(binarySearch(arr, 4)).toBe(3);
+  });
+
+  it("returns -1 when the target is not present", () => {
+    expect(binarySearch(arr, 10)).toBe(-1);
   });
 });
