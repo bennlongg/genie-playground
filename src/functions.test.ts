@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { fibonacci } from "./functions";
+import { fibonacci, bubbleSort, binarySearch } from "./functions";
 
 describe("Fibonacci Function", () => {
   it("should return 0 for n = 0", () => {
@@ -20,5 +20,55 @@ describe("Fibonacci Function", () => {
 
   it("should throw an error for negative numbers", () => {
     expect(() => fibonacci(-1)).toThrow("Negative numbers are not allowed");
+  });
+});
+describe("Bubble Sort Function", () => {
+  it("should sort an already sorted array", () => {
+    expect(bubbleSort([1, 2, 3, 4, 5])).toEqual([1, 2, 3, 4, 5]);
+  });
+
+  it("should sort a reverse-sorted array", () => {
+    expect(bubbleSort([5, 4, 3, 2, 1])).toEqual([1, 2, 3, 4, 5]);
+  });
+
+  it("should handle arrays with duplicate values", () => {
+    expect(bubbleSort([3, 2, 1, 4, 2, 3])).toEqual([1, 2, 2, 3, 3, 4]);
+  });
+
+  it("should handle arrays with negative numbers", () => {
+    expect(bubbleSort([5, -1, 3, 0, -2])).toEqual([-2, -1, 0, 3, 5]);
+  });
+
+  it("should handle empty arrays", () => {
+    expect(bubbleSort([])).toEqual([]);
+  });
+
+  it("should handle single-element arrays", () => {
+    expect(bubbleSort([1])).toEqual([1]);
+  });
+});
+describe("Binary Search Function", () => {
+  it("should return the index of the target element", () => {
+    expect(binarySearch([1, 2, 3, 4, 5], 3)).toBe(2);
+  });
+
+  it("should return -1 for an empty array", () => {
+    expect(binarySearch([], 1)).toBe(-1);
+  });
+
+  it("should return -1 if the target is not found", () => {
+    expect(binarySearch([1, 2, 3, 4, 5], 10)).toBe(-1);
+  });
+
+  it("should handle arrays with negative numbers", () => {
+    expect(binarySearch([-5, -3, -1, 0, 1, 3, 5], -1)).toBe(2);
+  });
+
+  it("should handle arrays with one element", () => {
+    expect(binarySearch([4], 4)).toBe(0);
+  });
+
+  it("should return the first occurrence for repeated elements", () => {
+    expect(binarySearch([1, 2, 2, 2, 3, 4], 2)).toBe(1);
   });
 });
