@@ -1,20 +1,3 @@
-/**
- * Bubble Sort Algorithm
- * @description Sorts an array of numbers using the bubble sort algorithm
- * @param {number[]} arr - Array of numbers to sort, not mutated
- * @returns {number[]} Sorted array of numbers
- * @throws {TypeError} If arr is not an array of numbers
- * @example
- * bubbleSort([5, 2, 9, 1, 5, 6]) // [1, 2, 5, 5, 6, 9]
- * bubbleSort([]) // []
- * bubbleSort([1]) // [1]
- * bubbleSort([1, 2, 3]) // [1, 2, 3]
- * bubbleSort([3, 2, 1]) // [1, 2, 3]
- * bubbleSort([1, 2, 3, 2, 1]) // [1, 1, 2, 2, 3]
- * bubbleSort([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]) // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
- * bubbleSort([10, 9, 8, 7, 6, 5, 4, 3, 2, 1]) // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
- * bubbleSort([5, 2, -2, 0, -1, -3])         // [-3, -2, -1, 0, 2, 5]
- */
 export function bubbleSort(arr: number[]): number[] {
   const copy = [...arr];
   let swapped = true;
@@ -28,4 +11,25 @@ export function bubbleSort(arr: number[]): number[] {
     }
   }
   return copy;
+}
+
+
+
+
+
+/**
+ * Fibonacci Sequence Generator
+ * @description Generates the nth number in the Fibonacci sequence
+ * @param {number} n - The position in the Fibonacci sequence to generate
+ * @returns {number} The nth number in the Fibonacci sequence
+ * @throws {Error} If a negative number is provided as input
+ * @example
+ * fibonacci(0) returns 0
+ * fibonacci(1) returns 1
+ * fibonacci(2) returns 1
+ * fibonacci(10) returns 55
+ */
+export function fibonacci(n: number): number {
+  if (n < 0) throw new Error("Negative numbers are not allowed");
+  return n <= 1 ? n : fibonacci(n - 1) + fibonacci(n - 2);
 }
