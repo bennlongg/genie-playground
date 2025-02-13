@@ -1,7 +1,7 @@
 {
   "name": "genie-playground",
   "version": "1.0.0",
-  "description": "",
+  "description": "A playground to test out various settings with vitest",
   "homepage": "https://github.com/bennlongg/genie-playground#readme",
   "bugs": {
     "url": "https://github.com/bennlongg/genie-playground/issues"
