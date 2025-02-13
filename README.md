@@ -1,3 +1,3 @@
-# genie-playground
+# genie-playgroundA place where ideas become code! 🧞‍♂️✨
 
-A place where ideas become code! 🧞‍♂️✨
+Where bugs are just misunderstood features!
