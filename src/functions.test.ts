@@ -35,6 +35,4 @@ describe("Binary Search", () => {
   it("should return -1 for target not found in list", () => {
     expect(binarySearch([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 11)).toBe(-1)
   })
-
-
 })
