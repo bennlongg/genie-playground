@@ -1,8 +1,8 @@
 import { describe, it, expect } from "vitest";
-import { fibonacci, binarySearch } from "./functions";
+import { fibonacci, binarySearch, bubbleSort } from "./functions";
 
 describe("Fibonacci Function", () => {
-  it("should return 0 for n = 0", () => {
+ it("should return 0 for n = 0", () => {
     expect(fibonacci(0)).toBe(0);
   });
 
@@ -121,4 +121,72 @@ describe("Binary Search Function", () => {
     const result = binarySearch(arr, target);
     expect(result).toBe(-1);
   });
+});
+  
+describe("Bubble Sort Function", () => {
+  it("should sort an unsorted array", () => {
+    const arr = [5, 3, 8, 4, 2];
+    const result = bubbleSort(arr);
+    expect(result).toEqual([2, 3, 4, 5, 8]);
+  });
+  
+  it("should return an already sorted array unchanged", () => {
+    const arr = [1, 2, 3];
+    const result = bubbleSort(arr);
+    expect(result).toEqual([1, 2, 3]);
+  });
+  
+  it("should return an empty array for empty input", () => {
+    const arr: number[] = [];
+    const result = bubbleSort(arr);
+    expect(result).toEqual([]);
+  });
+  
+  it("should not modify the original input array", () => {
+    const arr = [5, 1, 3];
+    const sortedArr = bubbleSort(arr);
+    expect(arr).toEqual([5, 1, 3]); // original stays untouched
+    expect(sortedArr).toEqual([1, 3, 5]); // result is a separate sorted array
+  });
+  
+  it("should throw an error for non-numeric elements", () => {
+    // @ts-expect-error: Testing invalid input intentionally.
+    const arr = ["a", "b", "c"];
+    expect(() => bubbleSort(arr)).toThrow("Input array must contain only numbers");
+  });
+  
+  it("should handle single-element arrays correctly", () => {
+    const arr = [42];
+    const result = bubbleSort(arr);
+    expect(result).toEqual([42]);
+  });
+  
+  it("should handle arrays with duplicate values", () => {
+    const arr = [4, 2, 4];
+    const result = bubbleSort(arr);
+    expect(result).toEqual([2, 4, 4]);
+  });
+  
+  it("should sort an array with negative numbers", () => {
+    const arr = [-5, 3, -2, 4];
+    const result = bubbleSort(arr);
+    expect(result).toEqual([-5, -2, 3, 4]);
+  });
+  
+  it("should throw an error if the array contains null or undefined", () => {
+    // @ts-expect-error: Testing invalid input intentionally.
+    const arr = [1, 2, null];
+    expect(() => bubbleSort(arr)).toThrow("Input array must contain only numbers");
+  });
+  
+  it("should avoid modifying the input array when dealing with large datasets", () => {
+    const input = Array.from({ length: 1_000 }, (_, i) => Math.floor(Math.random() * 100));
+    const originalCopy = [...input];
+    const output = bubbleSort(input);
+    expect(input).toEqual(originalCopy); // confirm no in-place mutations
+    expect(output.length).toBe(1_000);
+    for (let i = 0; i < output.length - 1; i++) {
+      expect(output[i]).toBeLessThanOrEqual(output[i + 1]);
+    }
+  });  
 });
