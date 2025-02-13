@@ -33,3 +33,27 @@ export function binarySearch(arr: number[], target: number): number {
   
     return -1; // target not found in the array
   }
+  
+  /**
+ * Sorts an array of numbers in ascending order using the bubble sort algorithm.
+ * @param {number[]} arr - The input array to be sorted.
+ * @returns {number[]} A new array of numbers sorted in ascending order.
+ * @throws {Error} Throws an error if the input array contains non-numeric elements.
+ */
+export function bubbleSort(arr: number[]): number[] {
+    const n = arr.length;
+    const sortedArr = [...arr]; // make a copy to avoid modifying the input
+    for (let i = 0; i < n - 1; i++) {
+      for (let j = 0; j < n - 1 - i; j++) {
+        if (typeof sortedArr[j] !== "number" || typeof sortedArr[j + 1] !== "number") {
+          throw new Error("Input array must contain only numbers");
+        }
+        if (sortedArr[j] > sortedArr[j + 1]) {
+          const temp = sortedArr[j];
+          sortedArr[j] = sortedArr[j + 1];
+          sortedArr[j + 1] = temp; // swap adjacent elements if out of order
+        }
+      }
+    }
+    return sortedArr;
+  }
