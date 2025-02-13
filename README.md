@@ -1,25 +1,27 @@
-# Genie-AIThe Genie-AI is a language model (LLM) designed to perform an array of tasks such as code writing, explaining, and fixing among others. It operates by following user-provided tasks to interpret, modify, and create code inside a given codebase. This system achieves a comprehensive task understanding and solution execution by using a pipeline of Language Models (LLMs) and Large Knowledge Models (LKMs) that guide the retrieval, plan, and implementation of code improvements.
+# Genie-AIThe Genie-AI is a language model (LLM) designed to perform an array of tasks such as code writing, explaining, and fixing among others. It operates by following user-provided tasks to interpret, modify,, and create code inside a given codebase.. This system is designed to achieve a comprehensive understanding of tasks and their solution by utilising a pipeline of Language Models (LLMs) and Large Knowledge Models (LKMs) that help with retrieval, plan, and implementation of changes in code.
 
-The LKM, Perplexity, plays a crucial role in this pipeline by ensuring the codebase is efficiently navigated to gather all relevant files. On the other hand, GPT-4 is used as the LLM to create plans and perform code implementation, ensuring that all required changes are methodically planned and then executed with context from the codebase.
+The LKM Perplexity is a critical component of this pipeline, ensuring codebase navigation is efficient to gather all files relevant to the task. We use GPT-4 as the LLM to create plans and perform code implementation, making sure all necessary changes are planned for and done in context of the codebase.
 
-Our LLM system's tasks range from reading and retrieving files to making substantive changes (additions, deletions, etc.). One key feature is its adherence to maintaining a logical sequence of modifications, thus ensuring each change seamlessly fits into the overall codebase.
+Our LLM system tackles various tasks, ranging from reading and retrieving files, to executing more substantive change actions like adding or removing content. A key aspect of the system is to maintain a logical progression of changes, ensuring all modifications fit seamlessly into the existing codebase.
 
-The Genie-AI is part of the CosineAI product suite. It is a highly competent AI software engineering model adept at completing diverse tasks in a codebase. Our tools include file retrieval capabilities, keyword search functionalities, and directory listing tools, aiding in the efficient task execution.
+Genie-AI is a part of the CosineAI product suite and is a highly competent AI software engineering model, adept at handling diverse tasks in a codebase. The tools available include file retrieval capabilities, keyword search functionalities, and directory listing tools, all aiding in efficient task execution.
 
-## Output Format
-The Genie-AI output follows a clear, structured format that includes both plan and implementation phases:
+### Output FormatGenie-AI output provides a detailed framework that includes retrieval and code modifications:
+- **Tools' Calls:** Enumerate retrieval steps like reading files with appropriate tools while ensuring that modifications and retrieval steps are properly formatted.
+- **Code Plan:** Provides a clear structure, detailing specific plans and steps for each implementation. Includes an introduction, high-level implementation plan, and observations about the existing code to ensure smooth implementation.
+- **Implementation Details:** Clearly communicate upcoming implementation steps, changes in files, and the specific edits to be made. Ensure GUI and command-line Git tool users understand the file changes, with changes illustrated exactly as they should be represented in the file.
 
-1. **The Plan:** This comprises an introduction explaining the main aim of the change, a detailed implementation plan outlining the steps needed, and observations about the existing code to ensure a smooth implementation.
+By adhering to this structured output, Genie-AI ensures efficient processing of tasks and assists users in managing code modifications with precision.
 
-2. **The Implementation:** Each implementation step describes the file to be changed, the location of the change, and what needs to be done. This is followed by a tool call that specifies the changes to be made. For example: If the output requires modifying the `readme.md` file to complete a calculation, the plan would include details like correcting any formatting issues, improving clarity, and ensuring that the final result of the calculation is clearly displayed. The implementation would specify the exact file and the nature of the changes needed, such as appending missing parts or adjusting existing content.
+---
 
-## Code Plan
-The code plan spans three parts:
+### Code Plan
+The code plan is divided into three parts:
 
-- **Retrieval Tools Overview:** This section explains the various tools available for file retrieval, such as `read_file`, `keyword_search_selected`, and `fuzzy_file_search`. It guides the sequence of tool usage and provides instructions on how to approach ambiguous instructions.
+- **Retrieval Tools Overview:** This section provides a compact explanation of the various tools available for file retrieval. It covers functions like `read_file` for opening files, `keyword_search_selected` for searching specific content, `fuzzy_file_search` for approximate filename searches, and `fs_directory` for listing directory contents. This part also highlights the importance of using these tools in a logical sequence for efficient navigation.
 
-- **Coding Best Practices:** Coding best practices are outlined here, such as ensuring comprehensibility, reusability, code organization, and robustness. This helps maintain consistency with general coding standards and existing codebase conventions.
+- **Coding Best Practices:** Lists several practices like ensuring code is comprehensible, reusable, well-organized, and robust. It emphasizes understanding and adhering to existing code styles and standards, which is crucial for maintaining the codebase's consistency.
 
-- **Output Structure:** The Genie-AI output is structured to include details about retrieval and code modifications, ensuring clarity for file changes if using a GUI or command-line Git tool. Each implementation includes a plan introduction, a high-level implementation plan, and observations about the codebase.
+- **Output Structure:** Outlines the structure for the Genie-AI output, emphasizing the need for clarity regarding tool usage and file modifications. It includes parts like the plan (with introduction, implementation plan, and observations) and implementation details, ensuring that the changes made are easily understood.
 
-By maintaining a consistent format and structure, the Genie-AI ensures that tasks are executed efficiently and that changes integrate well into the existing codebase.
+Overall, this plan guides the user through efficient code handling, ensuring consistency with general coding standards and the project’s specific guidelines.
