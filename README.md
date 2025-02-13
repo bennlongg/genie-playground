@@ -1,5 +1,5 @@
-# genie-playground
+# maths
 
 ---
 
-Why don't scientists trust atoms? Because they make up everything.
+What's the answer to **5 + 9 =** 14
