@@ -1,8 +1,21 @@
+/**
+ * Computes the Fibonacci number at position n.
+ * @param {number} n - The position in the Fibonacci sequence (non-negative integer).
+ * @throws {Error} Throws an error if n is a negative number.
+ * @returns {number} The Fibonacci number at position n.
+ */
 export function fibonacci(n: number): number {
     if (n < 0) throw new Error("Negative numbers are not allowed");
     return n <= 1 ? n : fibonacci(n - 1) + fibonacci(n - 2);
   }
-
+  
+/**
+ * Performs a binary search on a sorted array and returns the index of the target value.
+ * @param {number[]} arr - The sorted array of numbers to search within.
+ * @param {number} target - The value being searched for.
+ * @returns {number} The index of the target in the array, or -1 if not found.
+ * @throws {Error} Throws an error if the input array is not sorted.
+ */
 export function binarySearch(arr: number[], target: number): number {
     let low = 0;
     let high = arr.length - 1;
