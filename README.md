@@ -1,8 +1,6 @@
 # genie-playgroundA place where ideas become code! 🧞‍♂️✨Where bugs are just misunderstood features!
 
-## Introduction
-
-Cosine is a technology company that specializes in developing innovative software solutions. Founded by a group of ambitious engineers, the company's mission is to revolutionize the tech industry by creating tools that enhance productivity and simplify complex processes.
+## IntroductionCosine is a technology company that specializes in developing innovative software solutions. Founded by a group of ambitious engineers, the company's mission is to revolutionize the tech industry by creating tools that enhance productivity and simplify complex processes.
 
 ## Foundation
 
@@ -31,3 +29,10 @@ Throughout its journey, Cosine has faced numerous challenges, including rapid te
 ## Conclusion
 
 Cosine is dedicated to its mission of creating innovative software solutions that enhance productivity and simplify processes. With a strong foundation, clear vision, and a proven track record of success, the company is well-positioned for continued growth and impact in the tech industry.
+
+## Joke of The Day
+
+'Patient to nurse: I think I’m soft in the head, could you tell me what it costs to deliver a baby?'
+
+'Nurse: This is a women’s hospital. If you want to know about the mail charges, enquire at the front desk.'  
+*(You could sum it up as not just a bad joke but also a distended delivery)*
