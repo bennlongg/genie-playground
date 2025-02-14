@@ -1,7 +1,6 @@
-{
-  "name": "genie-playground",
+{ "name": "genie-playground",
   "version": "1.0.0",
-  "description": "",
+  "description": "A minimalistic playground for Genie, providing an isolated environment to experiment with and test different code patterns and scenarios.",
   "homepage": "https://github.com/bennlongg/genie-playground#readme",
   "bugs": {
     "url": "https://github.com/bennlongg/genie-playground/issues"
@@ -19,7 +18,7 @@
     "start": "node dist/index.js",
     "dev": "pnpm run build && pnpm start",
     "test": "vitest"
-  },  
+  },
   "devDependencies": {
     "vitest": "3.0.2",
     "typescript": "5.7.3"
