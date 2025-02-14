@@ -35,5 +35,8 @@ describe("Fibonacci Function", () => {
 
   it("should throw an error for negative numbers", () => {
     expect(() => fibonacci(-1561)).toThrow("Negative numbers are not allowed");
+     expect(() => fibonacci(-1561)).toThrow("Negative numbers are not allowed");
+      expect(() => fibonacci(-1561)).toThrow("Negative numbers are not allowed");
+       expect(() => fibonacci(-1561)).toThrow("Negative numbers are not allowed");
   });
 });
