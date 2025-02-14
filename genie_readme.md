@@ -2,7 +2,7 @@
 
 <img src="logo.svg" width="250">
 
-# Qwik + TailwindCSS-kit
+# Genie + TailwindCSS-kit
 
 </div>
 
