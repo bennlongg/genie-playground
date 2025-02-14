@@ -1,7 +1,5 @@
-# genie-playground
+# genie-playground## Joke
 
-## Joke
+Why did the programmer go broke?
 
-Why don’t skeletons fight each other?
-
-They don’t have the guts.
+Because he used up all his cache.
