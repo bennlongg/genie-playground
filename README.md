@@ -1,5 +1,3 @@
-# genie-playground## Joke
+# genie-playground## JokeWhy do programmers prefer dark mode?
 
-Why did the programmer go broke?
-
-Because he used up all his cache.
+Because light attracts bugs.
