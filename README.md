@@ -1,15 +1,9 @@
-#maths---
-
-What's the answer to **5 +9 =**14What's the answer to **25 -17 =** 8
-
-Have you heard about the maths book that was sad because it had too many problems?
-
-What's the answer to **70 - 9 =** 61
+# genie-playground
 
 ---
 
-Why don't mathematicians argue with logarithms? Because they always make sense.
+Why don't scientists trust atoms? Because they make up everything.
 
 ---
 
-Why was the math book sad? It had too many problems.
+Why are complex maths always unhappy? Because they have too many problems!
