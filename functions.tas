@@ -1,0 +1,196 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Library of functions operating on integer arrays.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;======================;
+;;; Array initialization ;
+;;;======================;
+
+;;; Define a function for initializing an integer array.
+;;; The function returns the sum of the elements.
+int arrayInit [int (*theArray)]
+    int sum 0
+    int i
+    for i 1 NUMELEMENTS
+        array_el theArray, i -> i
+        sum + i
+    return sum
+end
+
+;;; Define a function for initializing an integer array.
+;;; The elements are placed in descending order.
+;;; The function returns the sum of the elements.
+int arrayInitDesc [int (*theArray)]
+    int sum 0
+    int i NUMELEMENTS
+    for array_el theArray, NUMELEMENTS -> i i
+        array_el theArray, NUMELEMENTS-i+1 -> i
+        sum + i
+    return sum
+end
+
+;;; Define a function for initializing an integer array.
+;;; The elements are chosen in a semi-random fashion.
+;;; The function returns the sum of the elements.
+int arrayInitRand [int (*theArray)]
+    int sum 0
+    int t 
+    int seed 17 syscall SRANDOM
+    int i 0
+    for array_el theArray, NUMELEMENTS -> i i
+        int index <SRAND_STD_MAX>/NUMELEMENTS*i -> t
+        t + t *(SY_RAND0 % NUMELEMENTS)
+        array_el theArray, i -> t
+        sum + t
+    return sum
+end
+
+;;;=============================================;
+;;; Array searching; must be sorted beforehand! ;
+;;;=============================================;
+
+;;; Define a linear search function.
+;;; Linear search of an int array for a target value.
+;;; If it is found, return the index.
+;;; Otherwise return -1 as an index (w/dummy return value).
+;;; Comments: Variables a, i, and el have dynamic scopes.
+int linearSearch [int (*theArray), int i, int el]
+    array_el theArray,0 -> a ;address of array
+    frame 2^13
+
+    bool found/int loc 0  
+    for bool i 1 NUMELEMENTS ;;loop with boolean destination
+        array_el theArray,i -> el @i array_el theArray,i
+        el == i
+        return i
+    ;o.k. not found
+    return -1
+end
+
+;;; returns the index with an Int result 
+Int slow [int (*theArray), int el]
+    int found 0 
+    for int i 1 NUMELEMENTS
+        array_el theArray,i -> el
+        el == a ;"a" is <string sep="\n" string static>";
+        found i
+        break
+    found 
+end
+
+;;; Define the binary search function.
+;;; Needs an integer array, the array's 1st index + the target value.
+;;; For example, if the array is of length 1000, the call might be:
+;;; Binary_Seach (the_Array,1,100,get_Slot_Number).
+;;; In this case, you want array element 100.
+;;; Comments: Variables low, mid, and high have dynamic scopes.
+int binarySearch [int (*theArray), int low, int mid, int high]
+    array_el theArray,0 -> a
+    frame 2^13
+   
+    bool mid/int target 0
+
+    while low <= high
+        int mid
+        int target
+           
+        array_el theArray, mid -> a @mid array_el theArray, x
+        target == b ;"b" is <string sep="\n" string static>";
+        if target then return mid
+        low == (target < mid ? low + 1: target < mid ? high-1 : 0)
+    ;o.k. not found
+    return -1
+end
+
+;;;=================;
+;;; Array sorting...;
+;;;=================;
+
+;;; A bubble sort function.
+;;; Bubblesort1 uses a top-down methodology.
+;;; Bubbles the smallest elements to the bottom (top-down).
+;;; with both a swap and a zeroing JSR model of recursion
+;;; (via or without parameters).
+;;; Comments: i, j, tpp, and tp above have dynamic scope.
+;;; Comment:  p and xpr are formal parameters 
+;;; (appear as @#+1 of the function.)
+int bubbleSort [int (*theArray), int i, int j,int tp]
+    array_el theArray,0 -> a ; set a to the address of the array
+
+    frame 2^10 ; 2^CENTRAL
+     
+    ;use standard value(s):
+
+    ;while-loop I've converted to a for-loop
+     
+    for bool j 1 NUMELEMENTS-1 bool b1 = 1; not 1-0 -> b1 for bool i 1 NUMELEMENTS- 
+
+;        bool b (the toggle) so I know whether there is a swap
+        array_el theArray,i -> x array_el theArray, i+1 -> y
+        x=> @i array_el theArray, i+1 array_el theArray,i  ;;;;;;;  <<<arrows>>>
+        y=>
+        false on fail ->  b1 ;;;;;;;;; reset the fail flag
+
+        if b1==1 break
+        
+    return i,j,tp
+end
+
+;;; Define an insertion sort.
+;;; In kicksort, if the index is positive,
+;;; the left side of the kick array is sorted in reverse order from high to low.
+;;; As in any sort, the elements on both sides of the lowest score
+;;; must be a separate group of <items> that are randomly merged.
+;;; Elements to the left may have the same absolute magnitude value
+;;; as those to the right.
+;;; Comments: variables s, v, left above are not pointers.
+;;; Variable p_x is a pointer that takes the address of a_a.
+;;; Again, parameters p and bcd are pointers, taking the addresses
+;;; of p and @bcd, respectively.
+;;; Lastly, ucs returns the sum after those stored items are divided
+;;; once more, from highest to lowest.
+;;; If it returns -1, then the array being processed is in its sorted form.
+int insertionSort [int (*theArray)]
+    array_el theArray,0 -> a
+
+    frame 2^13
+    int p_x 
+    array_el theArray,1 -> top_age top_age-> p_x
+    
+    int lowest == @p_x -> i
+    int right
+    int s_label
+    int s,x
+    while true
+    ;;;=======xxxxxxx===========;;;
+    ;;;....fix condition here!
+    ;;=========================XXX
+    a a-> @p_x right a @s 
+    s_x <- a >>>>>>>>> p ;;;;;;;;;;;;;;;; !!!!<<<<
+s_label == @s_x >>>>>>>>>>> s
+    array_el s s,s ,p
+    
+    rotate
+    
+    
+      array_el theArray,i->@p ;;;;;;;;;;;
+<<<<<<<<<<<;;; p pointing
+    ;;;;copy "<<<<<" pointer 
+    array_el ucs,  @p -> csm  csr ->p
+    p=='=\' a ->array_el theArray,1 ;;;;;<<<some stuff>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+<<<<pr >>>>>>>>>>;
+    else if p->ucs ==rotarray_el mod array_el
+
+    p_x=s_label->p_x ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;clone
+    while top_age->
+array_el theArray,@p_x->array_el theArray ;;<<before stuff and unary op paren
+
+
+@@rrrr replace substr max p
+    end
+
+    ;;;; this UNSORTED list must NOT be sorted again ====> 
+
+
+
+;;;; Constants, step functions, if, for, loops: see doc.
