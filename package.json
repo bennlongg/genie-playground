@@ -1,6 +1,6 @@
-{  "name": "genie-playground",
+{ "name": "genie-playground",
   "version": "1.0.0",
-  "description": "A minimalistic playground for Genie",
+  "description": "A minimalistic playground for Genie, providing an isolated environment to experiment with and test different code patterns and scenarios.",
   "homepage": "https://github.com/bennlongg/genie-playground#readme",
   "bugs": {
     "url": "https://github.com/bennlongg/genie-playground/issues"
