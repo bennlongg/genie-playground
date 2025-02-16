@@ -1,6 +1,4 @@
-# bubble-sort-function
-
-## Project setup
+# bubble-sort-function## Project setup
 ```
 npm install
 ```
@@ -27,3 +25,6 @@ Additional documentation can be found in the form of comments within the code.
 
 What did the duck say after she bought chapstick?
 Put it on my bill.
+
+Why did the scarecrow become a successful neurosurgeon?
+He was outstanding in his field.
