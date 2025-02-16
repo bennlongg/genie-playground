@@ -1,9 +1,16 @@
+/**
+ * The function calculates the nth Fibonacci number using a recursive approach.
+ * In the Fibonacci sequence, each number is the sum of 2 previous ones
+ * @param n - The position in the Fibonacci sequence (must be a non-negative integer)
+ * @returns The nth Fibonacci number in the sequence
+ * @throws Error if a negative integer is provided as input
+ */
 export function fibonacci(n: number): number {
-    if (n < 0) throw new Error("Negative numbers are not allowed");
-    return n <= 1 ? n : fibonacci(n - 1) + fibonacci(n - 2);
-  }
+  if (n < 0) throw new Error("Negative numbers are not allowed");
+  return n <= 1 ? n : fibonacci(n - 1) + fibonacci(n - 2);
+}
 
-  /**
+/**
  * The bubbles sort is the straightforward sorting algorithm that works by compare each pair of adjacent elements and sapping them if they are in the wrong order
  * @param array - Unordered array
  * @returns Copy of sorted array
