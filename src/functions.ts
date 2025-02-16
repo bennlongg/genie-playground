@@ -1,6 +1,6 @@
 /**
  * The function calculates the nth Fibonacci number using a recursive approach.
- * In the Fibonacci sequence, each number is the sum of 2 previous ones
+ * In the Fibonacci sequence, each number is the sum of2 previous ones
  * @param n - The position in the Fibonacci sequence (must be a non-negative integer)
  * @returns The nth Fibonacci number in the sequence
  * @throws Error if a negative integer is provided as input
@@ -30,4 +30,31 @@ export function bubbleSort(array: number[]): number[] {
   }
 
   return sortedArray;
+}
+
+/**
+ * Binary search is an efficient algorithm for finding an item from a sorted list of items.
+ * @param array array to search through
+ * @param target searched target
+ * @returns target value index or -1
+ */
+export function binarySearch(array: number[], target: number): number {
+  if (!Array.isArray(array)) throw new Error('Passed argument is not a array');
+
+  let left = 0;
+  let right = array.length - 1;
+
+  while (left <= right) {
+    const mid = Math.floor((left + right) / 2);
+
+    if (array[mid] === target) {
+      return mid;
+    } else if (array[mid] < target) {
+      left = mid + 1;
+    } else {
+      right = mid - 1;
+    }
+  }
+
+  return -1;
 }
