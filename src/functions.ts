@@ -1,5 +1,5 @@
 export function fibonacci(n: number): number {
- if (n < 0) throw new Error("Negative numbers are not allowed");
+ if (n <0) throw new Error("Negative numbers are not allowed");
   return n <= 1 ? n : fibonacci(n - 1) + fibonacci(n - 2);
 }
 
@@ -36,3 +36,34 @@ export function bubbleSort(arr: number[]): number[] {
   }
   return sortedArr; // Return the sorted array
 }
+
+
+export const curriedMath = (
+  operator: "+" | "-" | "*" | "/",
+  initialArgs?: number[]
+) => {
+  const args = initialArgs || [];
+  const curriedFunction = (...accumulatedArgs: number[]) => {
+    const fullArray = [...args, ...accumulatedArgs];
+
+    switch (operator) {
+      case "+":
+        return fullArray.reduce((a, b) => a + b, 0);
+      case "-":
+        return fullArray.reduce((a, b) => a - b, 0);
+      case "*":
+        return fullArray.reduce((a, b) => a * b);
+      case "/":
+        try {
+          return fullArray.reduce((a, b) => a / b);
+        } catch (e) {
+          throw new Error("Division by zero is not allowed");
+        }
+      default:
+        throw new Error(
+          `Unsupported operator: ${operator}. Valid operators are +, -, *, and /.`
+        );
+    }
+  };
+  return curriedFunction;
+};
