@@ -1,8 +1,6 @@
 # Vite + VitestThis is a collection of test cases for various JavaScript/TypeScript functions, along with example **Vitest** features like **Mocking** and **Snapshots Testing**.
 
-## Overview
-
-- This repository tests various JavaScript/TypeScript utility functions to demonstrate features like recursion, asynchronous behavior, error handling, and more.
+## Overview- This repository tests various JavaScript/TypeScript utility functions to demonstrate features like recursion, asynchronous behavior, error handling, and more.
 - Vitest is used as the primary testing framework to showcase test cases and their expected outcomes.
 - Examples of function implementation include curriedMath, fibonacci, bubbleSort, binarySearch, and more.
 - Output messages and comments provide additional context throughout the test suite.
@@ -15,6 +13,7 @@ Files: `src/functions.ts` and `src/functions.test.ts`
 - curriedMath function +  (demo for multiple tests/cases )
 - bubbleSort ( sorting )
 - binarySearch ( with divide and conquer repeating condition )
+- aStar ( A* algorithm implementation )
 - etc 
 
 ( You can Add your own functions and test cases )
