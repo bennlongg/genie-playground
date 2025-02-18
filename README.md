@@ -1,6 +1,4 @@
-# Vite + Vitest
-
-This is a collection of test cases for various JavaScript/TypeScript functions, along with example **Vitest** features like **Mocking** and **Snapshots Testing**.
+# Vite + VitestThis is a collection of test cases for various JavaScript/TypeScript functions, along with example **Vitest** features like **Mocking** and **Snapshots Testing**.
 
 ## Overview
 
