@@ -1,6 +1,4 @@
-# genie-playground
-
-## Overview
+# genie-playground## Overview
 This repository serves as a playground for learning and experimenting with TypeScript implementations of common algorithms and data structures. It aims to provide a set of reusable utility functions that can be easily integrated into various projects.
 
 ## Features
@@ -17,3 +15,12 @@ This repository serves as a playground for learning and experimenting with TypeS
 
 ## Purpose
 This repository is intended for educational purposes, serving as a stepping stone for those interested in learning TypeScript and basic computer science concepts like algorithms and data structures.
+
+
+### Index 
+#### Links to key resourses: 
+  - [functions.ts](src/functions.ts)
+  - [functions.test.ts](src/functions.test.ts)
+  - [TypeScript documentation](https://www.typescriptlang.org/docs/)
+  - [Algortim tutorials](https://www.geeksforgeeks.org/fundamentals-of-algorithms/?ref=shm)
+  - [Vitest documentation](https://vitest.dev/guide/)
