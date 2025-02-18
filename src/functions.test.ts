@@ -1,12 +1,12 @@
 import { describe, it, expect } from "vitest";
-import { fibonacci, curriedMath, binarySearch , bubbleSort } from "./functions";
+import { fibonacci, curriedMath, binarySearch , bubbleSort, aStar } from "./functions";
 
 /**
  * Test suite for the Fibonacci function.
  */
 describe("Fibonacci Function", () => {
  /**
-   * Test case to ensure Fibonacci(0) returns 0.
+ * Test case to ensure Fibonacci(0) returns 0.
    */
   it("should return 0 for n = 0", () => {
     expect(fibonacci(0)).toBe(0);
@@ -213,5 +213,129 @@ describe("Bubble Sort Function", () => {
     const arr = [42];
     const sortedArr = bubbleSort(arr);
     expect(sortedArr).toEqual(arr); // Expect array with single element unchanged
+  });
+});
+
+describe("A* Pathfinding Function", () => {
+  // Test case for a simple 5x5 grid without obstacles
+  it("should find the shortest path on a 5x5 grid with no obstacles", () => {
+    const grid = [
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+    ];
+    const start: [number, number] = [0, 0];
+    const end: [number, number] = [4, 4];
+
+    const result = aStar(grid, start, end);
+
+    expect(result).toEqual([
+      [0, 0],
+      [1, 1],
+      [2, 2],
+      [3, 3],
+      [4, 4],
+    ]);
+  });
+
+  // Test case for a grid with obstacles that requires pathfinding
+  it("should navigate around obstacles on a 3x5 grid", () => {
+    const grid = [
+      [0, 0, 1, 0, 0],
+      [0, 1, 0, 0, 0],
+      [0, 0, 0, 1, 0],
+    ];
+    const start: [number, number] = [0, 0];
+    const end: [number, number] = [2, 4];
+
+    const result = aStar(grid, start, end);
+
+    expect(result).toEqual([
+      [0, 0],
+      [1, 1],
+      [2, 2],
+      [2, 3],
+      [2, 4],
+    ]);
+  });
+
+  // Test case for unreachable path due to obstacles
+  it("should return an empty array when no valid path exists due to obstacles", () => {
+    const grid = [
+      [0, 0, 1, 0, 0],
+      [0, 1, 1, 1, 0],
+      [0, 0, 1, 0, 0],
+      [0, 0, 0, 0, 0],
+    ];
+    const start: [number, number] = [0, 0];
+    const end: [number, number] = [3, 4];
+
+    const result = aStar(grid, start, end);
+
+    expect(result).toEqual([]); // No valid path due to obstacles
+  });
+
+  // Test case for handling paths when the target is unreachable
+  it("should return an empty array for unreachable targets", () => {
+    const grid = [
+      [0, 1, 0],
+      [1, 1, 0],
+      [0, 0, 0],
+      [0, 0, 0],
+    ];
+    const start: [number, number] = [0, 0];
+    const unreachable: [number, number] = [3, 2];
+
+    const path = aStar(grid, start, unreachable);
+    expect(path).toEqual([]); // No valid path to the unreachable target
+  });
+
+  // Test case for complex scenarios with multiple obstacles
+  it("should find a path on a 7x7 grid with complex obstacles", () => {
+    const grid = [
+      [0, 0, 0, 1, 0, 0, 0],
+      [0, 1, 0, 1, 0, 1, 0],
+      [0, 0, 0, 0, 0, 0, 0],
+      [1, 1, 1, 1, 1, 1, 1],
+      [0, 0, 0, 1, 0, 0, 0],
+      [0, 1, 0, 1, 1, 1, 0],
+      [0, 0, 0, 0, 0, 0, 0],
+    ];
+    const start: [number, number] = [0, 0];
+    const end: [number, number] = [6, 6];
+
+    const result = aStar(grid, start, end);
+
+    expect(result).toEqual([
+      [0, 0],
+      [1, 1],
+      [2, 2],
+      [2, 3],
+      [2, 4],
+      [2, 5],
+      [2, 6],
+      [3, 6],
+      [4, 6],
+      [5, 6],
+      [6, 6],
+    ]);
+  });
+
+  // Test case for handling large grids efficiently
+  it("should handle an empty grid path", () => {
+    const grid = [
+      [0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0],
+    ];
+    const start: [number, number] = [0, 0];
+    const end: [number, number] = [3, 5];
+
+    const result = aStar(grid, start, end);
+
+    expect(result).toEqual([]); // No valid path due to lack of obstacles
   });
 });
