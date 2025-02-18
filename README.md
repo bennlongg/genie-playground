@@ -8,7 +8,6 @@
 
 `functions.ts` implementations with test cases in `functions.test.ts`
 Files: `src/functions.ts` and `src/functions.test.ts`
-  
 - fibonacci function with recursion + error handling
 - curriedMath function +  (demo for multiple tests/cases )
 - bubbleSort ( sorting )
@@ -116,3 +115,7 @@ Alternatively, `withDefaultProps` can be used to create a higher-order component
  objects. If you want to disable SSR imports detection, set
  `SSR_DETECT` environment variable to `false` or `0`. You can also disable it
  with `import.meta.env.VITE_SSR=false`.
+
+## A quick joke:
+
+Why do JavaScript developers always drink coffee? Because code without caffeine is just 'undefined'.
