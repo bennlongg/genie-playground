@@ -11,7 +11,7 @@
     "url": "git+https://github.com/bennlongg/genie-playground.git"
   },
   "license": "ISC",
-  "author": "Beniniacz Long <benedeklong56@gmail.com>",
+  "author": "Beniniacz Long <ben.long@cosine.sh>",
   "type": "commonjs",
   "main": "dist/index.js",
   "scripts": {
