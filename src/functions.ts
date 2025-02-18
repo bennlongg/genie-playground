@@ -58,3 +58,16 @@ export function fibonacci(n: number): number {
     }
     return arr;
   }
+  
+  /**
+   * Generate a random integer between two specified values, inclusive.
+   * @param {number} min - The minimum value for the random number (inclusive).
+   * @param {number} max - The maximum value for the random number (inclusive).
+   * @returns {number} A random integer within the specified range (inclusive).
+   * @example
+   * // Generates a random integer between 5 and 10, inclusive
+   * return random(5, 10);
+   */
+  export function random(min: number, max: number): number {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
