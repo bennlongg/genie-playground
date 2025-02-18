@@ -24,4 +24,4 @@ From that day forward, Mrs. Ellis's garden became the heart of Radiant Heights. 
 
 ### The Moral of the Story:
 
-In the garden of our lives, every act of kindness is like a vibrant flower. By appreciating and supporting one another, we can create a world where connections flourish, and each person's contributions are celebrated. Emily's journey highlighted the transformative power of empathy, reminding us that true strength comes from understanding and nurturing the colorful tapestry of humanity.
+In the garden of our hearts, empathy is the sun that nurtures growth. As we invest time to understand and support one another, we create vibrant connections that make our community truly flourish. Emily's discovery of kindness in Radiant Heights shows us that understanding and shared intention can renew even the most overlooked corners of life.
