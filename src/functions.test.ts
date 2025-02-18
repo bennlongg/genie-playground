@@ -1,12 +1,12 @@
 import { describe, it, expect } from "vitest";
-import { fibonacci, curriedMath, binarySearch , bubbleSort, aStar } from "./functions";
+import { fibonacci, curriedMath, binarySearch , bubbleSort, aStar, getRandomNumber } from "./functions";
 
 /**
  * Test suite for the Fibonacci function.
  */
 describe("Fibonacci Function", () => {
  /**
- * Test case to ensure Fibonacci(0) returns 0.
+ * Test case to ensure Fibonacci(0) returns0.
    */
   it("should return 0 for n = 0", () => {
     expect(fibonacci(0)).toBe(0);
@@ -38,6 +38,51 @@ describe("Fibonacci Function", () => {
    */
   it("should throw an error for negative numbers", () => {
     expect(() => fibonacci(-1)).toThrow("Negative numbers are not allowed");
+  });
+});
+
+describe("getRandomNumber Function", () => {
+  // Test case for the function returning a random number within the range [min, max]
+  it("should return a random number within the specified range", () => {
+    const min = 1;
+    const max = 5;
+    
+    const result = getRandomNumber(min, max);
+    
+    expect(result).toBeGreaterThanOrEqual(min);
+    expect(result).toBeLessThanOrEqual(max);
+  });
+
+  // Test case for handling edge case when min equals max
+  it("should return min when min equals max", () => {
+    const singleValue = 7;
+    
+    const result = getRandomNumber(singleValue, singleValue);
+    
+    expect(result).toBe(singleValue);
+  });
+
+  // Test case for all numbers produced being integers
+  it("should only produce integers as output", () => {
+    const min = 0;
+    const max = 10;
+    
+    const isInteger = (n: number) => n === Math.floor(n);
+    
+    for (let i = 0; i < 100; i++) {
+      const result = getRandomNumber(min, max);
+      expect(isInteger(result)).toBe(true);
+    }
+  });
+
+  // Test case for handling invalid ranges (min > max)
+  it("should return NaN when min is greater than max", () => {
+    const min = 10;
+    const max = 5;
+    
+    const result = getRandomNumber(min, max);
+    
+    expect(result).toBeNaN(); // NaN is produced due to invalid logic with Math.random
   });
 });
 

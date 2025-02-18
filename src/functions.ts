@@ -7,7 +7,7 @@ type Operation = "add" | "subtract" | "multiply" | "divide";
  */
 export function curriedMath(operation: Operation) {
  return (a: number, b: number): number => {
-    switch (operation) {
+ switch (operation) {
       case "add":
         return a + b;
       case "subtract":
@@ -20,6 +20,19 @@ export function curriedMath(operation: Operation) {
         throw new Error("Unsupported operation");
     }
   };
+}
+
+/**
+ * Generates a random number between min and max (inclusive).
+ * @param min - Minimum value (integer) in the range.
+ * @param max - Maximum value (integer) in the range.
+ * @returns A random integer between min and max (inclusive).
+ */
+export function getRandomNumber(min: number, max: number): number {
+  // Generate a floating-point number between min (inclusive) and max (inclusive)
+  const randomFloat = Math.random() * (max - min + 1) + min;
+  // Use Math.floor() or Math.ceil() to ensure the result is an integer within the desired range
+  return Math.floor(randomFloat);
 }
 
 /**
