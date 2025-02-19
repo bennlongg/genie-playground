@@ -1,7 +1,7 @@
 {
-  "name": "genie-playground",
+ "name": "genie-playground",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is a playground for learning TypeScript implementations of algorithms and data structures.",
   "homepage": "https://github.com/bennlongg/genie-playground#readme",
   "bugs": {
     "url": "https://github.com/bennlongg/genie-playground/issues"
@@ -11,7 +11,7 @@
     "url": "git+https://github.com/bennlongg/genie-playground.git"
   },
   "license": "ISC",
-  "author": "",
+  "author": "Beniniacz Long <benedeklong56@gmail.com>",
   "type": "commonjs",
   "main": "dist/index.js",
   "scripts": {
