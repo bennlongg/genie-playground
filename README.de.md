@@ -30,8 +30,3 @@ Dieses Repository ist für Bildungszwecke gedacht und dient als Sprungbrett für
 - [Beschreibung von TypeScript](https://www.typescriptlang.org/docs/)
 - [Algorbit-Tutorials](https://www.geeksforgeeks.org/fundamentals-of-algorithms/?ref=shm)
 - [Beschreibung von Vitest](https://vitest.dev/guide/)
-
-
-lovely stuff
-some more lovely stuff
-wowzerssssss
