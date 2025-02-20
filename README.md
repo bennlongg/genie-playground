@@ -1,6 +1,6 @@
 #### fizzbuzz-pairs# fizzbuzz_pairsFizzbuzz-pairs is a multi-threaded application that counts upward from1 to max_value (default=50) and 'throws' a shared stock image of a tennis ball between3 buzzers.
 Fizzbuzz-pairs have3 buzzers, each displaying an image of a tennis ball along with a `count` integer placed over it.
-Whilst the `count % 15 == 0`, all buzzers contain an image of a tennis ball and an `OUT` label is displayed on all buzzers a long with a vibrating sound.
+Whilst the `count %15 == 0`, all buzzers contain an image of a tennis ball and an `OUT` label is displayed on all buzzers a long with a vibrating sound.
 
 ### Getting Started
 
@@ -18,6 +18,32 @@ Why can't a programmer master tennis? They keep looping indefinitely in a `while
 
 ```
 var rootID = "buzzer-container"
+```
+##### Fibonacci Function
+
+This package contains a Fibonacci function that calculates the nth Fibonacci number.
+
+**Usage:**
+
+```typescript
+import { fibonacci } from "./functions";
+
+console.log(fibonacci(10)); // Outputs: 55
+```
+
+#### Binary Search Function
+
+This package contains a Binary Search function that searches for a target value in a sorted array of numbers.
+
+**Usage:**
+
+```typescript
+import { binarySearch } from "./binarySearch";
+
+const arr = [1, 2, 3, 4, 5, 6, 7];
+const target = 5;
+
+console.log(binarySearch(arr, target)); // Outputs: 4
 ```
 
 #### A Little Humor
