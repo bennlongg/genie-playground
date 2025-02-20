@@ -76,3 +76,23 @@ export function curriedMath(
   if (operation === "divide") return (x: number, y: number) => x / y;
   throw new Error(`Unsupported operation: ${operation}`);
 }
+
+/**
+ * Returns true if a number is even, false otherwise.
+ *
+ * @param {number} n - The number to be checked.
+ * @returns {boolean} Whether the number is even.
+ */
+export function isEven(n: number): boolean {
+  return n % 2 === 0;
+}
+
+/**
+ * Returns true if a number is odd, false otherwise.
+ *
+ * @param {number} n - The number to be checked.
+ * @returns {boolean} Whether the number is odd.
+ */
+export function isOdd(n: number): boolean {
+  return n % 2 !== 0;
+}
