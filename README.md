@@ -1,4 +1,4 @@
-#### fizzbuzz-pairs# fizzbuzz_pairsFizzbuzz-pairs is a multi-threaded application that counts upward from 1 to max_value (default=50) and 'throws' a shared stock image of a tennis ball between 3 buzzers.
+#### fizzbuzz-pairs# fizzbuzz_pairsFizzbuzz-pairs is a multi-threaded application that counts upward from1 to max_value (default=50) and 'throws' a shared stock image of a tennis ball between 3 buzzers.
 Fizzbuzz-pairs have 3 buzzers, each displaying an image of a tennis ball along with a `count` integer placed over it.
 Whilst the `count % 15 == 0`, all buzzers contain an image of a tennis ball and an `OUT` label is displayed on all buzzers a long with a vibrating sound.
 
@@ -12,6 +12,8 @@ git clone <this repository>
 go mod tidy
 go run .
 ```
+
+Why can't a programmer complete a tennis match? Because they always focus on catching `exceptions` instead of catching the ball!
 
 
 ```
