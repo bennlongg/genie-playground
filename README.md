@@ -58,3 +58,5 @@ Why do programmers prefer dark mode? Because light attracts bugs
 What do you call a programmer from Finland? Nerdic
 
 Git commit scripts are great solutions, but remember: when all else fails, there's always "git reset --hard"
+
+Why was the computer cold? It left its Windows open!
