@@ -58,32 +58,46 @@ This package contains a Bubble Sort function that sorts an array of numbers in a
 **Usage:**
 
 ```typescript
-import { bubbleSort } from "./bubbleSort";
-
 const arr = [5, 3, 8, 4, 2];
 console.log(bubbleSort(arr)); // Outputs: [2, 3, 4, 5, 8]
 ```
 
-#### A* Search Function
+#### A Stricks function
 
-This package contains an A* search function that finds the shortest path in a grid from a start node to an end node, given a heuristic function.
+This package contains a A Stricks function that counts upward from1 to max_value(default=50) and 'throws' a shared stock image of a tennis ball between3 buzzers.
 
 **Usage:**
 
 ```typescript
-import { aStar } from "./aStar";
+var rootID = "buzzer-container"
+var max_value = 50
+Stricks(rootID, max_value)
+```
 
-const grid = [
-  [0, 0, 0, 0],
-  [1, 1, 0, 1],
-  [0, 0, 0, 0]
-];
-const start = { x: 0, y: 0 };
-const end = { x: 2, y: 3 };
-const heuristic = (a: Node, b: Node) => Math.abs(a.x - b.x) + Math.abs(a.y - b.y);
+#### Hanois function
 
-console.log(aStar(grid, heuristic, start, end)); 
-// Outputs: { path: [{ x: 0, y: 0 }, { x: 0, y: 1 }, { x: 0, y: 2 }, { x: 1, y: 2 }, { x: 2, y: 2 }, { x: 2, y: 3 }], distance: 5 }
+This package contains Hanois function for hanoi's tower puzzle
+
+**Usage:**
+
+```typescript
+const hanoi = (n: number, source: number[], auxiliary: number[], destination: number[]): void => {
+  if (n === 1) {
+    destination.push(source.pop()!);
+  } else {
+    hanoi(n - 1, source, destination, auxiliary);
+    destination.push(source.pop()!);
+    hanoi(n - 1, auxiliary, source, destination);
+  }
+};
+
+const numDisks: number = 3;
+const sourcePeg: number[] = [3, 2, 1];
+const auxiliaryPeg: number[] = [];
+const destinationPeg: number[] = [];
+
+hanoi(numDisks, sourcePeg, auxiliaryPeg, destinationPeg);
+console.log(sourcePeg, auxiliaryPeg, destinationPeg); // Outputs: [], [], [3, 2, 1]
 ```
 
 #### A Little Humor
@@ -96,7 +110,8 @@ console.log(aStar(grid, heuristic, start, end));
 
 **Buzzer 3**: Haha, good one. But you know what's even more fun?
 
-**Buzzer 1 & 2**: What?
+**Buzzer
+1 & 2**: What?
 
 **Buzzer 3**: Throwing a tennis ball while counting, of course!
 
