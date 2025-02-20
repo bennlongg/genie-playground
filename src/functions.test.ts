@@ -72,7 +72,6 @@ describe("binarySearch", () => {
     expect(binarySearch([1, 2, 3, 4], 4)).toBe(3);
   });
 
-  // Additional test cases
   it("should return -1 for a target not in the array", () => {
     expect(binarySearch([1, 2, 3, 4, 5], 6)).toBe(-1);
     expect(binarySearch([1, 2, 3, 4, 5], 0)).toBe(-1);
