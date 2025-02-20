@@ -37,8 +37,12 @@ Run the tests:
 npm run tests
 ```
 
-## joke
+## Joke Time 🤣
 
 What's the object oriented way to become wealthy? Inheritance
 
-Another joke for fun? How do you comfort a JavaScript bug? You console it
+How do you comfort a JavaScript bug? You console it
+
+Why did the functional programmer get thrown out of school? He refused to take classes
+
+Why do Java developers wear glasses? Because they can't C#
