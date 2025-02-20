@@ -4,7 +4,7 @@
  * @returns {string} A test string.
  */
 export function test(): string {
-  return "This is a test function";
+  return "This is a test changed function";
 }
 
 /**
