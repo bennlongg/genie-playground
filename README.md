@@ -46,3 +46,5 @@ How do you comfort a JavaScript bug? You console it
 Why did the functional programmer get thrown out of school? He refused to take classes
 
 Why do Java developers wear glasses? Because they can't C#
+
+Why did the JavaScript developer leave? Because she didn't get arrays
