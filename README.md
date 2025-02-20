@@ -48,3 +48,5 @@ Why did the functional programmer get thrown out of school? He refused to take c
 Why do Java developers wear glasses? Because they can't C#
 
 Why did the JavaScript developer leave? Because she didn't get arrays
+
+How many software engineers does it take to change a light bulb? None, it's a hardware problem
