@@ -1,13 +1,19 @@
-import { test, fibonacci, bubbleSort, binarySearch } from "./functions";
+import {
+  test,
+  fibonacci,
+  bubbleSort,
+  binarySearch,
+  curriedMath,
+} from "./functions";
 
 /**
  * Test for test function.
  */
 describe("test", () => {
-  it('should return a test string', () => {
+  it("should return a test string", () => {
     expect(test()).toMatch("This is a test function");
   });
-})
+});
 
 /**
  * Tests for the fibonacci function.
@@ -81,5 +87,36 @@ describe("binarySearch", () => {
     expect(binarySearch([1, 2, 3, 4, 5], 1)).toBe(0);
     expect(binarySearch([1, 2, 3, 4, 5], 3)).toBe(2);
     expect(binarySearch([1, 2, 3, 4, 5], 5)).toBe(4);
+  });
+});
+
+/**
+ * Tests for curriedMath function.
+ */
+describe("curriedMath", () => {
+  it("should return a curried add function", () => {
+    const add = curriedMath("add");
+    expect(add(2, 3)).toEqual(5);
+  });
+
+  it("should return a curried subtract function", () => {
+    const subtract = curriedMath("subtract");
+    expect(subtract(5, 3)).toEqual(2);
+  });
+
+  it("should return a curried multiply function", () => {
+    const multiply = curriedMath("multiply");
+    expect(multiply(2, 3)).toEqual(6);
+  });
+
+  it("should return a curried divide function", () => {
+    const divide = curriedMath("divide");
+    expect(divide(6, 3)).toEqual(2);
+  });
+
+  it("should throw an error for unsupported operations", () => {
+    expect(() => curriedMath("invalidOperation")).toThrow(
+      "Unsupported operation: invalidOperation"
+    );
   });
 });
