@@ -54,3 +54,5 @@ How many software engineers does it take to change a light bulb? None, it's a ha
 A SQL query goes into a bar, walks up to two tables and asks, "May I join you?"
 
 Why do programmers prefer dark mode? Because light attracts bugs
+
+What do you call a programmer from Finland? Nerdic
