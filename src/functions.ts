@@ -59,3 +59,20 @@ export function binarySearch(arr: number[], target: number): number {
   }
   return -1;
 }
+
+/**
+ * Returns a curried math function based on the specified operation.
+ *
+ * @param {string} operation - The name of the math operation ('add', 'subtract', 'multiply', 'divide').
+ * @returns {function} A curried math function.
+ * @throws {Error} If operation is not supported.
+ */
+export function curriedMath(
+  operation: "add" | "subtract" | "multiply" | "divide"
+) {
+  if (operation === "add") return (x: number, y: number) => x + y;
+  if (operation === "subtract") return (x: number, y: number) => x - y;
+  if (operation === "multiply") return (x: number, y: number) => x * y;
+  if (operation === "divide") return (x: number, y: number) => x / y;
+  throw new Error(`Unsupported operation: ${operation}`);
+}
