@@ -1,6 +1,4 @@
-#### fizzbuzz-pairs# fizzbuzz_pairs
-
-Fizzbuzz-pairs is a multi-threaded application that counts upward from 1 to max_value (default=50) and 'throws' a shared stock image of a tennis ball between 3 buzzers.
+#### fizzbuzz-pairs# fizzbuzz_pairsFizzbuzz-pairs is a multi-threaded application that counts upward from 1 to max_value (default=50) and 'throws' a shared stock image of a tennis ball between 3 buzzers.
 Fizzbuzz-pairs have 3 buzzers, each displaying an image of a tennis ball along with a `count` integer placed over it.
 Whilst the `count % 15 == 0`, all buzzers contain an image of a tennis ball and an `OUT` label is displayed on all buzzers a long with a vibrating sound.
 
@@ -32,3 +30,5 @@ var rootID = "buzzer-container"
 **Buzzer 1 & 2**: What?
 
 **Buzzer 3**: Throwing a tennis ball while counting, of course!
+
+**Buzzer 4**: Yes! And don't forget the vibrating sound at 15!
