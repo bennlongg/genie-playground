@@ -60,3 +60,5 @@ What do you call a programmer from Finland? Nerdic
 Git commit scripts are great solutions, but remember: when all else fails, there's always "git reset --hard"
 
 Why was the computer cold? It left its Windows open!
+
+What do you get when you cross a computer and a lifeguard? In an ideal world, a dumb life guard. In an ideal world hardware is lifeguard and software is the drowned swimmer
