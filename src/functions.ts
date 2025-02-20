@@ -20,33 +20,6 @@ export function fibonacci(n: number): number {
 }
 
 /**
- * Performs a binary search on a sorted array to find the target value.
- *
- * @param {number[]} arr - The sorted array of numbers.
- * @param {number} target - The number to search for in the array.
- * @param {number} [start=0] - The starting index for the search range.
- * @param {number} [end=arr.length-1] - The ending index for the search range.
- * @returns {number} The index of the target in the array, or -1 if not found.
- */
-export function binarySearch(
-  arr: number[],
-  target: number,
-  start?: number,
-  end?: number
-): number {
-  start = start ?? 0;
-  end = end ?? arr.length - 1;
-
-  if (start > end) return -1;
-
-  const mid = Math.floor((start + end) / 2);
-  if (arr[mid] === target) return mid;
-  if (arr[mid] < target) return binarySearch(arr, target, mid + 1, end);
-
-  return binarySearch(arr, target, start, mid - 1);
-}
-
-/**
  * Sorts an array of numbers in ascending order using the bubble sort algorithm.
  *
  * @param {number[]} arr - The array of numbers to be sorted.
@@ -64,4 +37,25 @@ export function bubbleSort(arr: number[]): number[] {
     }
   }
   return copiedArray;
+}
+
+/**
+ * Performs a binary search on a sorted array to find
+ * the index of a target value.
+ *
+ * @param {number[]} arr - The sorted array of numbers to be searched.
+ * @param {number} target - The target number to search for in the array.
+ * @returns {number} The index of the target value in the array, or -1 if not found.
+ */
+export function binarySearch(arr: number[], target: number): number {
+  let left = 0;
+  let right = arr.length - 1;
+
+  while (left <= right) {
+    const mid = Math.floor((left + right) / 2);
+    if (arr[mid] === target) return mid;
+
+    arr[mid] < target ? (left = mid + 1) : (right = mid - 1);
+  }
+  return -1;
 }
