@@ -46,6 +46,19 @@ const target = 5;
 console.log(binarySearch(arr, target)); // Outputs: 4
 ```
 
+#### Bubble Sort Function
+
+This package contains a Bubble Sort function that sorts an array of numbers in ascending order.
+
+**Usage:**
+
+```typescript
+import { bubbleSort } from "./bubbleSort";
+
+const arr = [5, 3, 8, 4, 2];
+console.log(bubbleSort(arr)); // Outputs: [2, 3, 4, 5, 8]
+```
+
 #### A Little Humor
 **Buzzer 1**: Why did the JavaScript developer keep their gym membership?
 
