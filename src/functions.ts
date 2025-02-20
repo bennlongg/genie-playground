@@ -4,7 +4,7 @@
  * @returns {string} A test string.
  */
 export function test(): string {
-  return "This is a test changed function";
+  return "This is a test function";
 }
 
 /**
@@ -44,4 +44,24 @@ export function binarySearch(
   if (arr[mid] < target) return binarySearch(arr, target, mid + 1, end);
 
   return binarySearch(arr, target, start, mid - 1);
+}
+
+/**
+ * Sorts an array of numbers in ascending order using the bubble sort algorithm.
+ *
+ * @param {number[]} arr - The array of numbers to be sorted.
+ * @returns {number[]} A new array containing the sorted numbers.
+ */
+export function bubbleSort(arr: number[]): number[] {
+  const copiedArray = arr.slice(); // Copy the array to avoid mutating the original
+  for (let i = 0; i < copiedArray.length; i++) {
+    for (let j = 0; j < copiedArray.length - 1; j++) {
+      if (arr[j] > arr[j + 1]) {
+        const temp = copiedArray[j];
+        copiedArray[j] = copiedArray[j + 1];
+        copiedArray[j + 1] = temp;
+      }
+    }
+  }
+  return copiedArray;
 }
