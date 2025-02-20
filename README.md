@@ -50,3 +50,5 @@ Why do Java developers wear glasses? Because they can't C#
 Why did the JavaScript developer leave? Because she didn't get arrays
 
 How many software engineers does it take to change a light bulb? None, it's a hardware problem
+
+A SQL query goes into a bar, walks up to two tables and asks, "May I join you?"
