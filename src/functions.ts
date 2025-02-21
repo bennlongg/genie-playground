@@ -61,3 +61,7 @@ export function fibonacci(n: number): number {
   export function isEven(num: number): boolean {
     return num % 2 === 0;
   }
+  
+  export function getCurrentYear(): number {
+    return new Date().getFullYear();
+  }

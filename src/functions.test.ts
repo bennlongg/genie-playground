@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { fibonacci, binarySearch, bubbleSort, curriedMath, isOdd, isEven } from "./functions";
+import { fibonacci, binarySearch, bubbleSort, curriedMath, isOdd, isEven, getCurrentYear } from "./functions";
 
 describe("Fibonacci Function", () => {
   it("should return 0 for n = 0", () => {
@@ -142,5 +142,12 @@ describe("isEven Function", () => {
 
   it("should handle negative odd numbers", () => {
     expect(isEven(-3)).toBe(false);
+  });
+});
+
+describe("getCurrentYear Function", () => {
+  it("should return the current year", () => {
+    const expectedYear = new Date().getFullYear();
+    expect(getCurrentYear()).toBe(expectedYear);
   });
 });
