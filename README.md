@@ -15,3 +15,5 @@ If you'd like to contribute to the project, please make a pull request with your
 - "Why do programmers prefer dark mode? Because light attracts bugs!"
 
 - "Why do programmers prefer using the dark mode? Because the bugs are attracted to the light!"
+
+- "Why do Java developers wear glasses? Because they can't C#."
