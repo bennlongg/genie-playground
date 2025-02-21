@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { fibonacci, binarySearch, bubbleSort } from "./functions";
+import { fibonacci, binarySearch, bubbleSort, curriedMath } from "./functions";
 
 describe("Fibonacci Function", () => {
   it("should return 0 for n = 0", () => {
@@ -76,5 +76,27 @@ describe("Bubble Sort Function", () => {
     const sortedArr = bubbleSort(arr);
     expect(arr).toEqual([5, 4, 3, 2, 1]); // Check original array remains unchanged
     expect(arr).not.toBe(sortedArr); // Ensure a new array is returned
+  });
+});
+
+describe("Curried Math Function", () => {
+  it("should correctly add two numbers", () => {
+    const add = curriedMath("+");
+    expect(add(3, 4)).toBe(7);
+  });
+
+  it("should correctly subtract two numbers", () => {
+    const subtract = curriedMath("-");
+    expect(subtract(7, 4)).toBe(3);
+  });
+
+  it("should correctly multiply two numbers", () => {
+    const multiply = curriedMath("*");
+    expect(multiply(3, 4)).toBe(12);
+  });
+
+  it("should correctly divide two numbers", () => {
+    const divide = curriedMath("/");
+    expect(divide(12, 4)).toBe(3);
   });
 });

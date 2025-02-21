@@ -36,3 +36,20 @@ export function fibonacci(n: number): number {
   
     return sortedArr;
   }
+  
+  export function curriedMath(operator: "+" | "-" | "*" | "/") {
+    return (a: number, b: number): number => {
+      switch (operator) {
+        case "+":
+          return a + b;
+        case "-":
+          return a - b;
+        case "*":
+          return a * b;
+        case "/":
+          return a / b;
+        default:
+          throw new Error("Unsupported operator");
+      }
+    };
+  }
