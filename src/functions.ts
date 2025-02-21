@@ -14,3 +14,13 @@ export function fibonacci(n: number): number {
     }
     return arr;
   }
+
+  export function binarySearch(arr: number[], num: number, low: number = 0, high: number = arr.length - 1): number {
+    if (low > high) return -1;  // check if interval is valid
+
+    const mid: number = Math.floor((low + high) / 2);  // calculate middle index
+    if (arr[mid] === num) return mid;  // check if element at middle index is the target number
+
+    // if not, update search range and call function recursively
+    return arr[mid] > num ? binarySearch(arr, num, low, mid-1) : binarySearch(arr, num, mid+1, high);
+  }
