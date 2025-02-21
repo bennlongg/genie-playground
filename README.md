@@ -10,4 +10,6 @@ If you'd like to contribute to the project, please make a pull request with your
 
 ## Joke
 
-Why don’t programmers like nature? It has too many bugs.
+- Why don't programmers like nature? It has too many bugs.
+
+- "Why do programmers prefer dark mode? Because light attracts bugs!"
