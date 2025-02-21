@@ -74,9 +74,7 @@ const getFoo = () => {
 
 const FOO = name => console.log("I'm fucking insane mother fucker $1", name)
 const Webstack = name => console.log("I'm doing a task call for $1", name)
-const Jizz = function Jizz(name) {
-  console.log("OK!! I'm doing it for $1", name)
-}
+
 
 /**
  *
@@ -151,7 +149,6 @@ export {
   getFoo,
   FOO,
   Webstack,
-  Jizz,
   getLargestValue,
   removeDuplicates,
   reverseString,
