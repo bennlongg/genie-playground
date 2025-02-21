@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { fibonacci, binarySearch, bubbleSort, curriedMath, isOdd, isEven, getCurrentYear, isYearOfTheTiger, isYearOfThePig, isYearOfTheDragon, isYearOfTheDog } from "./functions";
+import { fibonacci, binarySearch, bubbleSort, curriedMath, isOdd, isEven, getCurrentYear, isYearOfTheTiger, isYearOfThePig, isYearOfTheDragon, isYearOfTheDog, isYearOfTheRat, isYearOfTheOx, isYearOfTheRabbit, isYearOfTheSnake, isYearOfTheHorse, isYearOfTheGoat, isYearOfTheMonkey, isYearOfTheRooster } from "./functions";
 
 describe("Fibonacci Function", () => {
   it("should return 0 for n = 0", () => {
@@ -238,5 +238,205 @@ describe("isYearOfTheDog Function", () => {
 
   it("should throw error on invalid input", () => {
     expect(() => isYearOfTheDog(3.14)).toThrow('Invalid input, year must be an integer');
+  });
+});
+
+describe("isYearOfTheRat Function", () => {
+  it("should return true for known Year of the Rat", () => {
+    expect(isYearOfTheRat(2020)).toBe(true);
+    expect(isYearOfTheRat(2008)).toBe(true);
+  });
+
+  it("should return false for non-Year of the Rat", () => {
+    expect(isYearOfTheRat(2021)).toBe(false);
+    expect(isYearOfTheRat(2019)).toBe(false);
+  });
+
+  it("should handle zero correctly", () => {
+    expect(isYearOfTheRat(0)).toBe(false);
+  });
+
+  it("should handle negative years", () => {
+    expect(isYearOfTheRat(-3)).toBe(false);
+    expect(isYearOfTheRat(-15)).toBe(false); 
+  });
+
+  it("should throw error on invalid input", () => {
+    expect(() => isYearOfTheRat('invalid')).toThrow('Invalid input, year must be an integer');
+  });
+});
+
+describe("isYearOfTheOx Function", () => {
+  it("should return true for known Year of the Ox", () => {
+    expect(isYearOfTheOx(2021)).toBe(true);
+    expect(isYearOfTheOx(2009)).toBe(true);
+  });
+
+  it("should return false for non-Year of the Ox", () => {
+    expect(isYearOfTheOx(2020)).toBe(false);
+    expect(isYearOfTheOx(2022)).toBe(false);
+  });
+
+  it("should handle zero correctly", () => {
+    expect(isYearOfTheOx(0)).toBe(false);
+  });
+
+  it("should handle negative years", () => {
+    expect(isYearOfTheOx(-4)).toBe(false);
+    expect(isYearOfTheOx(-16)).toBe(false); 
+  });
+
+  it("should throw error on invalid input", () => {
+    expect(() => isYearOfTheOx(2.5)).toThrow('Invalid input, year must be an integer');
+  });
+});
+
+describe("isYearOfTheRabbit Function", () => {
+  it("should return true for known Year of the Rabbit", () => {
+    expect(isYearOfTheRabbit(2023)).toBe(true);
+    expect(isYearOfTheRabbit(2011)).toBe(true);
+  });
+
+  it("should return false for non-Year of the Rabbit", () => {
+    expect(isYearOfTheRabbit(2024)).toBe(false);
+    expect(isYearOfTheRabbit(2022)).toBe(false);
+  });
+
+  it("should handle zero correctly", () => {
+    expect(isYearOfTheRabbit(0)).toBe(false);
+  });
+
+  it("should handle negative years", () => {
+    expect(isYearOfTheRabbit(-10)).toBe(false);
+    expect(isYearOfTheRabbit(-22)).toBe(false); 
+  });
+
+  it("should throw error on invalid input", () => {
+    expect(() => isYearOfTheRabbit('year')).toThrow('Invalid input, year must be an integer');
+  });
+});
+
+describe("isYearOfTheSnake Function", () => {
+  it("should return true for known Year of the Snake", () => {
+    expect(isYearOfTheSnake(2025)).toBe(true);
+    expect(isYearOfTheSnake(2013)).toBe(true);
+  });
+
+  it("should return false for non-Year of the Snake", () => {
+    expect(isYearOfTheSnake(2024)).toBe(false);
+    expect(isYearOfTheSnake(2026)).toBe(false);
+  });
+
+  it("should handle zero correctly", () => {
+    expect(isYearOfTheSnake(0)).toBe(false);
+  });
+
+  it("should handle negative years", () => {
+    expect(isYearOfTheSnake(-6)).toBe(false);
+    expect(isYearOfTheSnake(-18)).toBe(false); 
+  });
+
+  it("should throw error on invalid input", () => {
+    expect(() => isYearOfTheSnake(3.5)).toThrow('Invalid input, year must be an integer');
+  });
+});
+
+describe("isYearOfTheHorse Function", () => {
+  it("should return true for known Year of the Horse", () => {
+    expect(isYearOfTheHorse(2026)).toBe(true);
+    expect(isYearOfTheHorse(2014)).toBe(true);
+  });
+
+  it("should return false for non-Year of the Horse", () => {
+    expect(isYearOfTheHorse(2027)).toBe(false);
+    expect(isYearOfTheHorse(2025)).toBe(false);
+  });
+
+  it("should handle zero correctly", () => {
+    expect(isYearOfTheHorse(0)).toBe(false);
+  });
+
+  it("should handle negative years", () => {
+    expect(isYearOfTheHorse(-5)).toBe(false);
+    expect(isYearOfTheHorse(-17)).toBe(false); 
+  });
+
+  it("should throw error on invalid input", () => {
+    expect(() => isYearOfTheHorse(2.5)).toThrow('Invalid input, year must be an integer');
+  });
+});
+
+describe("isYearOfTheGoat Function", () => {
+  it("should return true for known Year of the Goat", () => {
+    expect(isYearOfTheGoat(2027)).toBe(true);
+    expect(isYearOfTheGoat(2015)).toBe(true);
+  });
+
+  it("should return false for non-Year of the Goat", () => {
+    expect(isYearOfTheGoat(2028)).toBe(false);
+    expect(isYearOfTheGoat(2026)).toBe(false);
+  });
+
+  it("should handle zero correctly", () => {
+    expect(isYearOfTheGoat(0)).toBe(false);
+  });
+
+  it("should handle negative years", () => {
+    expect(isYearOfTheGoat(-5)).toBe(false);
+    expect(isYearOfTheGoat(-17)).toBe(false); 
+  });
+
+  it("should throw error on invalid input", () => {
+    expect(() => isYearOfTheGoat(1.9)).toThrow('Invalid input, year must be an integer');
+  });
+});
+
+describe("isYearOfTheMonkey Function", () => {
+  it("should return true for known Year of the Monkey", () => {
+    expect(isYearOfTheMonkey(2028)).toBe(true);
+    expect(isYearOfTheMonkey(2016)).toBe(true);
+  });
+
+  it("should return false for non-Year of the Monkey", () => {
+    expect(isYearOfTheMonkey(2029)).toBe(false);
+    expect(isYearOfTheMonkey(2027)).toBe(false);
+  });
+
+  it("should handle zero correctly", () => {
+    expect(isYearOfTheMonkey(0)).toBe(false);
+  });
+
+  it("should handle negative years", () => {
+    expect(isYearOfTheMonkey(-3)).toBe(false);
+    expect(isYearOfTheMonkey(-15)).toBe(false); 
+  });
+
+  it("should throw error on invalid input", () => {
+    expect(() => isYearOfTheMonkey(4.5)).toThrow('Invalid input, year must be an integer');
+  });
+});
+
+describe("isYearOfTheRooster Function", () => {
+  it("should return true for known Year of the Rooster", () => {
+    expect(isYearOfTheRooster(2029)).toBe(true);
+    expect(isYearOfTheRooster(2017)).toBe(true);
+  });
+
+  it("should return false for non-Year of the Rooster", () => {
+    expect(isYearOfTheRooster(2030)).toBe(false);
+    expect(isYearOfTheRooster(2028)).toBe(false);
+  });
+
+  it("should handle zero correctly", () => {
+    expect(isYearOfTheRooster(0)).toBe(false);
+  });
+
+  it("should handle negative years", () => {
+    expect(isYearOfTheRooster(-13)).toBe(false);
+    expect(isYearOfTheRooster(-5)).toBe(false); 
+  });
+
+  it("should throw error on invalid input", () => {
+    expect(() => isYearOfTheRooster('dog')).toThrow('Invalid input, year must be an integer');
   });
 });

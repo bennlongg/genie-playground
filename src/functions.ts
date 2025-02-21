@@ -66,30 +66,57 @@ export function fibonacci(n: number): number {
     return new Date().getFullYear();
   }
   
-  export function isYearOfTheTiger(year: number): boolean {
+  function isZodiacYear(year: number, remainder: number): boolean {
     if (!Number.isInteger(year)) {
       throw new Error('Invalid input, year must be an integer');
     }
-    return year % 12 === 6;
+    return year % 12 === remainder;
+  }
+  
+  export function isYearOfTheTiger(year: number): boolean {
+    return isZodiacYear(year, 6);
   }
   
   export function isYearOfThePig(year: number): boolean {
-    if (!Number.isInteger(year)) {
-      throw new Error('Invalid input, year must be an integer');
-    }
-    return year % 12 === 11
-  }
-  
-  export function isYearOfTheDragon(year: number): boolean {
-    if (!Number.isInteger(year)) {
-      throw new Error('Invalid input, year must be an integer');
-    }
-    return year % 12 === 8;
+    return isZodiacYear(year, 11);
   }
 
   export function isYearOfTheDog(year: number): boolean {
-    if (!Number.isInteger(year)) {
-      throw new Error('Invalid input, year must be an integer');
-    }
-    return year % 12 === 10;
+    return isZodiacYear(year, 10);
+  }
+
+  export function isYearOfTheDragon(year: number): boolean {
+    return isZodiacYear(year, 8);
+  }
+
+  export function isYearOfTheRat(year: number): boolean {
+    return isZodiacYear(year, 4);
+  }
+
+  export function isYearOfTheOx(year: number): boolean {
+    return isZodiacYear(year, 5);
+  }
+
+  export function isYearOfTheRabbit(year: number): boolean {
+    return isZodiacYear(year, 7);
+  }
+
+  export function isYearOfTheSnake(year: number): boolean {
+    return isZodiacYear(year, 9);
+  }
+  
+  export function isYearOfTheHorse(year: number): boolean {
+    return isZodiacYear(year, 10);
+  }
+
+  export function isYearOfTheGoat(year: number): boolean {
+    return isZodiacYear(year, 11);
+  }
+
+  export function isYearOfTheMonkey(year: number): boolean {
+    return isZodiacYear(year, 0);
+  }
+
+  export function isYearOfTheRooster(year: number): boolean {
+    return isZodiacYear(year, 1);
   }
