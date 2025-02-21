@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { fibonacci, binarySearch, bubbleSort, curriedMath, isOdd, isEven, getCurrentYear, isYearOfTheTiger, isYearOfThePig, isYearOfTheDragon } from "./functions";
+import { fibonacci, binarySearch, bubbleSort, curriedMath, isOdd, isEven, getCurrentYear, isYearOfTheTiger, isYearOfThePig, isYearOfTheDragon, isYearOfTheDog } from "./functions";
 
 describe("Fibonacci Function", () => {
   it("should return 0 for n = 0", () => {
@@ -212,5 +212,31 @@ describe("isYearOfTheDragon Function", () => {
   it("should handle negative years", () => {
     expect(isYearOfTheDragon(-12)).toBe(false);
     expect(isYearOfTheDragon(-12)).toBe(true);
+  });
+});
+
+
+describe("isYearOfTheDog Function", () => {
+  it("should return true for known Year of the Dog", () => {
+    expect(isYearOfTheDog(2018)).toBe(true);
+    expect(isYearOfTheDog(2006)).toBe(true);
+  });
+
+  it("should return false for non-Year of the Dragon", () => {
+    expect(isYearOfTheDog(2019)).toBe(false);
+    expect(isYearOfTheDog(2020)).toBe(false);
+  });
+
+  it("should handle zero correctly", () => {
+    expect(isYearOfTheDog(0)).toBe(false);
+  });
+
+  it("should handle negative years", () => {
+    expect(isYearOfTheDog(-13)).toBe(false);
+    expect(isYearOfTheDog(-1)).toBe(false); 
+  });
+
+  it("should throw error on invalid input", () => {
+    expect(() => isYearOfTheDog(3.14)).toThrow('Invalid input, year must be an integer');
   });
 });

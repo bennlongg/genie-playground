@@ -86,3 +86,10 @@ export function fibonacci(n: number): number {
     }
     return year % 12 === 8;
   }
+
+  export function isYearOfTheDog(year: number): boolean {
+    if (!Number.isInteger(year)) {
+      throw new Error('Invalid input, year must be an integer');
+    }
+    return year % 12 === 10;
+  }
