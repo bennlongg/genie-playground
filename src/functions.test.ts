@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { fibonacci, binarySearch, bubbleSort, curriedMath, isOdd, isEven, getCurrentYear, isYearOfTheTiger, isYearOfThePig } from "./functions";
+import { fibonacci, binarySearch, bubbleSort, curriedMath, isOdd, isEven, getCurrentYear, isYearOfTheTiger, isYearOfThePig, isYearOfTheDragon } from "./functions";
 
 describe("Fibonacci Function", () => {
   it("should return 0 for n = 0", () => {
@@ -191,5 +191,26 @@ describe("isYearOfThePig Function", () => {
   it("should handle negative years", () => {
     expect(isYearOfThePig(-11)).toBe(false);
     expect(isYearOfThePig(-1)).toBe(true);
+  });
+});
+
+describe("isYearOfTheDragon Function", () => {
+  it("should return true for known Year of the Dragon", () => {
+    expect(isYearOfTheDragon(2012)).toBe(true);
+    expect(isYearOfTheDragon(2000)).toBe(true);
+  });
+
+  it("should return false for non-Year of the Dragon", () => {
+    expect(isYearOfTheDragon(2013)).toBe(false);
+    expect(isYearOfTheDragon(2011)).toBe(false);
+  });
+
+  it("should handle zero correctly", () => {
+    expect(isYearOfTheDragon(0)).toBe(false);
+  });
+
+  it("should handle negative years", () => {
+    expect(isYearOfTheDragon(-12)).toBe(false);
+    expect(isYearOfTheDragon(-12)).toBe(true);
   });
 });
