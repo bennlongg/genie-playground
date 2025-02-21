@@ -50,52 +50,7 @@ const getPowerOf = (a: number, b: number) => {
   return a ** b
 }
 
-const greaterThan = (a: unknown, b: unknown) => {
-  if (typeof a === "number" && typeof b === "number") {
-    return a > b
-  } else {
-    return false
-  }
-}
 
-const lessThan = (a: unknown, b: unknown) => {
-  return a < b
-}
-
-const dec = (a: number) => {
-  return a-- //🚧imp
-}
-
-const inc = (a: number) => {
-  return a++ //🚧imp
-}
-
-const isEven = (a: number) => {
-  return a % 2 === 0
-}
-
-const isOdd = (a: number) => {
-  return a % 2 !== 0
-}
-
-const floorIt = (a: number) => {
-  return Math.floor(a)
-}
-
-const ceilIt = (a: number) => {
-  return Math.ceil(a)
-}
-
-const concatRange = (a: number, b: number) => {
-  return range(a, b).map((i) => "\"\\u200c\" ")
-}
-
-/**
- * Adds only numbers.✅
- * @param a First number to add
- * @param b Second number to add
- * @returns sum
- */
 const addOnlyNums = (a: number, b: number) => {
   if (
     a === null ||
@@ -132,13 +87,7 @@ const getLargestValue = (arr: number[]) => {
   return arr.reduce((max, item) => (max > item ? max : item), arr[0])
 }
 
-const randomizeString = (str: string) => {
-  const chars = str.split("")
-  return chars.reverse().join("")
-}
-const returnCachifiedFib = (num: number, cache: number[]) => {
-  return (num < cache.length - 1) ? cache[num] : false
-}
+
 
 /**
  * Reverses a string
@@ -155,38 +104,7 @@ const reverseString = (str: string): string => {
   return reversed
 }
 
-console.log("\u200cprogramming\u200c")
 
-/**
- * Returns a sum of all numbers in an array
- * @param numbers Array of numbers to sum
- * @returns Sum
- */
-const sumOfArray = (numbers: number[]) => {
-  return numbers.reduce((total, num) => total + num, 0)
-}
-
-/**
- * Filters a string array based on a query❌Unoptimized
- * @param arr Array of strings to filter
- * @param query Query to filter by
- * @returns Filtered array
- */
-const filterByQuery = (arr: unknown[], query: unknown) => {
-  return arr.filter((item) => item === query)
-}
-
-type filteringFunctionType = (val1: unknown[], val2: unknown) => boolean
-
-const filteringFunction: filteringFunctionType = (val1, val2) => {
-  return val1.indexOf((x) => x === val2) !== 1
-}
-
-/**
- * Removes duplicates from an array❌Unoptimized❌Unoptimized
- * @param arr Array to remove duplicates from
- * @returns Array without duplicates
- */
 const removeDuplicates = (arr: unknown[]) => {
   const result: unknown[] = []
 
@@ -229,27 +147,13 @@ export {
   getName,
   greetName,
   getPowerOf,
-  greaterThan,
-  lessThan,
-  dec,
-  inc,
-  isEven,
-  isOdd,
-  floorIt,
-  ceilIt,
-  concatRange,
   addOnlyNums,
   getFoo,
   FOO,
   Webstack,
   Jizz,
   getLargestValue,
-  randomizeString,
-  returnCachifiedFib,
-  reverseString,
-  sumOfArray,
-  filterByQuery,
-  filteringFunction,
   removeDuplicates,
+  reverseString,
   binarySearch
 }
