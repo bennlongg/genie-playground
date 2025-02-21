@@ -1,1 +1,118 @@
-# genie-playground
+#### fizzbuzz-pairs
+
+# fizzbuzz_pairs
+
+Fizzbuzz-pairs is a multi-threaded application that counts upward from 1 to max_value (default=50) and 'throws' a shared stock image of a tennis ball between 3 buzzers.
+
+Fizzbuzz-pairs have 3 buzzers, each displaying an image of a tennis ball along with a `count` integer placed over it. Whilst the `count %15 == 0`, all buzzers contain an image of a tennis ball and an `OUT` label is displayed on all buzzers a long with a vibrating sound.
+
+### Getting Started
+
+Download the release package and run the executable. 
+
+**Developers** 
+
+```go
+git clone <this repository>
+go mod tidy
+go run .
+```
+
+Why can't a programmer master tennis? They keep looping indefinitely in a `while loop`!
+
+```
+var rootID = "buzzer-container"
+```
+
+#### Fibonacci Function
+
+This package contains a Fibonacci function that calculates the nth Fibonacci number.
+
+**Usage:**
+
+```typescript
+import { fibonacci } from "./functions";
+
+console.log(fibonacci(10)); // Outputs: 55
+```
+
+#### Binary Search Function
+
+This package contains a Binary Search function that searches for a target value in a sorted array of numbers.
+
+**Usage:**
+
+```typescript
+import { binarySearch } from "./binarySearch";
+
+const arr = [1, 2, 3, 4, 5, 6, 7];
+const target = 5;
+
+console.log(binarySearch(arr, target)); // Outputs: 4
+```
+
+#### Bubble Sort Function
+
+This package contains a Bubble Sort function that sorts an array of numbers in ascending order.
+
+**Usage:**
+
+```typescript
+const arr = [5, 3, 8, 4, 2];
+console.log(bubbleSort(arr)); // Outputs: [2, 3, 4, 5, 8]
+```
+
+#### A Stricks function
+
+This package contains a A Stricks function that counts upward from1 to max_value(default=50) and 'throws' a shared stock image of a tennis ball between3 buzzers.
+
+**Usage:**
+
+```typescript
+var rootID = "buzzer-container"
+var max_value = 50
+Stricks(rootID, max_value)
+```
+
+#### Hanois function
+
+This package contains Hanois function for hanoi's tower puzzle
+
+**Usage:**
+
+```typescript
+const hanoi = (n: number, source: number[], auxiliary: number[], destination: number[]): void => {
+  if (n === 1) {
+    destination.push(source.pop()!);
+  } else {
+    hanoi(n - 1, source, destination, auxiliary);
+    destination.push(source.pop()!);
+    hanoi(n - 1, auxiliary, source, destination);
+  }
+};
+
+const numDisks: number = 3;
+const sourcePeg: number[] = [3, 2, 1];
+const auxiliaryPeg: number[] = [];
+const destinationPeg: number[] = [];
+
+hanoi(numDisks, sourcePeg, auxiliaryPeg, destinationPeg);
+console.log(sourcePeg, auxiliaryPeg, destinationPeg); // Outputs: [], [], [3, 2, 1]
+```
+
+#### A Little Humor
+
+**Buzzer 1**: Why did the JavaScript developer keep their gym membership?
+
+**Buzzer 2**: I don't know, why?
+
+**Buzzer 1**: Because they wanted to stay in shape and avoid getting 'jQuery'!
+
+**Buzzer 3**: Haha, good one. But you know what's even more fun?
+
+**Buzzer
+1 & 2**: What?
+
+**Buzzer 3**: Throwing a tennis ball while counting, of course!
+
+**Buzzer 4**: Yes! And don't forget the vibrating sound at 15!

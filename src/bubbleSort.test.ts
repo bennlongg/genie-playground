@@ -1,31 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { fibonacci, bubbleSort } from "./functions";
-
-describe("Fibonacci Function", () => {
- it("should return0 for n =
-0", () => {
-    expect(fibonacci(0)).toBe(0);
-  });
-
-  it("should return1 for n =
-1", () => {
-    expect(fibonacci(1)).toBe(1);
-  });
-
-  it("should return1 for n =
-2", () => {
-    expect(fibonacci(2)).toBe(1);
-  });
-
-  it("should return55 for n =
-10", () => {
-    expect(fibonacci(10)).toBe(55);
-  });
-
-  it("should throw an error for negative numbers", () => {
-    expect(() => fibonacci(-1)).toThrow("Negative numbers are not allowed");
-  });
-});
+import { bubbleSort } from "./bubbleSort";
 
 describe("BubbleSort Function", () => {
   it("should return the sorted array for an already sorted array", () => {
