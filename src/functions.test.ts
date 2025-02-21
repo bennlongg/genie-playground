@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { fibonacci, binarySearch, bubbleSort, curriedMath, isOdd, isEven, getCurrentYear, isYearOfTheTiger, isYearOfThePig, isYearOfTheDragon, isYearOfTheDog, isYearOfTheRat, isYearOfTheOx, isYearOfTheRabbit, isYearOfTheSnake, isYearOfTheHorse, isYearOfTheGoat, isYearOfTheMonkey, isYearOfTheRooster } from "./functions";
+import { fibonacci, binarySearch, bubbleSort, curriedMath, isOdd, isEven, getCurrentYear, isYearOfTheTiger, isYearOfThePig, isYearOfTheDragon, isYearOfTheDog, isYearOfTheRat, isYearOfTheOx, isYearOfTheRabbit, isYearOfTheSnake, isYearOfTheHorse, isYearOfTheGoat, isYearOfTheMonkey, isYearOfTheRooster, aStarGrid } from "./functions";
 
 describe("Fibonacci Function", () => {
   it("should return 0 for n = 0", () => {
@@ -438,5 +438,20 @@ describe("isYearOfTheRooster Function", () => {
 
   it("should throw error on invalid input", () => {
     expect(() => isYearOfTheRooster('dog')).toThrow('Invalid input, year must be an integer');
+  });
+});
+
+
+describe("aStarGrid Function", () => { 
+  it("should find path in 2D grid", () => {
+    const grid = [
+      [0, 0, 0],
+      [1, 1, 0],
+      [0, 0, 0]
+    ];
+    const start: GridNode = [0, 0];
+    const goal: GridNode = [2, 2];
+    const expectedPath = aStarGrid(start, goal, grid);
+    expect(expectedPath).toEqual([[2, 0], [2, 1], [2, 2]]);
   });
 });
