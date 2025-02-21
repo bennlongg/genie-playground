@@ -19,3 +19,5 @@ If you'd like to contribute to the project, please make a pull request with your
 - "Why do Java developers wear glasses? Because they can't C#."
 
 - "Why do programmers hate using spaces instead of tabs? They feel it’s a matter of personal indent-ity."
+
+- "Why do programmers always mix up Christmas and Halloween? Because Oct 31 == Dec 25."
