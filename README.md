@@ -17,3 +17,5 @@ If you'd like to contribute to the project, please make a pull request with your
 - "Why do programmers prefer using the dark mode? Because the bugs are attracted to the light!"
 
 - "Why do Java developers wear glasses? Because they can't C#."
+
+- "Why do programmers hate using spaces instead of tabs? They feel it’s a matter of personal indent-ity."
