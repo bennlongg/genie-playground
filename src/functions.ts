@@ -20,3 +20,19 @@ export function fibonacci(n: number): number {
   
     return -1; // Target not found in the array
   }
+  
+  export function bubbleSort(arr: number[]): number[] {
+    const n = arr.length;
+    const sortedArr = [...arr]; // Create a copy of the input array to sort
+  
+    for (let i = 0; i < n - 1; i++) {
+      for (let j = 0; j < n - 1 - i; j++) {
+        if (sortedArr[j] > sortedArr[j + 1]) {
+          // Swap adjacent elements if they are in the wrong order
+          [sortedArr[j], sortedArr[j + 1]] = [sortedArr[j + 1], sortedArr[j]];
+        }
+      }
+    }
+  
+    return sortedArr;
+  }
