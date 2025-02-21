@@ -9,4 +9,6 @@ Technology is never boring again ! Go buy your little cousin some toys while you
 
 Q: How many software engineers does it take to screw in a lightbulb? </br> A: None. They like to work in the dark.
 
+Q: Why do programmers prefer dark mode? </br> A: Because light attracts bugs!
+
 You shall teach an old dog some new and awesome tricks
