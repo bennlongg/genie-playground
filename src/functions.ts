@@ -65,3 +65,10 @@ export function fibonacci(n: number): number {
   export function getCurrentYear(): number {
     return new Date().getFullYear();
   }
+  
+  export function isYearOfTheTiger(year: number): boolean {
+    if (!Number.isInteger(year)) {
+      throw new Error('Invalid input, year must be an integer');
+    }
+    return year % 12 === 6;
+  }
