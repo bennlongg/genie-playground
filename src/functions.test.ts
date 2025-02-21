@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { fibonacci, binarySearch, bubbleSort, curriedMath } from "./functions";
+import { fibonacci, binarySearch, bubbleSort, curriedMath, isOdd, isEven } from "./functions";
 
 describe("Fibonacci Function", () => {
   it("should return 0 for n = 0", () => {
@@ -98,5 +98,49 @@ describe("Curried Math Function", () => {
   it("should correctly divide two numbers", () => {
     const divide = curriedMath("/");
     expect(divide(12, 4)).toBe(3);
+  });
+});
+
+describe("isOdd Function", () => {
+  it("should return true for odd numbers", () => {
+    expect(isOdd(3)).toBe(true);
+  });
+
+  it("should return false for even numbers", () => {
+    expect(isOdd(4)).toBe(false);
+  });
+
+  it("should handle zero correctly", () => {
+    expect(isOdd(0)).toBe(false);
+  });
+
+  it("should handle negative odd numbers", () => {
+    expect(isOdd(-3)).toBe(true);
+  });
+
+  it("should handle negative even numbers", () => {
+    expect(isOdd(-4)).toBe(false);
+  });
+});
+
+describe("isEven Function", () => {
+  it("should return true for even numbers", () => {
+    expect(isEven(4)).toBe(true);
+  });
+
+  it("should return false for odd numbers", () => {
+    expect(isEven(3)).toBe(false);
+  });
+
+  it("should handle zero correctly", () => {
+    expect(isEven(0)).toBe(true);
+  });
+
+  it("should handle negative even numbers", () => {
+    expect(isEven(-4)).toBe(true);
+  });
+
+  it("should handle negative odd numbers", () => {
+    expect(isEven(-3)).toBe(false);
   });
 });
