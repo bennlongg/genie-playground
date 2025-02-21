@@ -1,0 +1,10 @@
+{
+  "source": {
+    "include": ["src/**/*.ts"],
+    "exclude": ["**/*.test.ts"]
+  },
+  "opts": {
+    "destination": "./docs",
+    "template": "node_modules/jsdoc/templates/default"
+  }
+}

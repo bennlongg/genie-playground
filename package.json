@@ -18,11 +18,15 @@
     "build": "tsc",
     "start": "node dist/index.js",
     "dev": "pnpm run build && pnpm start",
-    "test": "vitest"
-  },  
+    "test": "vitest",
+    "generate-docs": "jsdoc -c jsdoc.config.json"
+  },
   "devDependencies": {
-    "vitest": "3.0.2",
-    "typescript": "5.7.3"
+    "d3-array": "^3.2.0",
+    "d3-collection": "^3.0.2",
+    "jsdoc": "^4.0.0",
+    "typescript": "5.7.3",
+    "vitest": "3.0.2"
   },
   "packageManager": "pnpm@9.15.4"
 }
