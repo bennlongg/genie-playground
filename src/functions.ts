@@ -199,12 +199,6 @@ const removeDuplicates = (arr: unknown[]) => {
   return result
 }
 
-/**
- * Binary Search🚧
- * @param arr Array to search
- * @param target Target to search for
- * @returns Index of target if found, else -1
- */
 const binarySearch = (arr: number[], target: number): number => {
   let left = 0
   let right = arr.length - 1
