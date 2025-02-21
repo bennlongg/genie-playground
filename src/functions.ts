@@ -102,6 +102,26 @@ const reverseString = (str: string): string => {
   return reversed
 }
 
+/**
+ *
+ * @param arr An array of numbers
+ * @returns A sorted array
+ */
+const bubbleSort = (arr: number[]): number[] => {
+  let swapped
+  do {
+    swapped = false
+    for (let i = 0; i < arr.length - 1; i++) {
+      if (arr[i] < arr[i + 1]) {
+        let tmp = arr[i]
+        arr[i] = arr[i + 1]
+        arr[i + 1] = tmp
+        swapped = true
+      }
+    }
+  } while (swapped)
+  return arr
+}
 
 const removeDuplicates = (arr: unknown[]) => {
   const result: unknown[] = []
@@ -150,6 +170,7 @@ export {
   FOO,
   Webstack,
   getLargestValue,
+  bubbleSort,
   removeDuplicates,
   reverseString,
   binarySearch
