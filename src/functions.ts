@@ -79,3 +79,10 @@ export function fibonacci(n: number): number {
     }
     return year % 12 === 11
   }
+  
+  export function isYearOfTheDragon(year: number): boolean {
+    if (!Number.isInteger(year)) {
+      throw new Error('Invalid input, year must be an integer');
+    }
+    return year % 12 === 4
+  }
