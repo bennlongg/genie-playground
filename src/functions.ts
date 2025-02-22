@@ -25,3 +25,19 @@ export function binarySearch(nums: number[], target: number): number {
     }
     return -1;
 }
+
+export function bubbleSort(arr: number[]): number[] {
+    /**
+     * Sorts an array of numbers in ascending order using the bubble sort algorithm.
+     * @param {number[]} arr - The array of numbers to be sorted.
+     * @returns {number[]} The sorted array of numbers.
+     */
+    for (let i = 0; i < arr.length - 1; i++) {
+    for (let j = 0; j < arr.length - i - 1; j++) {
+        if (arr[j] > arr[j + 1]) {
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]]; // Swap adjacent elements
+        }
+    }
+    }
+    return arr;
+}
