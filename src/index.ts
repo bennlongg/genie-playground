@@ -1,4 +1,3 @@
-import { fibonacci } from "./functions";
+import { fibonacci, binarySearch, bubbleSort } from "./functions";
 
-console.log("Hello Genie!");
-console.log("10th Fibonacci Number:", fibonacci(10));
+export { fibonacci, binarySearch, bubbleSort }
