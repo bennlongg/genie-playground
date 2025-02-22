@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Functions Playground</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 p-4">
+  <div class="max-w-4xl mx-auto bg-white shadow-md rounded p-6">
+    <h1 class="text-3xl font-bold mb-4">Functions Playground</h1>
+    <div class="space-y-4">
+      <div>
+        <h2 class="text-xl font-bold mb-2">Instructions</h2>
+        <p>Use the inputs below to test the various functions.</p>
+      </div>
+      <div>
+        <h2 class="text-xl font-bold mb-2">Fibonacci Function</h2>
+        <label for="fibonacci-n" class="block">Enter n</label>
+        <input id="fibonacci-n" type="number" class="border px-2 py-1 rounded" />
+        <button id="fibonacci-button" class="bg-blue-500 text-white rounded px-4 py-2">Run Fibonacci</button>
+      </div>
+      <div>
+        <h2 class="text-xl font-bold mb-2">Binary Search Function</h2>
+        <label for="binary-search-arr" class="block">Enter sorted array (comma separated)</label>
+        <input id="binary-search-arr" type="text" class="border px-2 py-1 rounded" />
+        <label for="binary-search-target" class="block mt-2">Enter Target</label>
+        <input id="binary-search-target" type="number" class="border px-2 py-1 rounded" />
+        <button id="binary-search-button" class="bg-blue-500 text-white rounded px-4 py-2 mt-2">Run Binary Search</button>
+      </div>
+      <div>
+        <h2 class="text-xl font-bold mb-2">Results</h2>
+        <div id="results" class="p-4 border rounded">Results will be displayed here</div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./playground.js"></script>
+</body>
+
+</html>
