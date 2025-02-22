@@ -1,3 +1,3 @@
-import { fibonacci, binarySearch, bubbleSort } from "./functions";
+import { fibonacci, binarySearch, bubbleSort, curriedMath } from "./functions";
 
-export { fibonacci, binarySearch, bubbleSort }
+export { fibonacci, binarySearch, bubbleSort, curriedMath }
