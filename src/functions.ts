@@ -1,9 +1,24 @@
+/**
+ * Calculates the Fibonacci number at the given position.
+ * @param n - The position (0-based) in the Fibonacci sequence.
+ * @returns The Fibonacci number at position n.
+ * @throws {Error} If n is a negative number.
+ */
 export function fibonacci(n: number): number {
     if (n < 0) throw new Error("Negative numbers are not allowed");
     return n <= 1 ? n : fibonacci(n - 1) + fibonacci(n - 2);
 }
 
-function _binarySearchRecursive(array: Array<number>, target: number, start: number, end: number) {
+/**
+ * A recursive helper function to perform binary search.
+ * @private
+ * @param array - The array to search in.
+ * @param target - The number to search for.
+ * @param start - The starting index of the search range.
+ * @param end - The ending index of the search range.
+ * @returns The index of the target if found, or -1 if not found.
+ */
+function _binarySearchRecursive(array: Array<number>, target: number, start: number, end: number): number {
   // Base Condition
   if (start > end) return -1;
 
@@ -21,11 +36,21 @@ function _binarySearchRecursive(array: Array<number>, target: number, start: num
   return _binarySearchRecursive(array, target, mid + 1, end);
 }
 
+/**
+ * Performs a binary search on the given array to find the target number.
+ * @param arr - The array to search in.
+ * @param target - The number to search for.
+ * @returns The index of the target if found, or -1 if not found.
+ */
 export function binarySearch(arr: Array<number>, target: number): number {
   return _binarySearchRecursive(arr, target, 0, arr.length - 1); 
 }
 
-// Bubble Sort appraoch
+/**
+ * Sorts an array of numbers using the bubble sort algorithm.
+ * @param arr - The array to be sorted.
+ * @returns The sorted array.
+ */
 export function bubbleSort(arr: Array<number>): Array<number> {
   let len = arr.length;
   let swapped;
@@ -40,4 +65,14 @@ export function bubbleSort(arr: Array<number>): Array<number> {
     len--;
   } while (swapped);
   return arr;
+}
+
+/**
+ * Adds two numbers and returns their sum.
+ * @param num1 - The first number.
+ * @param num2 - The second number.
+ * @returns The sum of the given numbers.
+ */
+export const add = (num1: number, num2: number) => {
+  return num1 + num2
 }
