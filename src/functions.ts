@@ -63,4 +63,52 @@ export function bubbleSort(arr: number[]): number[] {
   
     return sortedArr;
   }
-  
+
+
+
+
+/**
+ * A generic function to apply a math operation as arguments.
+ * @param {function} operation - The math operation to apply (e.g, addition, subtraction).
+ * @returns {function} A curried function that performs the specified math operation on the given arguments.
+ * @throws {Error} - For example, Will throw an error if division by zero is encountered (specific to division).
+ */
+export function curriedMath(operation: (a: number, b: number) => number): (...args: number[]) => number {
+    return function(...args: number[]): number {
+        return args.reduce((acc, curr) => operation(acc, curr), 0);
+    };
+}
+
+// Define specific curried math functions using the generic curriedMath function
+export const curriedAdd = curriedMath((a, b) => add(a, b));
+export const curriedSubtract = curriedMath((a, b) => subtract(a, b));
+export const curriedMultiply = curriedMath((a, b) => multiply(a, b));
+export const curriedDivide = curriedMath((a, b) => {
+    if (b === 0) {
+        throw new Error("Division by zero is not allowed!");
+    }
+    return divide(a, b);
+});
+
+
+
+
+// Define the actual mathematical operations.
+export function add(a: number, b: number): number {
+    return a + b;
+}
+
+export function subtract(a: number, b: number): number {
+    return a - b;
+}
+
+export function multiply(a: number, b: number): number {
+    return a * b;
+}
+
+export function divide(a: number, b: number): number {
+    if (b === 0) {
+        throw new Error("Division by zero is not allowed!");
+    }
+    return a / b;
+}  
