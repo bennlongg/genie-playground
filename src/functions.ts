@@ -1,22 +1,10 @@
-/**
- * Calculates the nth Fibonacci number.
- * 
- * @param {number} n - The index of the Fibonacci sequence to calculate.
- * @returns {number} - The nth Fibonacci number.
- * @throws {Error} - Throws an error if the input is a negative number.
- */
+
+
 export function fibonacci(n: number): number {
     if (n < 0) throw new Error("Negative numbers are not allowed");
     return n <= 1 ? n : fibonacci(n - 1) + fibonacci(n - 2);
 }
 
-/**
- * Performs a binary search to find the index of a target element in a sorted array.
- * 
- * @param {number[]} arr - The sorted array of numbers to search in.
- * @param {number} target - The target number to find.
- * @returns {number} - The index of the target in the array if found, otherwise -1.
- */
 export function binarySearch(arr: number[], target: number): number {
     let low = 0;
     let high = arr.length - 1;
@@ -33,12 +21,7 @@ export function binarySearch(arr: number[], target: number): number {
     return -1; // Target not found
   }
 
-/**
- * Sorts an array of numbers using the Bubble Sort algorithm.
- * 
- * @param {number[]} arr - The array of numbers to sort.
- * @returns {number[]} - The sorted array in ascending order.
- */
+
 export function bubbleSort(arr: number[]): number[] {
     // Copy the array to avoid modifying the original
     let sortedArr = arr.slice();
@@ -66,13 +49,6 @@ export function bubbleSort(arr: number[]): number[] {
 
 
 
-
-/**
- * A generic function to apply a math operation as arguments.
- * @param {function} operation - The math operation to apply (e.g, addition, subtraction).
- * @returns {function} A curried function that performs the specified math operation on the given arguments.
- * @throws {Error} - For example, Will throw an error if division by zero is encountered (specific to division).
- */
 export function curriedMath(operation: (a: number, b: number) => number): (...args: number[]) => number {
     return function(...args: number[]): number {
         return args.reduce((acc, curr) => operation(acc, curr), 0);
@@ -91,9 +67,6 @@ export const curriedDivide = curriedMath((a, b) => {
 });
 
 
-
-
-// Define the actual mathematical operations.
 export function add(a: number, b: number): number {
     return a + b;
 }
