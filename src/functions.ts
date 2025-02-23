@@ -3,8 +3,6 @@ export function fibonacci(n: number): number {
     return n <= 1 ? n : fibonacci(n - 1) + fibonacci(n - 2);
 }
 
-
-
 export function binarySearch(arr: number[], target: number): number {
     let low = 0;
     let high = arr.length - 1;
@@ -20,3 +18,29 @@ export function binarySearch(arr: number[], target: number): number {
     }
     return -1; // Target not found
   }
+
+  export function bubbleSort(arr: number[]): number[] {
+    // Copy the array to avoid modifying the original
+    let sortedArr = arr.slice();
+  
+    // Edge case: check if the array is empty or too short to be sorted
+    if (sortedArr.length <= 1) {
+      return sortedArr;
+    }
+  
+    let swapped;
+    do {
+      swapped = false;
+      // Iterate through the array
+      for (let i = 0; i < sortedArr.length - 1; i++) {
+        // Compare adjacent elements and swap if needed
+        if (sortedArr[i] > sortedArr[i + 1]) {
+          [sortedArr[i], sortedArr[i + 1]] = [sortedArr[i + 1], sortedArr[i]];
+          swapped = true;
+        }
+      }
+    } while (swapped); // Continue until no swaps are needed
+  
+    return sortedArr;
+  }
+  
