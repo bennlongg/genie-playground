@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { fibonacci, binarySearch } from "./functions";
+import { fibonacci, binarySearch, bubbleSort } from "./functions";
 
 describe("Fibonacci Function", () => {
   it("should return 0 for n = 0", () => {
@@ -42,5 +42,27 @@ describe("Binary Search Function", () => {
 
   it("should handle arrays with repetitive elements", () => {
     expect(binarySearch([1, 1, 1, 1, 2, 2, 2], 2)).toBe(4);
+  });
+});
+
+describe("Bubble Sort Function", () => {
+  it("should sort an array of multiple elements", () => {
+    expect(bubbleSort([3, 2, 1, 4, 5])).toEqual([1, 2, 3, 4, 5]);
+  });
+
+  it("should handle an already sorted array", () => {
+    expect(bubbleSort([1, 2, 3, 4, 5])).toEqual([1, 2, 3, 4, 5]);
+  });
+
+  it("should manage arrays with duplicate values", () => {
+    expect(bubbleSort([4, 5, 5, 3, 4])).toEqual([3, 4, 4, 5, 5]);
+  });
+
+  it("should sort an array with a single element", () => {
+    expect(bubbleSort([1])).toEqual([1]);
+  });
+
+  it("should return an empty array when input is empty", () => {
+    expect(bubbleSort([])).toEqual([]);
   });
 });
