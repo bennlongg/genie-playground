@@ -52,6 +52,31 @@ export function bubbleSort(nums: number[]): void {
   }
 }
 
+function applyOperation(currentValue: number, operation: string, operand: number): number {
+  switch (operation) {
+    case 'add':
+      return currentValue + operand;
+    case 'subtract':
+      return currentValue - operand;
+    case 'multiply':
+      return currentValue * operand;
+    case 'divide':
+      return currentValue / operand;
+    default:
+      throw new Error('Invalid operation');
+  }
+}
+
+export function curriedMath(value: number): any {
+  return {
+    add: (operand: number) => curriedMath(applyOperation(value, 'add', operand)),
+    subtract: (operand: number) => curriedMath(applyOperation(value, 'subtract', operand)),
+    multiply: (operand: number) => curriedMath(applyOperation(value, 'multiply', operand)),
+    divide: (operand: number) => curriedMath(applyOperation(value, 'divide', operand)),
+    value: (): number => value,
+};
+}
+
 export function fibonacci(n: number): number {
   if (n < 0) throw new Error("Negative numbers are not allowed");
   return n <= 1 ? n : fibonacci(n - 1) + fibonacci(n - 2);
