@@ -21,4 +21,22 @@ export function fibonacci(n: number): number {
   
     return -1;
   }
+
+  // src/functions.ts
+export function bubbleSort(numbers: number[]): number[] {
+    const length = numbers.length;
+  
+    for (let i = 0; i < length; i++) {
+      for (let j = 0; j < length - i - 1; j++) {
+        if (numbers[j] > numbers[j + 1]) {
+          // Swap elements
+          const temp = numbers[j];
+          numbers[j] = numbers[j + 1];
+          numbers[j + 1] = temp;
+        }
+      }
+    }
+  
+    return numbers;
+  }
   
