@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { fibonacci } from "./functions";
+import { fibonacci, binarySearch } from "./functions";
 
 describe("Fibonacci Function", () => {
   it("should return 0 for n = 0", () => {
@@ -20,5 +20,27 @@ describe("Fibonacci Function", () => {
 
   it("should throw an error for negative numbers", () => {
     expect(() => fibonacci(-1)).toThrow("Negative numbers are not allowed");
+  });
+});
+
+describe("Binary Search Function", () => {
+  it("should return the correct index when the target exists (odd length)", () => {
+    expect(binarySearch([1, 2, 3, 4, 5], 3)).toBe(2);
+  });
+
+  it("should return the correct index when the target exists (even length)", () => {
+    expect(binarySearch([2, 4, 6, 8], 6)).toBe(2);
+  });
+
+  it("should return -1 when the target does not exist", () => {
+    expect(binarySearch([10, 20, 30, 40], 25)).toBe(-1);
+  });
+
+  it("should return -1 for an empty array", () => {
+    expect(binarySearch([], 1)).toBe(-1);
+  });
+
+  it("should handle arrays with repetitive elements", () => {
+    expect(binarySearch([1, 1, 1, 1, 2, 2, 2], 2)).toBe(4);
   });
 });
