@@ -39,6 +39,19 @@ export function binarySearch<T>(
   return -1;
 }
 
+export function bubbleSort(nums: number[]): void {
+  let swapped: boolean = true;
+  while (swapped) {
+    swapped = false;
+    for (let i = 0; i < nums.length - 1; i++) {
+      if (nums[i] > nums[i + 1]) {
+        [nums[i], nums[i + 1]] = [nums[i + 1], nums[i]];
+        swapped = true;
+      }
+    }
+  }
+}
+
 export function fibonacci(n: number): number {
   if (n < 0) throw new Error("Negative numbers are not allowed");
   return n <= 1 ? n : fibonacci(n - 1) + fibonacci(n - 2);
