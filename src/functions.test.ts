@@ -1,5 +1,6 @@
+```typescript
 import { describe, it, expect } from "vitest";
-import { fibonacci } from "./functions";
+import { fibonacci, binarySearch } from "./functions";
 
 describe("Fibonacci Function", () => {
   it("should return 0 for n = 0", () => {
@@ -22,3 +23,33 @@ describe("Fibonacci Function", () => {
     expect(() => fibonacci(-1)).toThrow("Negative numbers are not allowed");
   });
 });
+
+describe("Binary Search Function", () => {
+  it("should return the index of the target when it is present", () => {
+    const arr = [1, 2, 3, 4, 5];
+    const target = 3;
+    expect(binarySearch(arr, target)).toBe(2);
+  });
+
+  it("should return -1 when the target is not present", () => {
+    const arr = [1, 2, 3, 4, 5];
+    const target = 6;
+    expect(binarySearch(arr, target)).toBe(-1);
+  });
+
+  it("should return -1 for an empty array", () => {
+    const arr: number[] = [];
+    const target = 3;
+    expect(binarySearch(arr, target)).toBe(-1);
+  });
+
+  it("should handle an array with a single element correctly", () => {
+    const arr = [3];
+    const target = 3;
+    expect(binarySearch(arr, target)).toBe(0);
+    
+    const targetNotFound = 4;
+    expect(binarySearch(arr, targetNotFound)).toBe(-1);
+  });
+});
+```
