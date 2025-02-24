@@ -1,16 +1,13 @@
 /**
- * A function that performs a binary search on a sorted array.
+ * Performs a binary search on a sorted array.
  *
- * This function takes a sorted array, a target value to search for, and an optional comparator function.
- * It returns the index of the target value if found, or an indication that the value is not present.
- *
- * @param array - The sorted array to search.
- * @param target - The value to search for.
- * @param comparator - An optional comparator function to compare elements.
- * @returns The index of the target value if found, or -1 if not found.
- * @throws Error if the input array is not sorted.
+ * @template T - The type of elements in the array.
+ * @param {T[]} array - The sorted array to search.
+ * @param {T} target - The target value to search for.
+ * @param {(a: T, b: T) => number} [comparator] - An optional comparator function.
+ * @returns {number} The index of the target value if found, or -1 if not found.
+ * @throws {Error} If the input array is not sorted.
  */
-
 export function binarySearch<T>(
   array: T[],
   target: T,
@@ -39,6 +36,12 @@ export function binarySearch<T>(
   return -1;
 }
 
+/**
+ * Sorts an array of numbers in ascending order using the bubble sort algorithm.
+ *
+ * @param {number[]} nums - The array of numbers to sort.
+ * @returns {void} This function operates in-place and does not return a value.
+ */
 export function bubbleSort(nums: number[]): void {
   let swapped: boolean = true;
   while (swapped) {
@@ -52,6 +55,16 @@ export function bubbleSort(nums: number[]): void {
   }
 }
 
+/**
+ * Applies a mathematical operation to the current value.
+ *
+ * @private
+ * @param {number} currentValue - The current value before applying the operation.
+ * @param {string} operation - The name of the operation to apply (e.g., 'add', 'subtract', etc.).
+ * @param {number} operand - The operand to be used in the operation.
+ * @returns {number} The result of applying the operation to the current value and operand.
+ * @throws {Error} If an invalid operation name is provided.
+ */
 function applyOperation(currentValue: number, operation: string, operand: number): number {
   switch (operation) {
     case 'add':
@@ -67,6 +80,12 @@ function applyOperation(currentValue: number, operation: string, operand: number
   }
 }
 
+/**
+ * Returns an object with curried math operations (add, subtract, multiply, divide) that can be chained, starting with an initial value.
+ *
+ * @param {number} value - The initial value for curried math operations.
+ * @returns {{ add: Function, subtract: Function, multiply: Function, divide: Function, value: Function }} An object with curried math operations.
+ */
 export function curriedMath(value: number): any {
   return {
     add: (operand: number) => curriedMath(applyOperation(value, 'add', operand)),
@@ -77,6 +96,13 @@ export function curriedMath(value: number): any {
 };
 }
 
+/**
+ * Calculates the nth Fibonacci number.
+ *
+ * @param {number} n - The position in the Fibonacci sequence to calculate.
+ * @returns {number} The nth Fibonacci number.
+ * @throws {Error} If a negative input is provided.
+ */
 export function fibonacci(n: number): number {
   if (n < 0) throw new Error("Negative numbers are not allowed");
   return n <= 1 ? n : fibonacci(n - 1) + fibonacci(n - 2);
