@@ -1,0 +1,82 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Viewport height */
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+.calculator {
+  width: 300px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.display {
+  padding: 20px;
+  font-size: 2em;
+  text-align: right;
+  background-color: #eaeaea;
+}
+
+button {
+  width: calc(100% / 4); /* Four buttons per row */
+  padding: 15px;
+  font-size: 1.5em;
+}
+
+button:hover {
+    background-color: #f0f0f0; /* Light gray background on hover */
+    box-shadow: inset 0px -3px rgba(0,0,0,0.2); /* Inner shadow on hover */
+}
+
+button.operator {
+    background-color: #fad02e; /* Light yellow color for operators */
+    color: black; /* Black text color */
+}
+
+button.operator:hover {
+    background-color: #ffcc00; /* Slightly darker yellow on hover */
+}
+
+button.all-clear,
+button.clear,
+button.backspace,
+button.plus-minus,
+button.percentage {
+    background-color: #ff6666; /* Red color for special buttons */
+    color: white; /* White text color */
+}
+
+button.all-clear:hover,
+button.clear:hover,
+button.backspace:hover,
+button.plus-minus:hover,
+button.percentage:hover {
+    background-color: #ff3333; /* Darker red on hover */
+}
+
+button.equals {
+    background-color: #4caf50; /* Green color for equals button */
+    color: white; /* White text color */
+}
+
+button.equals:hover {
+    background-color: #45a049; /* Slightly darker green on hover */
+}
+
+.zero {
+    width: calc(100% /2); /* Two buttons wide for zero*/
+}
+
+/* Adjust font size for smaller screens */
+@media (max-width:400px){
+    button{
+        font-size :1.2em;
+        padding :10px;
+
+    }
+}
