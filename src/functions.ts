@@ -53,3 +53,27 @@ export function bubbleSort(nums: number[]): number[] {
 
   return arr;
 }
+
+/**
+ * Creates a curried math function that performs a specified operation.
+ * @param {string} operator - The operator ('+', '-', '*', '/') to apply.
+ * @returns {function} A function that takes two numbers and returns the result of the operation.
+ * @throws Will throw an error for invalid operators or division by zero.
+ */
+export function curriedMathFunction(operator: string) {
+  return (num1: number) => (num2: number) => {
+    switch (operator) {
+      case '+':
+        return num1 + num2;
+      case '-':
+        return num1 - num2;
+      case '*':
+        return num1 * num2;
+      case '/':
+        if (num2 === 0) throw new Error("Division by zero is not allowed");
+        return num1 / num2;
+      default:
+        throw new Error("Invalid operator");
+    }
+  };
+}

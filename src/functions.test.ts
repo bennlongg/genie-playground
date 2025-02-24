@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { fibonacci, binarySearch, bubbleSort } from "./functions";
+import { fibonacci, binarySearch, bubbleSort, curriedMathFunction } from "./functions";
 
 describe("Fibonacci Function", () => {
   it("should return 0 for n = 0", () => {
@@ -64,5 +64,32 @@ describe("Bubble Sort Function", () => {
 
   it("should return an empty array when input is empty", () => {
     expect(bubbleSort([])).toEqual([]);
+  });
+});
+
+describe("Curried Math Function", () => {
+  it("should correctly perform addition", () => {
+    const add = curriedMathFunction('+');
+    expect(add(2)(3)).toBe(5);
+  });
+
+  it("should correctly perform subtraction", () => {
+    const subtract = curriedMathFunction('-');
+    expect(subtract(5)(3)).toBe(2);
+  });
+
+  it("should correctly perform multiplication", () => {
+    const multiply = curriedMathFunction('*');
+    expect(multiply(4)(3)).toBe(12);
+  });
+
+  it("should correctly perform division", () => {
+    const divide = curriedMathFunction('/');
+    expect(divide(6)(3)).toBe(2);
+  });
+
+  it("should throw an error for division by zero", () => {
+    const divide = curriedMathFunction('/');
+    expect(() => divide(6)(0)).toThrow("Division by zero is not allowed");
   });
 });
