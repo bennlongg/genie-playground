@@ -121,3 +121,7 @@ npm test
 Why do programmers prefer dark mode?
 
 Because light attracts bugs!
+
+Why don't programmers like nature?
+
+It has too many bugs and no debugging tool!
