@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Number Guessing Game</h1>
+            <p>Try to guess the number between 1 and 100!</p>
+        </header>
+
+        <main>
+            <section class="game-area">
+                <div class="input-section">
+                    <input type="number" id="guessInput" min="1" max="100" placeholder="Enter your guess">
+                    <button id="submitGuess" class="btn">Submit Guess</button>
+                </div>
+
+                <div class="feedback-section">
+                    <p id="message">Let's start guessing!</p>
+                    <p>Number of attempts: <span id="attemptsCount">0</span></p>
+                </div>
+
+                <div class="history-section">
+                    <h3>Previous Guesses</h3>
+                    <ul id="guessList"></ul>
+                </div>
+
+                <div class="controls">
+                    <button id="restartButton" class="btn">Restart Game</button>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Created for learning JavaScript and HTML</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
