@@ -1,6 +1,6 @@
 /**
- * Enhanced Number Guessing Game
- * A game where the player tries to guess a random number with difficulty levels, timer, and scoring.
+ * Enhanced Number Guessing Game with Leaderboard
+ * A game where the player tries to guess a random number with difficulty levels, timer, scoring, and leaderboard.
  */
 
 // Game variables
@@ -15,6 +15,9 @@ let maxNumber = 100;
 let currentScore = 0;
 let difficultyMultiplier = 1;
 let hintUsed = false;
+let playerName = '';
+let highScores = [];
+const MAX_LEADERBOARD_ENTRIES = 5;
 
 // DOM elements
 const guessInput = document.getElementById('guessInput');
@@ -30,6 +33,12 @@ const scoreDisplay = document.getElementById('score');
 const gameDescription = document.getElementById('gameDescription');
 const hintButton = document.getElementById('hintButton');
 const hintText = document.getElementById('hintText');
+const leaderboardList = document.getElementById('leaderboardList');
+const leaderboardContainer = document.getElementById('leaderboardContainer');
+const playerNameInput = document.getElementById('playerNameInput');
+const saveScoreBtn = document.getElementById('saveScoreBtn');
+const highScoreModal = document.getElementById('highScoreModal');
+const closeModalBtn = document.getElementById('closeModalBtn');
 
 /**
  * Generates a random number between min and max (inclusive)
@@ -75,6 +84,144 @@ function setDifficultyParameters() {
     guessInput.min = minNumber;
     guessInput.max = maxNumber;
     guessInput.placeholder = `Enter a number (${minNumber}-${maxNumber})`;
+}
+
+/**
+ * Retrieves high scores from localStorage
+ */
+function retrieveHighScores() {
+    const storedScores = localStorage.getItem('numberGameHighScores');
+    if (storedScores) {
+        highScores = JSON.parse(storedScores);
+    } else {
+        highScores = [];
+    }
+    updateLeaderboard();
+}
+
+/**
+ * Saves high scores to localStorage
+ */
+function saveHighScores() {
+    localStorage.setItem('numberGameHighScores', JSON.stringify(highScores));
+}
+
+/**
+ * Updates the high scores list with a new score if it qualifies
+ * @param {string} name - Player name
+ * @param {number} score - Player score
+ * @param {string} difficulty - Difficulty level
+ * @returns {boolean} Whether the score was high enough to be added
+ */
+function updateHighScores(name, score, difficulty) {
+    // Don't add scores of 0
+    if (score <= 0) return false;
+    
+    const newEntry = {
+        name: name.trim() || 'Anonymous',
+        score: score,
+        difficulty: difficulty,
+        date: new Date().toLocaleDateString()
+    };
+    
+    // Add the new score
+    highScores.push(newEntry);
+    
+    // Sort high scores (highest first)
+    highScores.sort((a, b) => b.score - a.score);
+    
+    // Keep only the top MAX_LEADERBOARD_ENTRIES scores
+    if (highScores.length > MAX_LEADERBOARD_ENTRIES) {
+        highScores = highScores.slice(0, MAX_LEADERBOARD_ENTRIES);
+    }
+    
+    // Save to localStorage
+    saveHighScores();
+    
+    // Update the leaderboard display
+    updateLeaderboard();
+    
+    // Check if this score made it to the leaderboard
+    return highScores.some(entry => entry.name === newEntry.name && entry.score === newEntry.score);
+}
+
+/**
+ * Updates the leaderboard display in the DOM
+ */
+function updateLeaderboard() {
+    // Clear the current leaderboard
+    leaderboardList.innerHTML = '';
+    
+    // If no high scores yet, show a message
+    if (highScores.length === 0) {
+        const emptyItem = document.createElement('li');
+        emptyItem.textContent = 'No high scores yet. Be the first!';
+        emptyItem.className = 'empty-leaderboard';
+        leaderboardList.appendChild(emptyItem);
+        return;
+    }
+    
+    // Add each high score to the leaderboard
+    highScores.forEach((entry, index) => {
+        const listItem = document.createElement('li');
+        listItem.className = 'leaderboard-entry';
+        
+        // Add crown icon for top score
+        const rankDisplay = index === 0 ? '👑 1' : (index + 1).toString();
+        
+        listItem.innerHTML = `
+            <span class="rank">${rankDisplay}</span>
+            <span class="name">${entry.name}</span>
+            <span class="score">${entry.score}</span>
+            <span class="difficulty">${entry.difficulty}</span>
+            <span class="date">${entry.date}</span>
+        `;
+        
+        // Highlight current player's scores
+        if (entry.name === playerName && playerName !== '') {
+            listItem.classList.add('current-player');
+        }
+        
+        leaderboardList.appendChild(listItem);
+    });
+}
+
+/**
+ * Shows the high score form modal
+ */
+function showHighScoreForm() {
+    highScoreModal.style.display = 'flex';
+    playerNameInput.focus();
+    // Pre-fill with previous name if available
+    if (playerName) {
+        playerNameInput.value = playerName;
+    }
+}
+
+/**
+ * Hides the high score form modal
+ */
+function hideHighScoreForm() {
+    highScoreModal.style.display = 'none';
+}
+
+/**
+ * Handles saving a new high score
+ */
+function handleSaveScore() {
+    playerName = playerNameInput.value.trim() || 'Anonymous';
+    const isHighScore = updateHighScores(playerName, currentScore, difficultyLevel.value);
+    
+    hideHighScoreForm();
+    
+    // Show a confirmation message
+    if (isHighScore) {
+        message.textContent = `Congratulations! Your score of ${currentScore} has been added to the leaderboard!`;
+        message.className = 'success';
+        
+        // Scroll the leaderboard into view
+        leaderboardContainer.scrollIntoView({ behavior: 'smooth' });
+    }
 }
 
 /**
@@ -203,6 +350,9 @@ function initGame() {
     hintText.textContent = '';
     hintText.classList.remove('active');
     
+    // Hide high score form if visible
+    hideHighScoreForm();
+    
     // Update score display
     scoreDisplay.textContent = currentScore;
     
@@ -301,6 +451,17 @@ function endGame(isWin) {
     
     if (isWin) {
         console.log(`Game over! Player won in ${attempts} attempts with score ${currentScore}`);
+        
+        // Check if score is potentially a high score
+        if (currentScore > 0) {
+            // If there are fewer than MAX_LEADERBOARD_ENTRIES high scores, or if this score is higher than the lowest one
+            const lowestHighScore = highScores.length < MAX_LEADERBOARD_ENTRIES ? 0 : highScores[highScores.length - 1].score;
+            
+            if (highScores.length < MAX_LEADERBOARD_ENTRIES || currentScore > lowestHighScore) {
+                // Show high score form
+                showHighScoreForm();
+            }
+        }
     } else {
         console.log("Game over! Player lost.");
     }
@@ -354,5 +515,19 @@ difficultyLevel.addEventListener('change', function() {
 
 hintButton.addEventListener('click', provideHint);
 
-// Initialize game on page load
-document.addEventListener('DOMContentLoaded', initGame);
+// High score form event listeners
+saveScoreBtn.addEventListener('click', handleSaveScore);
+closeModalBtn.addEventListener('click', hideHighScoreForm);
+
+// Allow pressing Enter in the name input to save score
+playerNameInput.addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        handleSaveScore();
+    }
+});
+
+// Initialize high scores and game on page load
+document.addEventListener('DOMContentLoaded', function() {
+    retrieveHighScores();
+    initGame();
+});
