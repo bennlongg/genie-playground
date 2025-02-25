@@ -88,3 +88,37 @@ export function bubbleSort(array: number[]): number[] {
     
     return result;
 }
+
+/**
+ * Creates a curried math function that performs an arithmetic operation on two numbers.
+ * 
+ * @param operation - The arithmetic operation to perform: "add", "subtract", "multiply", or "divide"
+ * @returns A function that takes two numbers and performs the specified operation
+ * @throws Error if an unsupported operation is provided or division by zero is attempted
+ * 
+ * @example
+ * const add = curriedMath("add");
+ * add(2, 3); // Returns 5
+ * 
+ * const multiply = curriedMath("multiply");
+ * multiply(4, 5); // Returns 20
+ */
+export function curriedMath(operation: string): (a: number, b: number) => number {
+    switch (operation) {
+        case "add":
+            return (a: number, b: number): number => a + b;
+        case "subtract":
+            return (a: number, b: number): number => a - b;
+        case "multiply":
+            return (a: number, b: number): number => a * b;
+        case "divide":
+            return (a: number, b: number): number => {
+                if (b === 0) {
+                    throw new Error("Division by zero is not allowed");
+                }
+                return a / b;
+            };
+        default:
+            throw new Error(`Unsupported operation: ${operation}`);
+    }
+}
