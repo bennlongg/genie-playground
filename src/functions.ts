@@ -47,3 +47,44 @@ export function binarySearch(array: number[], target: number): number {
     
     return -1;
 }
+
+/**
+ * Sorts an array of numbers in ascending order using the bubble sort algorithm.
+ * 
+ * @param array - The array of numbers to sort
+ * @returns A new sorted array containing the elements in ascending order
+ * 
+ * @example
+ * bubbleSort([5, 3, 8, 1, 2]); // Returns [1, 2, 3, 5, 8]
+ * bubbleSort([]); // Returns []
+ * 
+ * @remarks
+ * Time Complexity: O(n²) where n is the length of the array
+ * Space Complexity: O(n) as it returns a new array without modifying the original
+ */
+export function bubbleSort(array: number[]): number[] {
+    // Create a copy of the array to avoid modifying the original
+    const result = [...array];
+    const length = result.length;
+    
+    // Early return for empty or single-element arrays
+    if (length <= 1) return result;
+    
+    for (let i = 0; i < length; i++) {
+        // Flag to optimize and potentially break early if no swaps were made
+        let swapped = false;
+        
+        for (let j = 0; j < length - i - 1; j++) {
+            if (result[j] > result[j + 1]) {
+                // Swap elements if they are in the wrong order
+                [result[j], result[j + 1]] = [result[j + 1], result[j]];
+                swapped = true;
+            }
+        }
+        
+        // If no swaps were made in this pass, the array is already sorted
+        if (!swapped) break;
+    }
+    
+    return result;
+}
