@@ -64,6 +64,50 @@ binarySearch([], 5); // Returns -1
 **Time Complexity:**
 - O(log n) where n is the length of the array
 
+### Bubble Sort Function
+
+Sorts an array of numbers in ascending order using the bubble sort algorithm.
+
+**Parameters:**
+- `array` (number[]): An array of numbers to sort
+
+**Returns:**
+- A new sorted array containing the elements in ascending order
+
+**Examples:**
+
+```typescript
+bubbleSort([5, 3, 8, 1, 2]); // Returns [1, 2, 3, 5, 8]
+bubbleSort([]); // Returns []
+```
+
+**Time Complexity:**
+- O(n²) where n is the length of the array
+
+### Curried Math Function
+
+Creates a curried math function that performs an arithmetic operation on two numbers.
+
+**Parameters:**
+- `operation` (string): The arithmetic operation to perform: "add", "subtract", "multiply", or "divide"
+
+**Returns:**
+- A function that takes two numbers and performs the specified operation
+
+**Examples:**
+
+```typescript
+const add = curriedMath("add");
+add(2, 3); // Returns 5
+
+const multiply = curriedMath("multiply");
+multiply(4, 5); // Returns 20
+```
+
+**Error handling:**
+- Throws an error if an unsupported operation is provided
+- Throws an error if division by zero is attempted
+
 ## Testing
 
 Run the tests with:
@@ -71,3 +115,9 @@ Run the tests with:
 ```bash
 npm test
 ```
+
+## Joke of the Day
+
+Why do programmers prefer dark mode?
+
+Because light attracts bugs!
