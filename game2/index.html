@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Ball Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header>
+            <h1>Cat Ball Game</h1>
+            <div class="score-display">
+                <span>Score: <span id="score">0</span></span>
+                <span>Lives: <span id="lives">9</span></span>
+            </div>
+        </header>
+
+        <section class="game-area">
+            <canvas id="gameCanvas" width="800" height="600"></canvas>
+            
+            <div id="gameOverScreen" class="overlay hidden">
+                <div class="overlay-content">
+                    <h2>Game Over</h2>
+                    <p>Your final score: <span id="finalScore">0</span></p>
+                    <button id="restartButton">Play Again</button>
+                </div>
+            </div>
+            
+            <div id="startScreen" class="overlay">
+                <div class="overlay-content">
+                    <h2>Cat Ball Game</h2>
+                    <p class="instructions">
+                        Help the cats catch the yarn balls! Move your cat using the arrow keys.
+                        <br>Catch colorful yarn balls to earn points.
+                        <br>Avoid black balls - they'll cost you a life!
+                    </p>
+                    <div class="difficulty">
+                        <p>Select Difficulty:</p>
+                        <div class="difficulty-options">
+                            <button class="difficulty-btn" data-difficulty="easy">Easy</button>
+                            <button class="difficulty-btn" data-difficulty="medium">Medium</button>
+                            <button class="difficulty-btn" data-difficulty="hard">Hard</button>
+                        </div>
+                    </div>
+                    <div class="cat-selection">
+                        <p>Choose Your Cat:</p>
+                        <div class="cat-options">
+                            <div class="cat-option" data-cat="orange">
+                                <div class="cat-preview orange-cat"></div>
+                                <span>Orange</span>
+                            </div>
+                            <div class="cat-option" data-cat="black">
+                                <div class="cat-preview black-cat"></div>
+                                <span>Black</span>
+                            </div>
+                            <div class="cat-option" data-cat="calico">
+                                <div class="cat-preview calico-cat"></div>
+                                <span>Calico</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="startButton" class="btn-primary">Start Game</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="controls">
+            <div class="button-controls">
+                <button id="pauseButton" class="btn-control" disabled>Pause</button>
+                <button id="resumeButton" class="btn-control" disabled>Resume</button>
+                <button id="stopButton" class="btn-control" disabled>Stop Game</button>
+            </div>
+            <div class="mobile-controls hidden" id="mobileControls">
+                <button id="upBtn" class="direction-btn">↑</button>
+                <div class="horizontal-controls">
+                    <button id="leftBtn" class="direction-btn">←</button>
+                    <button id="rightBtn" class="direction-btn">→</button>
+                </div>
+                <button id="downBtn" class="direction-btn">↓</button>
+            </div>
+        </section>
+
+        <section class="stats">
+            <h3>Game Statistics</h3>
+            <div class="stats-container">
+                <div class="stat-item">
+                    <span class="stat-label">Balls Caught:</span>
+                    <span id="ballsCaught">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">High Score:</span>
+                    <span id="highScore">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Time Played:</span>
+                    <span id="timePlayed">00:00</span>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>Use arrow keys to move the cat. Catch the colored yarn balls to score points!</p>
+            <p>Created with ❤️ for cat lovers everywhere</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
