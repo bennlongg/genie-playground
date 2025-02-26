@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skeuomorphic Calculator</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        .calculator {
+            width: 320px;
+            padding: 20px;
+            border-radius: 20px;
+            background: linear-gradient(145deg, #e6e6e6, #f5f5f5);
+            box-shadow: 
+                20px 20px 60px #c9c9c9,
+                -20px -20px 60px #ffffff,
+                inset 0px 0px 10px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .display {
+            width: 100%;
+            height: 80px;
+            padding: 0 15px;
+            border-radius: 10px;
+            background: #ecf0f3;
+            box-shadow: inset 2px 2px 5px #babecc, inset -5px -5px 10px #fff;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            font-size: 36px;
+            font-weight: bold;
+            color: #333;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .btn {
+            width: calc(25% - 5px);
+            height: 60px;
+            margin: 2.5px;
+            border: none;
+            border-radius: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            background: #e0e0e0;
+            box-shadow: 
+                0px 3px 0px 0px rgba(0,0,0,0.2),
+                inset 0px 1px 0px 0px rgba(255,255,255,0.5),
+                inset 0px -1px 0px 0px rgba(0,0,0,0.1);
+            position: relative;
+            transition: all 0.1s;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .btn:active {
+            box-shadow: 
+                0px 1px 0px 0px rgba(0,0,0,0.2),
+                inset 0px 1px 0px 0px rgba(255,255,255,0.5),
+                inset 0px -1px 0px 0px rgba(0,0,0,0.1);
+            transform: translateY(2px);
+        }
+
+        .btn.wide {
+            width: calc(50% - 5px);
+        }
+
+        .btn.function {
+            background: #a5a5a5;
+            color: white;
+        }
+
+        .btn.operator {
+            background: #f5923e;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <div class="display" id="display">0</div>
+        <div class="buttons">
+            <button class="btn function" onclick="clearAll()">C</button>
+            <button class="btn function" onclick="toggleSign()">±</button>
+            <button class="btn function" onclick="percentage()">%</button>
+            <button class="btn operator" onclick="setOperation('÷')">÷</button>
+
+            <button class="btn" onclick="appendDigit('7')">7</button>
+            <button class="btn" onclick="appendDigit('8')">8</button>
+            <button class="btn" onclick="appendDigit('9')">9</button>
+            <button class="btn operator" onclick="setOperation('×')">×</button>
+
+            <button class="btn" onclick="appendDigit('4')">4</button>
+            <button class="btn" onclick="appendDigit('5')">5</button>
+            <button class="btn" onclick="appendDigit('6')">6</button>
+            <button class="btn operator" onclick="setOperation('-')">-</button>
+
+            <button class="btn" onclick="appendDigit('1')">1</button>
+            <button class="btn" onclick="appendDigit('2')">2</button>
+            <button class="btn" onclick="appendDigit('3')">3</button>
+            <button class="btn operator" onclick="setOperation('+')">+</button>
+
+            <button class="btn wide" onclick="appendDigit('0')">0</button>
+            <button class="btn" onclick="appendDecimal()">.</button>
+            <button class="btn operator" onclick="calculate()">=</button>
+        </div>
+    </div>
+
+    <script>
+        let displayValue = '0';
+        let storedValue = null;
+        let pendingOperation = null;
+        let isNewInput = true;
+        
+        const display = document.getElementById('display');
+        
+        function updateDisplay() {
+            display.textContent = displayValue;
+        }
+        
+        function appendDigit(digit) {
+            if (isNewInput) {
+                displayValue = digit;
+                isNewInput = false;
+            } else {
+                displayValue = displayValue === '0' ? digit : displayValue + digit;
+            }
+            updateDisplay();
+        }
+        
+        function appendDecimal() {
+            if (isNewInput) {
+                displayValue = '0.';
+                isNewInput = false;
+            } else if (!displayValue.includes('.')) {
+                displayValue += '.';
+            }
+            updateDisplay();
+        }
+        
+        function setOperation(operation) {
+            const currentValue = parseFloat(displayValue);
+            
+            if (storedValue === null) {
+                storedValue = currentValue;
+            } else if (pendingOperation) {
+                const result = performCalculation(storedValue, currentValue, pendingOperation);
+                displayValue = String(result);
+                storedValue = result;
+                updateDisplay();
+            }
+            
+            pendingOperation = operation;
+            isNewInput = true;
+        }
+        
+        function calculate() {
+            if (storedValue === null || pendingOperation === null) return;
+            
+            const currentValue = parseFloat(displayValue);
+            const result = performCalculation(storedValue, currentValue, pendingOperation);
+            
+            displayValue = String(result);
+            storedValue = null;
+            pendingOperation = null;
+            isNewInput = true;
+            
+            updateDisplay();
+        }
+        
+        function performCalculation(a, b, operation) {
+            switch (operation) {
+                case '+':
+                    return a + b;
+                case '-':
+                    return a - b;
+                case '×':
+                    return a * b;
+                case '÷':
+                    return b !== 0 ? a / b : 'Error';
+                default:
+                    return b;
+            }
+        }
+        
+        function clearAll() {
+            displayValue = '0';
+            storedValue = null;
+            pendingOperation = null;
+            isNewInput = true;
+            updateDisplay();
+        }
+        
+        function toggleSign() {
+            displayValue = String(-parseFloat(displayValue));
+            updateDisplay();
+        }
+        
+        function percentage() {
+            displayValue = String(parseFloat(displayValue) / 100);
+            updateDisplay();
+        }
+    </script>
+</body>
+</html>
