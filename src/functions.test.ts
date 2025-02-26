@@ -1,24 +1,37 @@
-import { describe, it, expect } from "vitest";
-import { fibonacci } from "./functions";
+import { binarySearch } from './functions';
 
-describe("Fibonacci Function", () => {
-  it("should return 0 for n = 0", () => {
-    expect(fibonacci(0)).toBe(0);
+describe('binarySearch', () => {
+  test('should return the index when target exists in the array', () => {
+    expect(binarySearch([1, 2, 3, 4, 5], 3)).toBe(2);
+    expect(binarySearch([1, 2, 3, 4, 5], 1)).toBe(0);
+    expect(binarySearch([1, 2, 3, 4, 5], 5)).toBe(4);
   });
 
-  it("should return 1 for n = 1", () => {
-    expect(fibonacci(1)).toBe(1);
+  test('should return -1 when target does not exist in the array', () => {
+    expect(binarySearch([1, 2, 3, 4, 5], 6)).toBe(-1);
+    expect(binarySearch([1, 2, 3, 4, 5], 0)).toBe(-1);
+    expect(binarySearch([1, 2, 3, 4, 5], 2.5)).toBe(-1);
   });
 
-  it("should return 1 for n = 2", () => {
-    expect(fibonacci(2)).toBe(1);
+  test('should handle arrays with duplicate elements', () => {
+    expect(binarySearch([1, 2, 2, 3, 4, 5], 2)).toBeGreaterThanOrEqual(1);
+    expect(binarySearch([1, 2, 2, 3, 4, 5], 2)).toBeLessThanOrEqual(2);
   });
 
-  it("should return 55 for n = 10", () => {
-    expect(fibonacci(10)).toBe(55);
+  test('should handle empty arrays', () => {
+    expect(binarySearch([], 1)).toBe(-1);
   });
 
-  it("should throw an error for negative numbers", () => {
-    expect(() => fibonacci(-1)).toThrow("Negative numbers are not allowed");
+  test('should handle single element arrays', () => {
+    expect(binarySearch([1], 1)).toBe(0);
+    expect(binarySearch([1], 2)).toBe(-1);
+  });
+
+  test('should handle large sorted arrays', () => {
+    const largeArray = Array.from({ length: 1000 }, (_, i) => i + 1);
+    expect(binarySearch(largeArray, 500)).toBe(499);
+    expect(binarySearch(largeArray, 1)).toBe(0);
+    expect(binarySearch(largeArray, 1000)).toBe(999);
+    expect(binarySearch(largeArray, 1001)).toBe(-1);
   });
 });
