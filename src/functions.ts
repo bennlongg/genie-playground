@@ -110,3 +110,67 @@ export function bubbleSort<T>(arr: T[]): T[] {
   
   return result;
 }
+
+/**
+ * Creates a curried math function for performing arithmetic operations.
+ * 
+ * This function takes an operator and returns another function that can either:
+ * 1. Take two numbers and immediately perform the operation, or
+ * 2. Take one number and return a function that takes a second number to complete the operation
+ * 
+ * @param operator - The arithmetic operator to use ('+', '-', '*', or '/')
+ * @returns A curried function that performs the specified operation
+ * 
+ * @example
+ * ```
+ * // Basic usage with two arguments
+ * const add = curriedMath('+');
+ * add(5, 3); // Returns 8
+ * 
+ * // Curried usage
+ * const addFive = add(5);
+ * addFive(3); // Returns 8
+ * addFive(10); // Returns 15
+ * 
+ * // Other operations
+ * curriedMath('*')(2, 3); // Returns 6
+ * const divideByTwo = curriedMath('/')(2);
+ * divideByTwo(10); // Returns 5
+ * ```
+ */
+export function curriedMath(operator: string): (a: number, b?: number) => any {
+  return function(a: number, b?: number): any {
+    // If only one argument is provided, return a function waiting for the second argument
+    if (b === undefined) {
+      return function(b: number): number {
+        return performOperation(a, b, operator);
+      };
+    }
+    
+    // If both arguments are provided, perform the operation immediately
+    return performOperation(a, b, operator);
+  };
+}
+
+/**
+ * Helper function to perform the actual arithmetic operation.
+ * 
+ * @param a - The first number
+ * @param b - The second number
+ * @param operator - The arithmetic operator
+ * @returns The result of the operation, or NaN for invalid operators or divide by zero
+ */
+function performOperation(a: number, b: number, operator: string): number {
+  switch (operator) {
+    case '+':
+      return a + b;
+    case '-':
+      return a - b;
+    case '*':
+      return a * b;
+    case '/':
+      return b === 0 ? NaN : a / b;
+    default:
+      return NaN; // Return NaN for unsupported operators
+  }
+}
