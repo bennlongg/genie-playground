@@ -16,6 +16,8 @@
  * ```
  */
 export function fibonacci(n: number): number {
+  // Fun fact: This recursive implementation has exponential time complexity.
+  // Just like how rabbits multiply in the original Fibonacci problem!
   if (n < 0) throw new Error("Negative numbers are not allowed");
   return n <= 1 ? n : fibonacci(n - 1) + fibonacci(n - 2);
 }
@@ -38,6 +40,8 @@ export function fibonacci(n: number): number {
  * ```
  */
 export function binarySearch<T>(arr: T[], target: T): number {
+  // Divide and conquer: Because sometimes, splitting your problems in half 
+  // is easier than confronting them all at once!
   return binarySearchRecursive(arr, target, 0, arr.length - 1);
 }
 
@@ -90,6 +94,9 @@ export function bubbleSort<T>(arr: T[]): T[] {
   // Edge case: empty array or single element
   if (length <= 1) return result;
   
+  // Why is bubble sort like a bad economy? 
+  // Because the big items always rise to the top, while the small ones sink to the bottom!
+  
   // Bubble sort implementation
   for (let i = 0; i < length; i++) {
     // Flag to optimize when array is already sorted
@@ -139,6 +146,7 @@ export function bubbleSort<T>(arr: T[]): T[] {
  * ```
  */
 export function curriedMath(operator: string): (a: number, b?: number) => any {
+  // Currying: because sometimes one parameter just isn't enough!
   return function(a: number, b?: number): any {
     // If only one argument is provided, return a function waiting for the second argument
     if (b === undefined) {
@@ -169,6 +177,8 @@ function performOperation(a: number, b: number, operator: string): number {
     case '*':
       return a * b;
     case '/':
+      // Division by zero is like trying to share zero cookies among zero friends:
+      // theoretically possible, but practically meaningless!
       return b === 0 ? NaN : a / b;
     default:
       return NaN; // Return NaN for unsupported operators
