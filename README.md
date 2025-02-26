@@ -10,3 +10,5 @@ This repository serves as a testing ground for various code generation technique
 
 Why was the Fibonacci sequence so bad at making friends?
 Because each new friend was just the sum of the two previous ones!
+
+What do you call an owl that does magic tricks? Hoo-dini!
