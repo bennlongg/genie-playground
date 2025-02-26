@@ -166,6 +166,85 @@ function quickSort(arr: number[]): number[] {
 }
 
 /**
+ * Merges two sorted arrays into a single sorted array.
+ * 
+ * @param left - The left sorted array
+ * @param right - The right sorted array
+ * @returns A merged sorted array
+ */
+function merge(left: number[], right: number[]): number[] {
+  const result: number[] = [];
+  let leftIndex = 0;
+  let rightIndex = 0;
+  
+  // Compare elements from both arrays and add the smaller one to the result
+  while (leftIndex < left.length && rightIndex < right.length) {
+    if (left[leftIndex] < right[rightIndex]) {
+      result.push(left[leftIndex]);
+      leftIndex++;
+    } else {
+      result.push(right[rightIndex]);
+      rightIndex++;
+    }
+  }
+  
+  // Add remaining elements
+  return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
+}
+
+/**
+ * Sorts an array using the merge sort algorithm.
+ * 
+ * @param arr - The array to sort
+ * @returns A new sorted array
+ */
+function mergeSort(arr: number[]): number[] {
+  const result = [...arr];
+  
+  // Base case
+  if (result.length <= 1) {
+    return result;
+  }
+  
+  // Split the array in half
+  const middle = Math.floor(result.length / 2);
+  const left = result.slice(0, middle);
+  const right = result.slice(middle);
+  
+  // Recursively sort both halves and merge them
+  return merge(mergeSort(left), mergeSort(right));
+}
+
+/**
+ * Sorts an array using the selection sort algorithm.
+ * 
+ * @param arr - The array to sort
+ * @returns A new sorted array
+ */
+function selectionSort(arr: number[]): number[] {
+  const result = [...arr];
+  const length = result.length;
+  
+  for (let i = 0; i < length; i++) {
+    let minIndex = i;
+    
+    // Find the minimum element in the unsorted part
+    for (let j = i + 1; j < length; j++) {
+      if (result[j] < result[minIndex]) {
+        minIndex = j;
+      }
+    }
+    
+    // Swap the found minimum element with the element at index i
+    if (minIndex !== i) {
+      [result[i], result[minIndex]] = [result[minIndex], result[i]];
+    }
+  }
+  
+  return result;
+}
+
+/**
  * Sorts an array using a randomly chosen sorting algorithm.
  * 
  * @param arr - The array to sort
@@ -176,7 +255,9 @@ export function randomSort(arr: number[]): number[] {
   const sortingAlgorithms = [
     bubbleSort,
     insertionSort,
-    quickSort
+    quickSort,
+    mergeSort,
+    selectionSort
   ];
   
   // Select a random sorting algorithm
