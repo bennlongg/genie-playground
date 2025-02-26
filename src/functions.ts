@@ -83,3 +83,106 @@ export function bubbleSort(arr: number[]): number[] {
   
   return result;
 }
+
+/**
+ * Sorts an array using the insertion sort algorithm.
+ * 
+ * @param arr - The array to sort
+ * @returns A new sorted array
+ */
+function insertionSort(arr: number[]): number[] {
+  const result = [...arr];
+  const length = result.length;
+  
+  for (let i = 1; i < length; i++) {
+    const current = result[i];
+    let j = i - 1;
+    
+    while (j >= 0 && result[j] > current) {
+      result[j + 1] = result[j];
+      j--;
+    }
+    
+    result[j + 1] = current;
+  }
+  
+  return result;
+}
+
+/**
+ * Partition function for quicksort algorithm.
+ * 
+ * @param arr - The array to partition
+ * @param low - The starting index
+ * @param high - The ending index
+ * @returns The partition index
+ */
+function partition(arr: number[], low: number, high: number): number {
+  const pivot = arr[high];
+  let i = low - 1;
+  
+  for (let j = low; j < high; j++) {
+    if (arr[j] <= pivot) {
+      i++;
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+  }
+  
+  [arr[i + 1], arr[high]] = [arr[high], arr[i + 1]];
+  return i + 1;
+}
+
+/**
+ * Recursive implementation of quicksort algorithm.
+ * 
+ * @param arr - The array to sort
+ * @param low - The starting index
+ * @param high - The ending index
+ */
+function quickSortRecursive(arr: number[], low: number, high: number): void {
+  if (low < high) {
+    const partitionIndex = partition(arr, low, high);
+    
+    quickSortRecursive(arr, low, partitionIndex - 1);
+    quickSortRecursive(arr, partitionIndex + 1, high);
+  }
+}
+
+/**
+ * Sorts an array using the quicksort algorithm.
+ * 
+ * @param arr - The array to sort
+ * @returns A new sorted array
+ */
+function quickSort(arr: number[]): number[] {
+  const result = [...arr];
+  
+  if (result.length <= 1) {
+    return result;
+  }
+  
+  quickSortRecursive(result, 0, result.length - 1);
+  return result;
+}
+
+/**
+ * Sorts an array using a randomly chosen sorting algorithm.
+ * 
+ * @param arr - The array to sort
+ * @returns A new sorted array
+ */
+export function randomSort(arr: number[]): number[] {
+  // Array of sorting functions
+  const sortingAlgorithms = [
+    bubbleSort,
+    insertionSort,
+    quickSort
+  ];
+  
+  // Select a random sorting algorithm
+  const randomIndex = Math.floor(Math.random() * sortingAlgorithms.length);
+  const selectedAlgorithm = sortingAlgorithms[randomIndex];
+  
+  // Apply the selected algorithm
+  return selectedAlgorithm(arr);
+}
