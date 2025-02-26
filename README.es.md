@@ -12,3 +12,5 @@ Este repositorio sirve como campo de pruebas para varias técnicas de generació
 ¡Porque cada nuevo amigo era solo la suma de los dos anteriores!
 
 ¿Cómo se llama un búho que hace trucos de magia? ¡Hoo-dini!
+
+¿Por qué los londinenses nunca se pierden? ¡Porque siempre siguen a su 'Big Ben'!

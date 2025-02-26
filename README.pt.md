@@ -12,3 +12,5 @@ Por que a sequência de Fibonacci era tão ruim em fazer amigos?
 Porque cada novo amigo era apenas a soma dos dois anteriores!
 
 Como se chama uma coruja que faz truques de mágica? Hoo-dini!
+
+Por que os londrinos nunca se perdem? Porque eles sempre seguem o seu 'Big Ben'!

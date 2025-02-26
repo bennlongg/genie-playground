@@ -13,6 +13,8 @@ Because each new friend was just the sum of the two previous ones!
 
 What do you call an owl that does magic tricks? Hoo-dini!
 
+Why don't Londoners get lost? Because they always follow their 'Big Ben'!
+
 ## Available Languages
 
 - [Français](README.fr.md)

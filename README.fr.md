@@ -12,3 +12,5 @@ Pourquoi la séquence de Fibonacci était-elle si mauvaise pour se faire des ami
 Parce que chaque nouvel ami n'était que la somme des deux précédents!
 
 Comment appelle-t-on un hibou qui fait des tours de magie? Hoo-dini!
+
+Pourquoi les Londoniens ne se perdent-ils jamais? Parce qu'ils suivent toujours leur 'Big Ben'!
