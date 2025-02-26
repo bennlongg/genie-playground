@@ -1,4 +1,13 @@
-import { fibonacci } from "./functions";
+// Export existing functions
+export * from './functions';
 
-console.log("Hello Genie!");
-console.log("10th Fibonacci Number:", fibonacci(10));
+// Export sorting algorithms
+export {
+  bubbleSort,
+  mergeSort,
+  quickSort,
+  selectionSort,
+  insertionSort,
+  shellSort,
+  heapSort
+} from './sorting';
