@@ -1,4 +1,4 @@
-import { fibonacci, binarySearch, bubbleSort } from './functions';
+import { fibonacci, binarySearch, bubbleSort, randomSort } from './functions';
 
 describe('fibonacci', () => {
   test('should return 0 for n = 0', () => {
@@ -101,5 +101,72 @@ describe('bubbleSort', () => {
     const unsortedArray = Array.from({ length: 100 }, () => Math.floor(Math.random() * 1000));
     const sortedArray = [...unsortedArray].sort((a, b) => a - b);
     expect(bubbleSort(unsortedArray)).toEqual(sortedArray);
+  });
+});
+
+describe('randomSort', () => {
+  test('should correctly sort arrays with distinct elements', () => {
+    const unsortedArray = [5, 3, 8, 4, 2];
+    const expectedSortedArray = [2, 3, 4, 5, 8];
+    expect(randomSort(unsortedArray)).toEqual(expectedSortedArray);
+    
+    const unsortedArray2 = [9, 7, 5, 3, 1];
+    const expectedSortedArray2 = [1, 3, 5, 7, 9];
+    expect(randomSort(unsortedArray2)).toEqual(expectedSortedArray2);
+  });
+
+  test('should correctly sort arrays with duplicate elements', () => {
+    const unsortedArray = [3, 1, 4, 1, 5, 9, 2, 6, 5];
+    const expectedSortedArray = [1, 1, 2, 3, 4, 5, 5, 6, 9];
+    expect(randomSort(unsortedArray)).toEqual(expectedSortedArray);
+  });
+
+  test('should handle empty arrays', () => {
+    expect(randomSort([])).toEqual([]);
+  });
+
+  test('should handle single element arrays', () => {
+    expect(randomSort([42])).toEqual([42]);
+  });
+
+  test('should correctly sort arrays with negative numbers', () => {
+    const unsortedArray = [5, -3, 8, -4, 2];
+    const expectedSortedArray = [-4, -3, 2, 5, 8];
+    expect(randomSort(unsortedArray)).toEqual(expectedSortedArray);
+    
+    const unsortedArray2 = [-9, -7, -5, -3, -1];
+    const expectedSortedArray2 = [-9, -7, -5, -3, -1];
+    expect(randomSort(unsortedArray2)).toEqual(expectedSortedArray2);
+  });
+
+  test('should correctly sort arrays with mixed signs', () => {
+    const unsortedArray = [-5, 3, -8, 4, -2];
+    const expectedSortedArray = [-8, -5, -2, 3, 4];
+    expect(randomSort(unsortedArray)).toEqual(expectedSortedArray);
+  });
+
+  test('should produce consistent results for multiple runs', () => {
+    // This test verifies that regardless of the random algorithm chosen,
+    // the result is always a correctly sorted array
+    const unsortedArray = [8, 3, 1, 9, 5, 2, 7, 4, 6];
+    const expectedSortedArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    
+    // Run multiple times to increase chance of different algorithms being chosen
+    for (let i = 0; i < 10; i++) {
+      expect(randomSort(unsortedArray)).toEqual(expectedSortedArray);
+    }
+  });
+
+  test('should handle large arrays', () => {
+    const unsortedArray = Array.from({ length: 100 }, () => Math.floor(Math.random() * 1000));
+    const sortedArray = [...unsortedArray].sort((a, b) => a - b);
+    expect(randomSort(unsortedArray)).toEqual(sortedArray);
+  });
+
+  test('should not modify the original array', () => {
+    const originalArray = [5, 3, 8, 4, 2];
+    const originalArrayCopy = [...originalArray];
+    randomSort(originalArray);
+    expect(originalArray).toEqual(originalArrayCopy);
   });
 });
