@@ -1,1 +1,12 @@
 # genie-playground
+
+A playground for experimenting with code generation and AI capabilities.
+
+## About
+
+This repository serves as a testing ground for various code generation techniques and AI-assisted development features.
+
+## Fun Facts
+
+Why was the Fibonacci sequence so bad at making friends?
+Because each new friend was just the sum of the two previous ones!
