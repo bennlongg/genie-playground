@@ -61,3 +61,7 @@ Because light attracts bugs! 🐛
 Why was the function feeling cold?
 
 Because someone left it outside its scope! ❄️
+
+Why do programmers need a coffee pot on their desk?
+
+Because it helps them with their Java script! ☕
