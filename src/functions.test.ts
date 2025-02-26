@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { fibonacci, binarySearch } from "./functions";
+import { fibonacci, binarySearch, bubbleSort } from "./functions";
 
 describe("Fibonacci Function", () => {
   it("should return 0 for n = 0", () => {
@@ -54,5 +54,43 @@ describe("Binary Search Function", () => {
     // This test might need adjustment if specific behavior for duplicates is implemented
     const result = binarySearch([1, 2, 2, 2, 3], 2);
     expect([1, 2, 3]).toContain(result);
+  });
+});
+
+describe("Bubble Sort Function", () => {
+  it("should sort an array of numbers in ascending order", () => {
+    expect(bubbleSort([5, 3, 8, 4, 2])).toEqual([2, 3, 4, 5, 8]);
+    expect(bubbleSort([10, 7, 8, 9, 1, 5])).toEqual([1, 5, 7, 8, 9, 10]);
+  });
+
+  it("should return the same array if already sorted", () => {
+    expect(bubbleSort([1, 2, 3, 4, 5])).toEqual([1, 2, 3, 4, 5]);
+  });
+
+  it("should sort an array in reverse order", () => {
+    expect(bubbleSort([5, 4, 3, 2, 1])).toEqual([1, 2, 3, 4, 5]);
+  });
+
+  it("should handle empty arrays", () => {
+    expect(bubbleSort([])).toEqual([]);
+  });
+
+  it("should handle arrays with a single element", () => {
+    expect(bubbleSort([1])).toEqual([1]);
+  });
+
+  it("should sort arrays with duplicate values", () => {
+    expect(bubbleSort([5, 2, 5, 3, 1, 2])).toEqual([1, 2, 2, 3, 5, 5]);
+  });
+
+  it("should work with string arrays", () => {
+    expect(bubbleSort(["banana", "cherry", "apple", "date"])).toEqual(["apple", "banana", "cherry", "date"]);
+  });
+
+  it("should preserve the original array", () => {
+    const original = [5, 3, 8, 4, 2];
+    const sorted = bubbleSort(original);
+    expect(original).toEqual([5, 3, 8, 4, 2]); // Original should be unchanged
+    expect(sorted).toEqual([2, 3, 4, 5, 8]); // Result should be sorted
   });
 });
