@@ -3,6 +3,29 @@
  */
 
 /**
+ * Calculates the nth Fibonacci number.
+ * 
+ * @param n - The position in the Fibonacci sequence
+ * @returns The nth Fibonacci number
+ */
+export function fibonacci(n: number): number {
+  if (n <= 0) return 0;
+  if (n === 1) return 1;
+  
+  let a = 0;
+  let b = 1;
+  let result = 0;
+  
+  for (let i = 2; i <= n; i++) {
+    result = a + b;
+    a = b;
+    b = result;
+  }
+  
+  return result;
+}
+
+/**
  * Performs a binary search on a sorted array.
  * 
  * @param arr - The sorted array to search in
