@@ -7,11 +7,21 @@ document.addEventListener('DOMContentLoaded', function() {
     const copyBtn = document.getElementById('copyBtn');
     const asciiOutput = document.getElementById('asciiOutput');
     const darkModeToggle = document.getElementById('darkModeToggle');
+    const outputContainer = document.querySelector('.output-container');
 
     // Set initial state
     let figletLoaded = false;
     generateBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
     generateBtn.disabled = true;
+
+    // Check for saved dark mode preference
+    const savedDarkMode = localStorage.getItem('darkMode') === 'true';
+    if (savedDarkMode) {
+        document.body.classList.add('dark-mode');
+        asciiOutput.classList.add('dark-mode');
+        outputContainer?.classList.add('dark-mode');
+        darkModeToggle.checked = true;
+    }
 
     // Dynamically load the FIGlet library
     const figletScript = document.createElement('script');
@@ -160,8 +170,18 @@ document.addEventListener('DOMContentLoaded', function() {
     // Toggle dark mode
     function toggleDarkMode() {
         const isDarkMode = darkModeToggle.checked;
+        
+        // Apply dark mode to elements
         document.body.classList.toggle('dark-mode', isDarkMode);
         asciiOutput.classList.toggle('dark-mode', isDarkMode);
+        
+        // Also apply to output container if it exists
+        if (outputContainer) {
+            outputContainer.classList.toggle('dark-mode', isDarkMode);
+        }
+        
+        // Save preference to localStorage
+        localStorage.setItem('darkMode', isDarkMode);
     }
 
     // Event Listeners
