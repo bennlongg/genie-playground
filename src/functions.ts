@@ -1,7 +1,9 @@
+import { swap, compare } from './utilities';
+
 export function fibonacci(n: number): number {
-    if (n < 0) throw new Error("Negative numbers are not allowed");
-    return n <= 1 ? n : fibonacci(n - 1) + fibonacci(n - 2);
-  }
+  if (n < 0) throw new Error("Negative numbers are not allowed");
+  return n <= 1 ? n : fibonacci(n - 1) + fibonacci(n - 2);
+}
 
 /**
  * Performs a binary search on a sorted array to find the specified element.
@@ -28,4 +30,29 @@ export function binarySearch<T>(arr: T[], element: T): number {
   }
   
   return -1;
+}
+
+/**
+ * Sorts an array using the bubble sort algorithm.
+ * @param arr - The array to be sorted
+ * @returns The sorted array (same reference as input)
+ */
+export function bubbleSort<T>(arr: T[]): T[] {
+  const n = arr.length;
+  
+  for (let i = 0; i < n - 1; i++) {
+    let swapped = false;
+    
+    for (let j = 0; j < n - i - 1; j++) {
+      if (compare(arr[j], arr[j + 1]) > 0) {
+        swap(arr, j, j + 1);
+        swapped = true;
+      }
+    }
+    
+    // If no swapping occurred in this pass, array is sorted
+    if (!swapped) break;
+  }
+  
+  return arr;
 }
