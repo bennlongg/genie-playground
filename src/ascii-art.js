@@ -1,4 +1,4 @@
-// Load FIGlet.js library
+// ASCII Art Generator Script
 document.addEventListener('DOMContentLoaded', function() {
     // DOM Elements
     const inputText = document.getElementById('inputText');
@@ -23,23 +23,70 @@ document.addEventListener('DOMContentLoaded', function() {
         darkModeToggle.checked = true;
     }
 
-    // Dynamically load the FIGlet library
-    const figletScript = document.createElement('script');
-    figletScript.src = 'https://unpkg.com/figlet@1.5.2/lib/figlet.js';
-    document.head.appendChild(figletScript);
+    // Function to load the FIGlet library with error handling
+    function loadFigletLibrary() {
+        return new Promise((resolve, reject) => {
+            // Try multiple CDN sources for better reliability
+            const cdnSources = [
+                'https://cdn.jsdelivr.net/npm/figlet@1.5.2/lib/figlet.min.js',
+                'https://unpkg.com/figlet@1.5.2/lib/figlet.js',
+                'https://cdnjs.cloudflare.com/ajax/libs/figlet/1.5.2/figlet.min.js'
+            ];
+            
+            // Try each source until one succeeds
+            function tryLoadScript(index) {
+                if (index >= cdnSources.length) {
+                    reject(new Error("Failed to load FIGlet from all sources"));
+                    return;
+                }
+                
+                const figletScript = document.createElement('script');
+                figletScript.src = cdnSources[index];
+                
+                figletScript.onload = function() {
+                    console.log('FIGlet library loaded successfully from', cdnSources[index]);
+                    resolve();
+                };
+                
+                figletScript.onerror = function() {
+                    console.warn(`Failed to load FIGlet from ${cdnSources[index]}, trying next source...`);
+                    // Try next source
+                    tryLoadScript(index + 1);
+                };
+                
+                document.head.appendChild(figletScript);
+            }
+            
+            // Start with the first source
+            tryLoadScript(0);
+        });
+    }
 
-    figletScript.onload = function() {
-        console.log('FIGlet library loaded successfully');
-        figletLoaded = true;
-        generateBtn.disabled = false;
-        generateBtn.innerHTML = '<i class="fas fa-magic"></i> Generate ASCII Art';
-    };
-
-    figletScript.onerror = function() {
-        console.error('Failed to load FIGlet library');
-        generateBtn.disabled = false;
-        generateBtn.innerHTML = '<i class="fas fa-magic"></i> Generate ASCII Art (Simple Mode)';
-    };
+    // Load the FIGlet library
+    loadFigletLibrary()
+        .then(() => {
+            figletLoaded = true;
+            generateBtn.disabled = false;
+            generateBtn.innerHTML = '<i class="fas fa-magic"></i> Generate ASCII Art';
+            
+            // Pre-load fonts to avoid fetch issues later
+            if (typeof figlet !== 'undefined') {
+                try {
+                    // Preload standard font
+                    figlet.defaults({ fontPath: 'https://unpkg.com/figlet/importable-fonts/' });
+                    figlet.preloadFonts(['Standard'], function() {
+                        console.log('Standard font preloaded successfully');
+                    });
+                } catch (e) {
+                    console.warn('Could not preload fonts:', e);
+                }
+            }
+        })
+        .catch((error) => {
+            console.error('Error loading FIGlet library:', error);
+            generateBtn.disabled = false;
+            generateBtn.innerHTML = '<i class="fas fa-magic"></i> Generate ASCII Art (Simple Mode)';
+        });
 
     // Font mapping for FIGlet
     const fontMap = {
@@ -65,9 +112,16 @@ document.addEventListener('DOMContentLoaded', function() {
         asciiOutput.textContent = "Generating...";
         copyBtn.disabled = true;
         
+        // Check if figlet is available in the global scope
         if (figletLoaded && typeof figlet !== 'undefined') {
-            // Use FIGlet for ASCII art generation
+            // Use FIGlet for ASCII art generation with proper error handling
             try {
+                // Set the path for font loading to avoid "Failed to fetch" errors
+                figlet.defaults({
+                    fontPath: 'https://unpkg.com/figlet/importable-fonts/'
+                });
+                
+                // Generate ASCII art with the selected font
                 figlet.text(text, {
                     font: fontMap[selectedFont],
                     horizontalLayout: 'default',
