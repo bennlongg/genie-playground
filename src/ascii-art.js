@@ -1,28 +1,5 @@
 // Load FIGlet.js library
 document.addEventListener('DOMContentLoaded', function() {
-    // Dynamically load the FIGlet library
-    const figletScript = document.createElement('script');
-    figletScript.src = 'https://unpkg.com/figlet@1.5.2/lib/figlet.js';
-    document.head.appendChild(figletScript);
-
-    // Track if FIGlet is loaded
-    let figletLoaded = false;
-
-    figletScript.onload = function() {
-        console.log('FIGlet library loaded successfully');
-        figletLoaded = true;
-        // Enable generate button once library is loaded
-        generateBtn.disabled = false;
-        generateBtn.innerHTML = '<i class="fas fa-magic"></i> Generate ASCII Art';
-    };
-
-    figletScript.onerror = function() {
-        console.error('Failed to load FIGlet library');
-        showError("Failed to load ASCII art library. Please refresh the page or try again later.");
-        generateBtn.disabled = false;
-        generateBtn.innerHTML = '<i class="fas fa-magic"></i> Generate ASCII Art (Limited Mode)';
-    };
-
     // DOM Elements
     const inputText = document.getElementById('inputText');
     const fontSelect = document.getElementById('fontSelect');
@@ -31,9 +8,28 @@ document.addEventListener('DOMContentLoaded', function() {
     const asciiOutput = document.getElementById('asciiOutput');
     const darkModeToggle = document.getElementById('darkModeToggle');
 
-    // Set initial state of generate button
+    // Set initial state
+    let figletLoaded = false;
     generateBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
     generateBtn.disabled = true;
+
+    // Dynamically load the FIGlet library
+    const figletScript = document.createElement('script');
+    figletScript.src = 'https://unpkg.com/figlet@1.5.2/lib/figlet.js';
+    document.head.appendChild(figletScript);
+
+    figletScript.onload = function() {
+        console.log('FIGlet library loaded successfully');
+        figletLoaded = true;
+        generateBtn.disabled = false;
+        generateBtn.innerHTML = '<i class="fas fa-magic"></i> Generate ASCII Art';
+    };
+
+    figletScript.onerror = function() {
+        console.error('Failed to load FIGlet library');
+        generateBtn.disabled = false;
+        generateBtn.innerHTML = '<i class="fas fa-magic"></i> Generate ASCII Art (Simple Mode)';
+    };
 
     // Font mapping for FIGlet
     const fontMap = {
@@ -43,45 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
         'block': 'Block',
         'banner': 'Banner'
     };
-
-    // Simplified ASCII art function for cases when FIGlet fails
-    function simpleASCII(text, style) {
-        // Very basic ASCII art converter as a last resort
-        let output = '';
-        const chars = {
-            'standard': {
-                border: '*',
-                spacing: ' '
-            },
-            'shadow': {
-                border: '#',
-                spacing: ' '
-            },
-            'thinkertoy': {
-                border: 'o',
-                spacing: '-'
-            },
-            'block': {
-                border: '█',
-                spacing: ' '
-            },
-            'banner': {
-                border: '#',
-                spacing: '='
-            }
-        };
-        
-        const styleChars = chars[style] || chars['standard'];
-        
-        // Create a basic bordered ASCII art
-        const padding = 2;
-        const textLine = styleChars.border + styleChars.spacing.repeat(padding) + 
-                        text + styleChars.spacing.repeat(padding) + styleChars.border;
-        const borderLine = styleChars.border.repeat(textLine.length);
-        
-        output = borderLine + '\n' + textLine + '\n' + borderLine;
-        return output;
-    }
 
     // Generate ASCII Art
     function generateASCII() {
@@ -98,47 +55,64 @@ document.addEventListener('DOMContentLoaded', function() {
         asciiOutput.textContent = "Generating...";
         copyBtn.disabled = true;
         
-        try {
-            // Check if FIGlet library is loaded and available
-            if (figletLoaded && typeof figlet !== 'undefined') {
-                try {
-                    // Use FIGlet for ASCII art generation
-                    figlet.text(text, {
-                        font: fontMap[selectedFont],
-                        horizontalLayout: 'default',
-                        verticalLayout: 'default'
-                    }, function(err, result) {
-                        if (err) {
-                            console.error("FIGlet error:", err);
-                            // Try simplified ASCII art as backup
-                            const backupResult = simpleASCII(text, selectedFont);
-                            displayResult(backupResult);
-                        } else if (!result || result.trim() === '') {
-                            console.warn("FIGlet returned empty result");
-                            // Try simplified ASCII art as backup
-                            const backupResult = simpleASCII(text, selectedFont);
-                            displayResult(backupResult);
-                        } else {
-                            // Success! Display the result
-                            displayResult(result);
-                        }
-                    });
-                } catch (figletError) {
-                    console.error("Error using FIGlet:", figletError);
-                    // Try simplified ASCII art as backup
-                    const backupResult = simpleASCII(text, selectedFont);
-                    displayResult(backupResult);
-                }
-            } else {
-                // FIGlet not available, use simplified converter
-                console.warn("FIGlet library not available, using simplified converter");
-                const backupResult = simpleASCII(text, selectedFont);
-                displayResult(backupResult);
+        if (figletLoaded && typeof figlet !== 'undefined') {
+            // Use FIGlet for ASCII art generation
+            try {
+                figlet.text(text, {
+                    font: fontMap[selectedFont],
+                    horizontalLayout: 'default',
+                    verticalLayout: 'default'
+                }, function(err, result) {
+                    if (err) {
+                        console.error("FIGlet error:", err);
+                        const simpleResult = createSimpleASCII(text, selectedFont);
+                        displayResult(simpleResult);
+                    } else if (!result || result.trim() === '') {
+                        console.warn("FIGlet returned empty result");
+                        const simpleResult = createSimpleASCII(text, selectedFont);
+                        displayResult(simpleResult);
+                    } else {
+                        // Success! Display the result
+                        displayResult(result);
+                    }
+                });
+            } catch (figletError) {
+                console.error("Error using FIGlet:", figletError);
+                const simpleResult = createSimpleASCII(text, selectedFont);
+                displayResult(simpleResult);
             }
-        } catch (error) {
-            showError("Error generating ASCII art: " + error.message);
-            console.error("General error in ASCII art generation:", error);
+        } else {
+            // FIGlet not available, use simple converter
+            console.warn("FIGlet library not available, using simple ASCII converter");
+            const simpleResult = createSimpleASCII(text, selectedFont);
+            displayResult(simpleResult);
         }
+    }
+
+    // Simple ASCII art generator as fallback
+    function createSimpleASCII(text, fontStyle) {
+        const chars = {
+            'standard': { border: '*', fill: ' ' },
+            'shadow': { border: '#', fill: '.' },
+            'thinkertoy': { border: 'o', fill: '-' },
+            'block': { border: '█', fill: '▒' },
+            'banner': { border: '=', fill: '#' }
+        };
+        
+        const style = chars[fontStyle] || chars['standard'];
+        const padding = 2;
+        const borderLength = text.length + (padding * 2) + 2; // +2 for left and right borders
+        
+        // Create top border
+        let result = style.border.repeat(borderLength) + '\n';
+        
+        // Create middle section with text
+        result += style.border + style.fill.repeat(padding) + text + style.fill.repeat(padding) + style.border + '\n';
+        
+        // Create bottom border
+        result += style.border.repeat(borderLength);
+        
+        return result;
     }
 
     // Display the generated ASCII art
@@ -205,17 +179,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize with a welcome message
     asciiOutput.textContent = `
-    __    __    ___  _        ___   ___   __  __  ___ 
-   / /\\  / /\\  / __\\/ \\      |_ _| |_ _| / / / / / __\\
-  / /  \\/ /  \\/ /   | |       | |   | | / / / / / /   
- / /\\__/ /\\__/ /____| |___    | |   | |/ /_/ / / /___ 
-/_/\\__/_/\\__/\\____/\\_____/   |___|___|\\_____/\\____/  
-                                                      
-  ___   ___  _  _  ___  ___     _   _____  ___   ___ 
- / __\\ / __\\/ \\/ \\/ __\\/ _ \\   /_\\ /__   \\/ _ \\ / __\\
-/ /   / /   | |\\/| |  _|| (_) | //_\\\\  / /\\/ /_\\// /   
-\\ \\___\\ \\___| |  | | /__|\\__, |/  _  \\/ / / /_\\\\/ /___ 
- \\____/\\____\\_/  \\_\\____/  /_/\\_/ \\_/\\/  \\____/\\____/ 
-                                                      
-Type some text and click Generate to start!`;
+   _    ___  ___ ___ ___    _   ___ _____    ___ ___ _  _ ___ ___  _ _____ ___  ___ 
+  /_\\  / __||_ _|_ _|_ _|  /_\\ | _ \\_   _|  / __| __| \\| | __| _ \\/_\\_   _/ _ \\| _ \\
+ / _ \\ \\__ \\ | | | | | |  / _ \\|   / | |   | (_ | _|| .\\| _|| /  / _ \\| || (_) |   /
+/_/ \\_\\|___/|___|___|___\\/_/ \\_\\_|_\\ |_|    \\___|___|_|\\_|___|_|_/_/ \\_\\_| \\___/|_|_\\
+                                                                                     
+Enter your text and click Generate to create your ASCII art!
+`;
 });
