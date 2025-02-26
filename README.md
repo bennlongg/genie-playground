@@ -52,8 +52,12 @@ npm test
 
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute to this project.
 
-## Fun Fact
+## Fun Facts
 
 Why do programmers prefer dark mode?
 
 Because light attracts bugs! 🐛
+
+Why was the function feeling cold?
+
+Because someone left it outside its scope! ❄️
