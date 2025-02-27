@@ -56,3 +56,6 @@ See `contributing.md` for ways to get started.
 
 Why did the doctor start screaming in the library?
 Because he lost his patients!
+
+Why is it so hard to understand what doctors write on prescriptions?
+Because their writing requires another degree to understand!
