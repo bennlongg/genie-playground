@@ -68,6 +68,16 @@ Sorts an array of numbers in ascending order using the bubble sort algorithm.
 npm test
 ```
 
+## Contribution Guidelines
+
+We welcome contributions to JavaScript Utility Functions! Here's how you can help:
+
+- Report bugs and request features by creating issues
+- Submit pull requests for bug fixes or new features
+- Improve documentation
+
+Please read our [Contributing Guide](CONTRIBUTING.md) for detailed instructions on how to contribute, including coding standards, testing requirements, and the pull request process.
+
 ## License
 
 MIT
