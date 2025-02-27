@@ -21,3 +21,29 @@ export function binarySearch(arr: number[], target: number): number {
   
   return -1;
 }
+
+export function bubbleSort(arr: number[]): number[] {
+  // Create a copy of the array to avoid mutating the original
+  const result = [...arr];
+  const n = result.length;
+  
+  // Early return for empty or single-element arrays
+  if (n <= 1) return result;
+  
+  for (let i = 0; i < n - 1; i++) {
+    let swapped = false;
+    
+    for (let j = 0; j < n - i - 1; j++) {
+      if (result[j] > result[j + 1]) {
+        // Swap elements
+        [result[j], result[j + 1]] = [result[j + 1], result[j]];
+        swapped = true;
+      }
+    }
+    
+    // If no swapping occurred in this pass, array is already sorted
+    if (!swapped) break;
+  }
+  
+  return result;
+}
