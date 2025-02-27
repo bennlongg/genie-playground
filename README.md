@@ -1,5 +1,7 @@
 # JavaScript Utility Functions
 
+*Read this in other languages: [English](README.md), [Deutsch](README.de.md)*
+
 A collection of useful utility functions implemented in TypeScript.
 
 ## Installation
