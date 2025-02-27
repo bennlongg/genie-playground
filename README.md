@@ -49,3 +49,7 @@ Because they can't C#!
 Why do programmers prefer using the dark mode? 
 
 Because the light attracts bugs!
+
+How many programmers does it take to change a light bulb?
+
+None. That's a hardware problem!
