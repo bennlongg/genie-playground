@@ -18,12 +18,12 @@ async function main(): Promise<void> {
     core.info('Starting workflow execution...');
     
     // Wait for 10 seconds
-    core.info('Waiting for 10 seconds before simulating failure...');
+    core.info('Waiting for 10 seconds before completing...');
     await sleep(10000);
     
-    // Log error message and throw error to fail the workflow
-    core.error('ERROR: This workflow is designed to fail after waiting 10 seconds');
-    throw new Error('ERROR: This workflow is designed to fail after waiting 10 seconds');
+    // Log successful completion message
+    core.info('Successfully completed the 10-second wait period');
+    core.info('Workflow completed successfully');
   } catch (error) {
     // Handle any errors that might occur
     if (error instanceof Error) {
