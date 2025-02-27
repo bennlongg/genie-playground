@@ -52,3 +52,5 @@ Wie nennt man eine Eule, die Zaubertricks macht? Hoo-dini!
 Warum verirren sich Londoner nie? Weil sie immer ihrem "Big Ben" folgen!
 
 Warum haben die Londoner immer gute Laune? Weil sie ständig von Big Ben-tastischen Erlebnissen umgeben sind!
+
+Warum können Mathematiker keine Witze erzählen? Weil sie immer die Pointe vergessen!
