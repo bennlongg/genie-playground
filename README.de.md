@@ -14,3 +14,5 @@ Weil jeder neue Freund nur die Summe der beiden vorherigen war!
 Wie nennt man eine Eule, die Zaubertricks macht? Hoo-dini!
 
 Warum verirren sich Londoner nie? Weil sie immer ihrem "Big Ben" folgen!
+
+Warum haben die Londoner immer gute Laune? Weil sie ständig von Big Ben-tastischen Erlebnissen umgeben sind!

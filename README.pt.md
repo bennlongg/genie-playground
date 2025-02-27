@@ -14,3 +14,5 @@ Porque cada novo amigo era apenas a soma dos dois anteriores!
 Como se chama uma coruja que faz truques de mágica? Hoo-dini!
 
 Por que os londrinos nunca se perdem? Porque eles sempre seguem o seu 'Big Ben'!
+
+Por que os londrinos sempre têm um sorriso? Porque estão sempre cercados por experiências Big Ben-tásticas!

@@ -14,3 +14,5 @@ Omdat elke nieuwe vriend gewoon de som van de twee vorige was!
 Hoe noem je een uil die goocheltrucs doet? Hoo-dini!
 
 Waarom verdwalen Londenaren nooit? Omdat ze altijd hun 'Big Ben' volgen!
+
+Waarom hebben Londenaren altijd een glimlach? Omdat ze altijd omringd zijn door Big Ben-tastische ervaringen!

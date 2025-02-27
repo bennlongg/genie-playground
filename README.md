@@ -15,6 +15,8 @@ What do you call an owl that does magic tricks? Hoo-dini!
 
 Why don't Londoners get lost? Because they always follow their 'Big Ben'!
 
+Why do Londoners always have a smile? Because they are always surrounded by Big Ben-tastic experiences!
+
 ## Available Languages
 
 - [Français](README.fr.md)

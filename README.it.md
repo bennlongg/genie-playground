@@ -14,3 +14,5 @@ Perché ogni nuovo amico era solo la somma dei due precedenti!
 Come si chiama un gufo che fa trucchi di magia? Hoo-dini!
 
 Perché i londinesi non si perdono mai? Perché seguono sempre il loro 'Big Ben'!
+
+Perché i londinesi hanno sempre il sorriso? Perché sono circondati da esperienze Big Ben-tastiche tutto il tempo!
