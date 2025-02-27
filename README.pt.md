@@ -1,6 +1,6 @@
 # genie-playground
 
-A playground for experimenting with code generation and AI capabilities.
+Um espaço para experimentar a geração de código e as capacidades de IA.
 
 ```
                       
@@ -38,26 +38,17 @@ A playground for experimenting with code generation and AI capabilities.
    |===========================|
 ```
 
-## About
+## Sobre
 
-This repository serves as a testing ground for various code generation techniques and AI-assisted development features.
+Este repositório serve como um campo de testes para várias técnicas de geração de código e recursos de desenvolvimento assistido por IA.
 
-## Fun Facts
+## Fatos divertidos
 
-Why was the Fibonacci sequence so bad at making friends?
-Because each new friend was just the sum of the two previous ones!
+Por que a sequência de Fibonacci era tão ruim em fazer amigos?
+Porque cada novo amigo era apenas a soma dos dois anteriores!
 
-What do you call an owl that does magic tricks? Hoo-dini!
+Como se chama uma coruja que faz truques de mágica? Hoo-dini!
 
-Why don't Londoners get lost? Because they always follow their 'Big Ben'!
+Por que os londrinos nunca se perdem? Porque eles sempre seguem o seu 'Big Ben'!
 
-Why do Londoners always have a smile? Because they are always surrounded by Big Ben-tastic experiences!
-
-## Available Languages
-
-- [Français](README.fr.md)
-- [Deutsch](README.de.md)
-- [Español](README.es.md)
-- [Italiano](README.it.md)
-- [Nederlands](README.nl.md)
-- [Português](README.pt.md)
+Por que os londrinos sempre têm um sorriso? Porque estão sempre cercados por experiências Big Ben-tásticas!

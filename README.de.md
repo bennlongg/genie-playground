@@ -1,6 +1,6 @@
 # genie-playground
 
-A playground for experimenting with code generation and AI capabilities.
+Ein Spielplatz zum Experimentieren mit Codegenerierung und KI-Fähigkeiten.
 
 ```
                       
@@ -38,26 +38,19 @@ A playground for experimenting with code generation and AI capabilities.
    |===========================|
 ```
 
-## About
+## Über
 
-This repository serves as a testing ground for various code generation techniques and AI-assisted development features.
+Dieses Repository dient als Testgelände für verschiedene Codegenerierungstechniken und KI-gestützte Entwicklungsfunktionen.
 
-## Fun Facts
+## Lustige Fakten
 
-Why was the Fibonacci sequence so bad at making friends?
-Because each new friend was just the sum of the two previous ones!
+Warum war die Fibonacci-Folge so schlecht darin, Freunde zu finden?
+Weil jeder neue Freund nur die Summe der beiden vorherigen war!
 
-What do you call an owl that does magic tricks? Hoo-dini!
+Wie nennt man eine Eule, die Zaubertricks macht? Hoo-dini!
 
-Why don't Londoners get lost? Because they always follow their 'Big Ben'!
+Warum verirren sich Londoner nie? Weil sie immer ihrem "Big Ben" folgen!
 
-Why do Londoners always have a smile? Because they are always surrounded by Big Ben-tastic experiences!
+Warum haben die Londoner immer gute Laune? Weil sie ständig von Big Ben-tastischen Erlebnissen umgeben sind!
 
-## Available Languages
-
-- [Français](README.fr.md)
-- [Deutsch](README.de.md)
-- [Español](README.es.md)
-- [Italiano](README.it.md)
-- [Nederlands](README.nl.md)
-- [Português](README.pt.md)
+Warum können Mathematiker keine Witze erzählen? Weil sie immer die Pointe vergessen!
