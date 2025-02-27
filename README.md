@@ -61,3 +61,7 @@ It has too many bugs!
 Why do programmers prefer using the dark mode? 
 
 Because the light attracts bugs!
+
+Why do programmers prefer using the dark mode? 
+
+Because the light attracts bugs!
