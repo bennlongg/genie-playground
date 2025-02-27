@@ -15,11 +15,11 @@ jobs:
         with:
           node-version: '16.x'
           
-      - name: Wait 20 seconds and fail
+      - name: Wait 10 seconds and fail
         uses: actions/github-script@v6
         with:
           script: |
-            console.log('Starting 20 second wait before intentional failure...');
-            await new Promise(resolve => setTimeout(resolve, 20000));
+            console.log('Starting 10 second wait before intentional failure...');
+            await new Promise(resolve => setTimeout(resolve, 10000));
             console.log('Wait completed, now failing intentionally');
-            throw new Error('This workflow is designed to fail after waiting 20 seconds');
+            throw new Error('This workflow is designed to fail after waiting 10 seconds');
