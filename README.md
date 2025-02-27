@@ -65,3 +65,29 @@ Because the light attracts bugs!
 Why do programmers prefer using the dark mode? 
 
 Because the light attracts bugs!
+
+## Meet Tom!
+
+```
+    ////\\\\
+   //      \\
+  //  o  o  \\
+ //    __    \\
+ ||   (__)   ||
+ ||          ||
+ ||  \\__//  ||
+ \\          //
+  \\        //
+   \\______//
+   /|      |\\
+  / |      | \\
+ /  |______|  \\
+    |      |
+    |      |
+    |      |
+    |______|
+    _||  ||_
+   (___)(___) 
+```
+
+Say hello to Tom, our project mascot!
