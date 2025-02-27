@@ -45,3 +45,7 @@ Because light attracts bugs!
 Why do Java developers wear glasses?
 
 Because they can't C#!
+
+Why do programmers prefer using the dark mode? 
+
+Because the light attracts bugs!
