@@ -1,4 +1,21 @@
 import { fibonacci } from "./functions";
+import { 
+  LLMMessageParserService, 
+  LLMMessage, 
+  RoleData, 
+  ContentData 
+} from "./services/LLMMessageParserService";
 
-console.log("Hello Genie!");
-console.log("10th Fibonacci Number:", fibonacci(10));
+// Export existing functionality
+export { fibonacci };
+
+// Export the LLM message parser service and related types
+export { 
+  LLMMessageParserService, 
+  LLMMessage, 
+  RoleData, 
+  ContentData 
+};
+
+// Export a default instance for convenience
+export default new LLMMessageParserService();
