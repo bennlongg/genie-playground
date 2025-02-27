@@ -53,3 +53,7 @@ Because the light attracts bugs!
 How many programmers does it take to change a light bulb?
 
 None. That's a hardware problem!
+
+Why do programmers hate nature?
+
+It has too many bugs!
