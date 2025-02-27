@@ -1,8 +1,34 @@
+/**
+ * Calculates the nth Fibonacci number.
+ * 
+ * @param n - The position in the Fibonacci sequence (must be non-negative)
+ * @returns The nth Fibonacci number
+ * @throws {Error} If n is negative
+ * 
+ * @example
+ * // Returns 55
+ * fibonacci(10);
+ */
 export function fibonacci(n: number): number {
   if (n < 0) throw new Error("Negative numbers are not allowed");
   return n <= 1 ? n : fibonacci(n - 1) + fibonacci(n - 2);
 }
 
+/**
+ * Searches for a target value in a sorted array using the binary search algorithm.
+ * 
+ * @param arr - A sorted array of numbers to search in
+ * @param target - The value to search for
+ * @returns The index of the target if found, or -1 if not found
+ * 
+ * @example
+ * // Returns 2
+ * binarySearch([1, 2, 3, 4, 5], 3);
+ * 
+ * @example
+ * // Returns -1
+ * binarySearch([1, 2, 3, 4, 5], 6);
+ */
 export function binarySearch(arr: number[], target: number): number {
   let left = 0;
   let right = arr.length - 1;
@@ -22,6 +48,24 @@ export function binarySearch(arr: number[], target: number): number {
   return -1;
 }
 
+/**
+ * Sorts an array of numbers in ascending order using the bubble sort algorithm.
+ * This function does not modify the original array.
+ * 
+ * @param arr - An array of numbers to sort
+ * @returns A new sorted array
+ * 
+ * @example
+ * // Returns [1, 2, 3, 4, 5]
+ * bubbleSort([5, 3, 1, 4, 2]);
+ * 
+ * @example
+ * // Original array remains unchanged
+ * const array = [5, 3, 1, 4, 2];
+ * const sorted = bubbleSort(array);
+ * // array is still [5, 3, 1, 4, 2]
+ * // sorted is [1, 2, 3, 4, 5]
+ */
 export function bubbleSort(arr: number[]): number[] {
   // Create a copy of the array to avoid mutating the original
   const result = [...arr];
