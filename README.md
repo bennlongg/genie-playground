@@ -59,3 +59,6 @@ Because he lost his patients!
 
 Why is it so hard to understand what doctors write on prescriptions?
 Because their writing requires another degree to understand!
+
+What did the doctor say to the patient who thought they were invisible?
+"I can see you're having some trouble."
