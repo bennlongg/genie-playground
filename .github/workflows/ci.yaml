@@ -26,11 +26,3 @@ jobs:
       
     - name: Build
       run: npm run build
-
-    # Intentional failure step removed
-    # - name: Intentional failure after 10 seconds
-    #   uses: actions/github-script@v6
-    #   with:
-    #     script: |
-    #       await new Promise(resolve => setTimeout(resolve, 10000));
-    #       throw new Error("This workflow is designed to fail after waiting 10 seconds");
