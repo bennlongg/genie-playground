@@ -1,0 +1,23 @@
+name: Intentional Failure Workflow
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  intentional-failure:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Wait for 10 seconds and intentionally fail
+        uses: actions/github-script@v6
+        with:
+          script: |
+            await new Promise(resolve => setTimeout(resolve, 10000));
+            core.setFailed('ERROR: This workflow is designed to fail after waiting 10 seconds');
