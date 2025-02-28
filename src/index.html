@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASCII Art Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 2em;
+            background-color: #f6f8fa;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+        }
+        textarea, button {
+            width: 100%;
+            padding: 0.5em;
+            font-size: 1em;
+            margin-top: 0.5em;
+            box-sizing: border-box;
+        }
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        pre {
+            background-color: #282c34;
+            color: #ffffff;
+            font-family: monospace;
+            padding: 1em;
+            white-space: pre-wrap;
+            margin-top: 1em;
+            border-radius: 5px;
+        }
+        .btn {
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-top: 1em;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>ASCII Art Generator</h1>
+
+    <textarea id="inputText" placeholder="Type your text here"></textarea>
+    <button class="btn" id="generateBtn">Generate ASCII Art</button>
+
+    <pre id="asciiArtOutput"></pre>
+    <button class="btn" id="copyBtn">Copy to Clipboard</button>
+
+    <script>
+        document.getElementById('generateBtn').addEventListener('click', function() {
+            const inputText = document.getElementById('inputText').value;
+            const asciiArt = generateAsciiArt(inputText);
+            document.getElementById('asciiArtOutput').textContent = asciiArt;
+        });
+
+        document.getElementById('copyBtn').addEventListener('click', function() {
+            const asciiOutput = document.getElementById('asciiArtOutput').textContent;
+            if (!asciiOutput) return;
+
+            navigator.clipboard.writeText(asciiOutput).then(() => {
+                const copyButton = document.getElementById('copyBtn');
+                copyButton.textContent = 'Copied!';
+                setTimeout(() => {
+                    copyButton.textContent = 'Copy to Clipboard';
+                }, 1500);
+            }).catch(err => {
+                console.error('Failed to copy!', err);
+            });
+        });
+
+        function generateAsciiArt(text) {
+            const letters = {
+                'A': ["  A  ", " A A ", "AAAAA", "A   A", "A   A"],
+                'B': ["BBBB ", "B   B", "BBBB ", "B   B", "BBBB "],
+                'C': [" CCCC", "C    ", "C    ", "C    ", " CCCC"],
+                'D': ["DDDD ", "D   D", "D   D", "D   D", "DDDD "],
+                'E': ["EEEEE", "E    ", "EEE  ", "E    ", "EEEEE"],
+                'F': ["FFFFF", "F    ", "FFFF ", "F    ", "F    "],
+                'G': [" GGGG", "G    ", "G GGG", "G   G", " GGGG"],
+                'H': ["H   H", "H   H", "HHHHH", "H   H", "H   H"],
+                'I': ["IIIII", "  I  ", "  I  ", "  I  ", "IIIII"],
+                'J': ["JJJJJ", "  J  ", "  J  ", "J J  ", " JJ  "],
+                'K': ["K  K ", "K K  ", "KK   ", "K K  ", "K  K "],
+                'L': ["L    ", "L    ", "L    ", "L    ", "LLLLL"],
+                'M': ["M   M", "MM MM", "M M M", "M   M", "M   M"],
+                'N': ["N   N", "NN  N", "N N N", "N  NN", "N   N"],
+                'O': [" OOO ", "O   O", "O   O", "O   O", " OOO "],
+                'P': ["PPPP ", "P   P", "PPPP ", "P    ", "P    "],
+                'Q': [" QQQ ", "Q   Q", "Q Q Q", "Q  Q ", " QQ Q"],
+                'R': ["RRRR ", "R   R", "RRRR ", "R  R ", "R   R"],
+                'S': [" SSSS", "S    ", " SSS ", "    S", "SSSS "],
+                'T': ["TTTTT", "  T  ", "  T  ", "  T  ", "  T  "],
+                'U': ["U   U", "U   U", "U   U", "U   U", " UUU "],
+                'V': ["V   V", "V   V", "V   V", " V V ", "  V  "],
+                'W': ["W   W", "W   W", "W W W", "WW WW", "W   W"],
+                'X': ["X   X", " X X ", "  X  ", " X X ", "X   X"],
+                'Y': ["Y   Y", " Y Y ", "  Y  ", "  Y  ", "  Y  "],
+                'Z': ["ZZZZZ", "   Z ", "  Z  ", " Z   ", "ZZZZZ"],
+                ' ': ["     ", "     ", "     ", "     ", "     "]
+            };
+
+            text = text.toUpperCase();
+            let artLines = ["", "", "", "", ""];
+            for (let char of text) {
+                const letter = letters[char] || letters[' '];
+                letter.forEach((line, index) => {
+                    artLines[index] += line + "  ";
+                });
+            }
+            return artLines.join("\n");
+        }
+    </script>
+
+</body>
+</html>
