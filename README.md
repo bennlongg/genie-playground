@@ -56,3 +56,6 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 > Why do programmers prefer dark mode?  
 > Because light attracts bugs!
+
+> Why don't programmers like nature?  
+> It has too many bugs and no debugging tool!
