@@ -66,7 +66,7 @@ Why do programmers prefer using the dark mode?
 
 Because the light attracts bugs!
 
-## Meet Tom!
+## Meet Ben!
 
 ```
     ////\\\\
@@ -90,4 +90,4 @@ Because the light attracts bugs!
    (___)(___) 
 ```
 
-Say hello to Tom, our project mascot!
+Say hello to Ben, our project mascot!
