@@ -27,3 +27,35 @@ export function binarySearch(arr: number[], target: number): number {
   
   return -1;
 }
+
+/**
+ * Sorts an array using the bubble sort algorithm.
+ * @param arr - The array to sort
+ * @returns A new sorted array in ascending order
+ */
+export function bubbleSort(arr: number[]): number[] {
+  // Create a copy to avoid mutating the original array
+  const result = [...arr];
+  const n = result.length;
+  
+  // Early return for empty or single-element arrays
+  if (n <= 1) return result;
+  
+  for (let i = 0; i < n; i++) {
+    // Flag to optimize the algorithm by breaking early if no swaps occur
+    let swapped = false;
+    
+    for (let j = 0; j < n - i - 1; j++) {
+      if (result[j] > result[j + 1]) {
+        // Swap elements
+        [result[j], result[j + 1]] = [result[j + 1], result[j]];
+        swapped = true;
+      }
+    }
+    
+    // If no swapping occurred in this pass, the array is already sorted
+    if (!swapped) break;
+  }
+  
+  return result;
+}
