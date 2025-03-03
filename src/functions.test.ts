@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { fibonacci, binarySearch, bubbleSort } from "./functions";
+import { fibonacci, binarySearch, bubbleSort, curriedMath } from "./functions";
 
 describe("Fibonacci Function", () => {
   it("should return 0 for n = 0", () => {
@@ -95,5 +95,59 @@ describe("Bubble Sort Function", () => {
   it("should throw an error when array contains non-number elements", () => {
     // @ts-ignore - Testing invalid input
     expect(() => bubbleSort([1, 2, "three", 4])).toThrow("All elements must be numbers");
+  });
+});
+
+describe("Curried Math Function", () => {
+  it("should initialize with a base value", () => {
+    expect(curriedMath(5).value()).toBe(5);
+  });
+
+  it("should perform basic addition", () => {
+    expect(curriedMath(5).add(3).value()).toBe(8);
+  });
+
+  it("should perform basic subtraction", () => {
+    expect(curriedMath(10).subtract(4).value()).toBe(6);
+  });
+
+  it("should perform basic multiplication", () => {
+    expect(curriedMath(5).multiply(3).value()).toBe(15);
+  });
+
+  it("should perform basic division", () => {
+    expect(curriedMath(10).divide(2).value()).toBe(5);
+  });
+
+  it("should handle chained operations", () => {
+    expect(curriedMath(5).add(3).multiply(2).subtract(4).divide(2).value()).toBe(7);
+  });
+
+  it("should handle decimal numbers", () => {
+    expect(curriedMath(5.5).add(2.5).value()).toBe(8);
+  });
+
+  it("should handle negative numbers", () => {
+    expect(curriedMath(-5).add(10).value()).toBe(5);
+  });
+
+  it("should throw an error when initial value is not a number", () => {
+    // @ts-ignore - Testing invalid input
+    expect(() => curriedMath("five")).toThrow("Initial value must be a number");
+  });
+
+  it("should throw an error when operation value is not a number", () => {
+    // @ts-ignore - Testing invalid input
+    expect(() => curriedMath(5).add("three")).toThrow("Value must be a number");
+    // @ts-ignore - Testing invalid input
+    expect(() => curriedMath(5).subtract("two")).toThrow("Value must be a number");
+    // @ts-ignore - Testing invalid input
+    expect(() => curriedMath(5).multiply("four")).toThrow("Value must be a number");
+    // @ts-ignore - Testing invalid input
+    expect(() => curriedMath(5).divide("zero")).toThrow("Value must be a number");
+  });
+
+  it("should throw an error when dividing by zero", () => {
+    expect(() => curriedMath(10).divide(0)).toThrow("Cannot divide by zero");
   });
 });

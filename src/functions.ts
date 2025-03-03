@@ -61,3 +61,57 @@ export function bubbleSort(arr: number[]): number[] {
 
   return result;
 }
+
+type MathChain = {
+  add: (value: number) => MathChain;
+  subtract: (value: number) => MathChain;
+  multiply: (value: number) => MathChain;
+  divide: (value: number) => MathChain;
+  value: () => number;
+};
+
+export function curriedMath(initial: number): MathChain {
+  // Validate that initial is a number
+  if (typeof initial !== 'number' || isNaN(initial)) {
+    throw new Error("Initial value must be a number");
+  }
+
+  let result = initial;
+
+  return {
+    add: (value: number): MathChain => {
+      if (typeof value !== 'number' || isNaN(value)) {
+        throw new Error("Value must be a number");
+      }
+      result += value;
+      return curriedMath(result);
+    },
+    subtract: (value: number): MathChain => {
+      if (typeof value !== 'number' || isNaN(value)) {
+        throw new Error("Value must be a number");
+      }
+      result -= value;
+      return curriedMath(result);
+    },
+    multiply: (value: number): MathChain => {
+      if (typeof value !== 'number' || isNaN(value)) {
+        throw new Error("Value must be a number");
+      }
+      result *= value;
+      return curriedMath(result);
+    },
+    divide: (value: number): MathChain => {
+      if (typeof value !== 'number' || isNaN(value)) {
+        throw new Error("Value must be a number");
+      }
+      if (value === 0) {
+        throw new Error("Cannot divide by zero");
+      }
+      result /= value;
+      return curriedMath(result);
+    },
+    value: (): number => {
+      return result;
+    }
+  };
+}
