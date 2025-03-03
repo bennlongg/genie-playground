@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { fibonacci, binarySearch } from "./functions";
+import { fibonacci, binarySearch, bubbleSort } from "./functions";
 
 describe("Fibonacci Function", () => {
   it("should return 0 for n = 0", () => {
@@ -53,5 +53,47 @@ describe("Binary Search Function", () => {
     expect(() => binarySearch([5, 3, 1, 2, 4], 3)).toThrow(
       "Array must be sorted in ascending order for binary search"
     );
+  });
+});
+
+describe("Bubble Sort Function", () => {
+  it("should sort an unsorted array", () => {
+    expect(bubbleSort([5, 3, 1, 4, 2])).toEqual([1, 2, 3, 4, 5]);
+  });
+
+  it("should handle an already sorted array", () => {
+    expect(bubbleSort([1, 2, 3, 4, 5])).toEqual([1, 2, 3, 4, 5]);
+  });
+
+  it("should sort an array with duplicate values", () => {
+    expect(bubbleSort([3, 1, 4, 1, 5, 9, 2, 6, 5])).toEqual([1, 1, 2, 3, 4, 5, 5, 6, 9]);
+  });
+
+  it("should return an empty array when given an empty array", () => {
+    expect(bubbleSort([])).toEqual([]);
+  });
+
+  it("should sort an array with negative numbers", () => {
+    expect(bubbleSort([5, -3, 1, -4, 2])).toEqual([-4, -3, 1, 2, 5]);
+  });
+
+  it("should sort an array with decimal numbers", () => {
+    expect(bubbleSort([5.5, 3.3, 1.1, 4.4, 2.2])).toEqual([1.1, 2.2, 3.3, 4.4, 5.5]);
+  });
+
+  it("should not modify the original array", () => {
+    const original = [5, 3, 1, 4, 2];
+    bubbleSort(original);
+    expect(original).toEqual([5, 3, 1, 4, 2]);
+  });
+
+  it("should throw an error when input is not an array", () => {
+    // @ts-ignore - Testing invalid input
+    expect(() => bubbleSort("not an array")).toThrow("Input must be an array");
+  });
+
+  it("should throw an error when array contains non-number elements", () => {
+    // @ts-ignore - Testing invalid input
+    expect(() => bubbleSort([1, 2, "three", 4])).toThrow("All elements must be numbers");
   });
 });

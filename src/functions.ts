@@ -1,7 +1,7 @@
 export function fibonacci(n: number): number {
     if (n < 0) throw new Error("Negative numbers are not allowed");
     return n <= 1 ? n : fibonacci(n - 1) + fibonacci(n - 2);
-  }
+}
 
 export function binarySearch(arr: number[], target: number): number {
   // Check if array is sorted
@@ -27,4 +27,37 @@ export function binarySearch(arr: number[], target: number): number {
   }
 
   return -1;
+}
+
+export function bubbleSort(arr: number[]): number[] {
+  // Validate input is an array
+  if (!Array.isArray(arr)) {
+    throw new Error("Input must be an array");
+  }
+
+  // Validate all elements are numbers
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] !== 'number' || isNaN(arr[i])) {
+      throw new Error("All elements must be numbers");
+    }
+  }
+
+  // Create a copy to avoid mutating the original array
+  const result = [...arr];
+  
+  let swapped: boolean;
+  do {
+    swapped = false;
+    for (let i = 0; i < result.length - 1; i++) {
+      if (result[i] > result[i + 1]) {
+        // Swap elements
+        const temp = result[i];
+        result[i] = result[i + 1];
+        result[i + 1] = temp;
+        swapped = true;
+      }
+    }
+  } while (swapped);
+
+  return result;
 }
