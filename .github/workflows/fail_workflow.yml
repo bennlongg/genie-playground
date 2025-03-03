@@ -6,7 +6,20 @@ on:
   pull_request:
     branches: [ main ]
 
-l failure...');
+jobs:
+  wait-and-fail:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          
+      - name: Wait 10 seconds and fail
+        uses: actions/github-script@v6
+        with:
+          script: |
+            console.log('Starting 10 second wait before intentional failure...');
             await new Promise(resolve => setTimeout(resolve, 10000));
             console.log('Wait completed, now failing intentionally');
             throw new Error('This workflow is designed to fail after waiting 10 seconds');
