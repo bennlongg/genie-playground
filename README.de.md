@@ -1,5 +1,11 @@
 # genie-playground
 
+## Ein kleiner Programmierwitz
+
+Warum benutzen Programmierer keine Brillen? Sie können CSS nicht sehen!
+
+---
+
 Warum bevorzugen Programmierer den dunklen Modus? Weil Licht Bugs anzieht!
 
 Dieses Repository enthält verschiedene Hilfsfunktionen, die in TypeScript implementiert sind:
