@@ -201,3 +201,26 @@ export function curriedMath(initial: number): MathChain {
     }
   };
 }
+
+/**
+ * Determines whether a given number is odd.
+ * 
+ * @param {number} n - The number to check
+ * @returns {boolean} True if the number is odd, false otherwise
+ * @throws {Error} If the input is not a number or is NaN
+ * 
+ * @example
+ * // returns true
+ * isOdd(3);
+ * 
+ * @example
+ * // returns false
+ * isOdd(2);
+ */
+export function isOdd(n: number): boolean {
+  if (typeof n !== 'number' || isNaN(n)) {
+    throw new Error("Input must be a number");
+  }
+  
+  return Math.abs(n % 2) === 1;
+}
