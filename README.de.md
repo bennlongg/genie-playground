@@ -4,6 +4,10 @@
 
 Warum benutzen Programmierer keine Brillen? Sie können CSS nicht sehen!
 
+## Ein weiterer Programmierwitz
+
+Wie viele Programmierer braucht man, um eine Glühbirne zu wechseln? Keinen, das ist ein Hardware-Problem!
+
 ---
 
 Warum bevorzugen Programmierer den dunklen Modus? Weil Licht Bugs anzieht!
