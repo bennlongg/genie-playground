@@ -28,7 +28,7 @@ projectName.awesomeFunction();
 #### `function1(param1, param2)`
 
 Takes two parameters and returns something awesome.
-
+E
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
 | `param1`  | `string` | Description of param1      |
