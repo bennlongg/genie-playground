@@ -24,5 +24,3 @@ export const bubbleSort = <T>(arr: T[], ascending: boolean = true): T[] => {
     
     return result;
 }
-
-hello
