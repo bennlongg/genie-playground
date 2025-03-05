@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { fibonacci, binarySearch } from "./functions";
+import { fibonacci, binarySearch } from "./functions.old";
 
 describe("Fibonacci Function", () => {
   it("should return 0 for n = 0", () => {
