@@ -1,5 +1,7 @@
 # Genie Playground
 
+*Read this in other languages: [English](README.md), [Español](README.es.md), [日本語](README.ja.md)*
+
 Genie Playground is a lightweight, web-based framework designed for integrating and testing Large Language Models (LLMs). Built with modern technologies like TypeScript, this open-source platform provides developers and researchers with a flexible environment to experiment with various AI models and capabilities.
 
 ## Features
