@@ -125,3 +125,7 @@ Because they start at 0!
 How many programmers does it take to change a light bulb?
 
 None, that's a hardware problem!
+
+Why don't programmers like nature?
+
+It has too many bugs and no debugging tool!
