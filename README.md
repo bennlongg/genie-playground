@@ -1,8 +1,4 @@
-# Genie Playground
-
-## Overview
-
-Genie Playground is an interactive environment designed to facilitate AI-assisted codebase interaction and exploration. This tool enables developers to navigate through codebases, execute tasks, and utilize various retrieval tools through a conversational interface powered by AI.
+ Playground is an interactive environment designed to facilitate AI-assisted codebase interaction and exploration. This tool enables developers to navigate through codebases, execute tasks, and utilize various retrieval tools through a conversational interface powered by AI.
 
 ## Features
 
@@ -113,3 +109,7 @@ Please ensure your code follows the project's coding standards and includes appr
 Why do programmers prefer dark mode?
 
 Because light attracts bugs!
+
+Why do programmers always mix up Halloween and Christmas?
+
+Because Oct 31 == Dec 25!
