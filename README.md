@@ -107,3 +107,9 @@ Please ensure your code follows the project's coding standards and includes appr
 
 - This project was built using [list relevant technologies and libraries]
 - Special thanks to contributors and inspiration sources
+
+## Just for Fun
+
+Why do programmers prefer dark mode?
+
+Because light attracts bugs!
