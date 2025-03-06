@@ -121,3 +121,7 @@ Because Oct 31 == Dec 25!
 Why do programmers always get confused when counting?
 
 Because they start at 0!
+
+How many programmers does it take to change a light bulb?
+
+None, that's a hardware problem!
