@@ -24,7 +24,7 @@ Genie Playground es un framework ligero basado en web diseñado para integrar y 
 1. Clona el repositorio:
    ```bash
    git clone https://github.com/your-username/genie-playground.git
-   cd genie-playground
+   cd genie-playgroundyugguytuy
    ```
 
 2. Instala las dependencias:
@@ -69,3 +69,5 @@ Este proyecto está licenciado bajo la Licencia MIT - consulta el archivo LICENS
 ## Proyecto
 
 [Repositorio GitHub](https://github.com/your-username/genie-playground)
+
+dsrgoidroirdgbn
