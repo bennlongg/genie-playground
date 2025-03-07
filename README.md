@@ -137,3 +137,7 @@ Foo Bar!
 Why did the programmer quit his job?
 
 Because he didn't get arrays!
+
+Why do programmers always mix up Christmas and Halloween?
+
+Because DEC 25 = OCT 31!
