@@ -24,12 +24,6 @@ npm install genie-playground
 yarn add genie-playground
 ```
 
-### Using pnpm
-
-```bash
-pnpm add genie-playground
-```
-
 ### Development Setup
 
 To set up the project for development:
@@ -40,10 +34,10 @@ git clone https://github.com/yourusername/genie-playground.git
 cd genie-playground
 
 # Install dependencies
-pnpm install
+npm install
 
 # Build the project
-pnpm build
+npm run build
 ```
 
 ## Usage
@@ -89,13 +83,13 @@ This project uses Jest for testing. To run the tests:
 
 ```bash
 # Run all tests
-pnpm test
+npm test
 
 # Run tests with coverage report
-pnpm test:coverage
+npm run test:coverage
 
 # Run tests in watch mode during development
-pnpm test:watch
+npm run test:watch
 ```
 
 ## API Documentation
