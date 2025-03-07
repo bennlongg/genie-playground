@@ -17,6 +17,20 @@ export function fibonacci(n: number): number {
     return n <= 1 ? n : fibonacci(n - 1) + fibonacci(n - 2);
   }
 
+/**
+ * Sorts an array of numbers in ascending order using the bubble sort algorithm.
+ * 
+ * This implementation creates a new array instead of modifying the original,
+ * preserving immutability.
+ * 
+ * @param arr - The array of numbers to be sorted
+ * @returns A new array containing the sorted elements in ascending order
+ * 
+ * @example
+ * bubbleSort([5, 3, 8, 1, 2]) // returns [1, 2, 3, 5, 8]
+ * bubbleSort([]) // returns []
+ * bubbleSort([1]) // returns [1]
+ */
 export function bubbleSort(arr: number[]): number[] {
   // Create a copy of the array to avoid modifying the original
   const sortedArray = [...arr];
