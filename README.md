@@ -133,3 +133,7 @@ It has too many bugs and no debugging tool!
 What's a programmer's favorite place to hang out?
 
 Foo Bar!
+
+Why did the programmer quit his job?
+
+Because he didn't get arrays!
