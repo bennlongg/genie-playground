@@ -29,3 +29,7 @@ export function binarySearch(arr: number[], target: number): number {
     
     return -1;
 }
+
+
+
+// placeholder for bubble sort
