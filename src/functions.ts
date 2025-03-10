@@ -30,6 +30,27 @@ export function binarySearch(arr: number[], target: number): number {
     return -1;
 }
 
-
-
-// placeholder for bubble sort
+export function bubbleSort(arr: number[]): number[] {
+    if (!Array.isArray(arr)) throw new Error("Input must be an array");
+    
+    // Validate all elements are numbers
+    for (let i = 0; i < arr.length; i++) {
+        if (typeof arr[i] !== 'number') throw new Error("Array must contain only numbers");
+    }
+    
+    // Create a copy to avoid modifying the original array
+    const result = [...arr];
+    
+    for (let i = 0; i < result.length; i++) {
+        for (let j = 0; j < result.length - i - 1; j++) {
+            if (result[j] > result[j + 1]) {
+                // Swap elements
+                const temp = result[j];
+                result[j] = result[j + 1];
+                result[j + 1] = temp;
+            }
+        }
+    }
+    
+    return result;
+}
